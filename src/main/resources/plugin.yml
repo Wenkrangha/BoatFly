@@ -1,0 +1,8 @@
+name: BoatFly
+version: '${project.version}'
+main: com.wenkrang.boatfly.BoatFly
+api-version: '1.20'
+commands:
+  bf:
+    description: Spigot版本的飞船插件的主命令
+    usage: /bf
