@@ -204,6 +204,9 @@ public class Click implements Listener {
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
+                ItemStack itemStack11 = new ItemStack(Material.DISPENSER);
+                ItemMeta itemMeta11 = itemStack11.getItemMeta();
+                itemStack11.setItemMeta(itemMeta11);
                 inventory.setItem(0, itemStack0);
                 inventory.setItem(1, itemStack1);
                 inventory.setItem(2, itemStack0);
@@ -216,7 +219,7 @@ public class Click implements Listener {
                 inventory.setItem(10, itemStack5);
                 inventory.setItem(12, itemStack6);
                 inventory.setItem(13, itemStack7);
-                inventory.setItem(14, itemStack8);
+                inventory.setItem(14, itemStack11);
                 inventory.setItem(16, itemStack8);
                 inventory.setItem(21, itemStack9);
                 inventory.setItem(22, itemStack10);
