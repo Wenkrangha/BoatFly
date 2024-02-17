@@ -97,7 +97,7 @@ public final class BoatFly extends JavaPlugin {
             ItemMeta itemMeta11 = itemStack11.getItemMeta();
             itemStack11.setItemMeta(itemMeta11);
 
-            NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "BoatFly");
+            NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheBoatFly");
             ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe","rty","uiu")
                     .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                     .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
@@ -164,7 +164,7 @@ public final class BoatFly extends JavaPlugin {
                     .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
                     .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
                     .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                    .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))
+                    .setIngredient('y', new RecipeChoice.ExactChoice(itemStack6))
                     .setIngredient('u', new RecipeChoice.ExactChoice(itemStack9))
                     .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
             getServer().addRecipe(shapedRecipe);

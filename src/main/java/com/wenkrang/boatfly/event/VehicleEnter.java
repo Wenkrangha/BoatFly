@@ -21,6 +21,7 @@ public class VehicleEnter implements Listener {
                 event.getVehicle().addScoreboardTag("eng0");
                 event.getVehicle().addScoreboardTag("OFF");
                 event.getVehicle().addScoreboardTag("coal0");
+                event.getVehicle().addScoreboardTag("location0,0");
             }
         }
         if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
