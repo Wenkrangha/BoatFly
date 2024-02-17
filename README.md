@@ -1,5 +1,6 @@
 # BoatFly - 飞船
 ### 作者 : Wenkrang 
+### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
 - 这是一个能让你在Spigot Server用船飞的插件!
 - 主命令 : /bf
