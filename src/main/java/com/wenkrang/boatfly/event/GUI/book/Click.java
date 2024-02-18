@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -65,6 +66,14 @@ public class Click implements Listener {
                 ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemMeta9.setDisplayName("§9§l飞§r船");
+                ArrayList<String> lore9 = new ArrayList<>();
+                lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+                lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+                lore9.add("§7由地去探索这个§7§l世界");
+                lore9.add("");
+                lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+                lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+                itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
@@ -90,6 +99,11 @@ public class Click implements Listener {
                 inventory.setItem(22, itemStack11);
                 inventory.setItem(23, itemStack10);
                 event.getWhoClicked().openInventory(inventory);
+
+                if (event.isRightClick() && event.getWhoClicked().getGameMode().equals(GameMode.CREATIVE)) {
+                    event.getWhoClicked().getInventory().addItem(itemStack9);
+                    event.getWhoClicked().closeInventory();
+                }
             }
             if (event.getRawSlot() == 10) {
                 Inventory inventory = Bukkit.createInventory(null, 27, "飞船配方-发动机模块");
@@ -156,6 +170,11 @@ public class Click implements Listener {
                 inventory.setItem(22, itemStack10);
                 inventory.setItem(23, itemStack9);
                 event.getWhoClicked().openInventory(inventory);
+
+                if (event.isRightClick() && event.getWhoClicked().getGameMode().equals(GameMode.CREATIVE)) {
+                    event.getWhoClicked().getInventory().addItem(itemStack8);
+                    event.getWhoClicked().closeInventory();
+                }
             }
             if (event.getRawSlot() == 11) {
                 Inventory inventory = Bukkit.createInventory(null, 27, "飞船配方-攻击模块");
@@ -223,6 +242,11 @@ public class Click implements Listener {
                 inventory.setItem(23, itemStack9);
 
                 event.getWhoClicked().openInventory(inventory);
+
+                if (event.isRightClick() && event.getWhoClicked().getGameMode().equals(GameMode.CREATIVE)) {
+                    event.getWhoClicked().getInventory().addItem(itemStack8);
+                    event.getWhoClicked().closeInventory();
+                }
             }
         }
     }

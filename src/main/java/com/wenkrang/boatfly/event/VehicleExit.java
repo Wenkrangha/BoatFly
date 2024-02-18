@@ -44,6 +44,8 @@ public class VehicleExit implements Listener {
                 ArrayList<String> lore2 = new ArrayList<>();
                 lore2.add("§7这里是§7§l飞机的引擎设置§7，可以很方便");
                 lore2.add("§7地调节速度和其他的东西");
+                lore2.add("");
+                lore2.add("§6使用§l滚轮§r§6来调整§l§n节流阀");
                 itemMeta2.setLore(lore2);
                 itemStack2.setItemMeta(itemMeta2);
                 ItemStack itemStack3 = new ItemStack(Material.RED_STAINED_GLASS_PANE);
@@ -127,12 +129,12 @@ public class VehicleExit implements Listener {
                 itemStack12.setItemMeta(itemMeta12);
                 ItemStack itemStack13 = new ItemStack(Material.COMPASS);
                 ItemMeta itemMeta13 = itemStack13.getItemMeta();
-                itemMeta13.setDisplayName("§9§l设置§r方向 ( 暂时不可用 )");
+                itemMeta13.setDisplayName("§9§l开始§r自动驾驶");
                 ArrayList<String> lore13 = new ArrayList<>();
-                lore13.add("§7在这个地方，你可以设置§7§l自动驾驶§7的");
-                lore13.add("§7方向§7§m（我是谁，我要到哪里去）");
+                lore13.add("§7在这个地方，你可以开启§7§l自动驾驶§7");
+                lore13.add("§7模式§7§m（我是谁，我要到哪里去）");
                 lore13.add("");
-                lore13.add("§6瞄准好方向后，§6§l左键§6点击按钮，就会§c自动开启驾驶");
+                lore13.add("§6设置好电子指南针后，§6§l左键§6点击按钮，就会§c自动开启驾驶");
                 lore13.add("§6右键点击，就会取消§6§l自动驾驶");
                 itemMeta13.setLore(lore13);
                 itemStack13.setItemMeta(itemMeta13);

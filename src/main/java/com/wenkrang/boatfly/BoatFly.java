@@ -26,7 +26,19 @@ public final class BoatFly extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        getServer().getConsoleSender().sendMessage("\n" +
+                "______             _  ______ _       \n" +
+                "| ___ \\           | | |  ___| |      \n" +
+                "| |_/ / ___   __ _| |_| |_  | |_   _ \n" +
+                "| ___ \\/ _ \\ / _` | __|  _| | | | | |\n" +
+                "| |_/ / (_) | (_| | |_| |   | | |_| |\n" +
+                "\\____/ \\___/ \\__,_|\\__\\_|   |_|\\__, |\n" +
+                "                                __/ |\n" +
+                "                               |___/ \n");
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载插件...");
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载命令...");
         Objects.requireNonNull(this.getCommand("bf")).setExecutor(new bf());
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载监听器...");
         getServer().getPluginManager().registerEvents(new VehicleExit(), this);
         getServer().getPluginManager().registerEvents(new Exit(), this);
         getServer().getPluginManager().registerEvents(new PlayerItemHeld(), this);
@@ -41,16 +53,8 @@ public final class BoatFly extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InventoryClose(), this);
         getServer().getPluginManager().registerEvents(new Click(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
-
-        ItemStack itemStack = new ItemStack(Material.BEEHIVE);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setDisplayName("§9§l发动机§r模块");
-        ArrayList<String> lore = new ArrayList<>();
-        lore.add("§7这是飞船的§7§l发动机模块§7,是整个飞船§7§l§n最重要§7的");
-        lore.add("§7模块，用§7§l强大的材料§7制成");
-        itemMeta.setLore(lore);
-        itemStack.setItemMeta(itemMeta);
-        if (Bukkit.getRecipesFor(itemStack).isEmpty()) {
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载插配方...");
+        try {
             if (true) {
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
@@ -99,6 +103,14 @@ public final class BoatFly extends JavaPlugin {
                 ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemMeta9.setDisplayName("§9§l飞§r船");
+                ArrayList<String> lore9 = new ArrayList<>();
+                lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+                lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+                lore9.add("§7由地去探索这个§7§l世界");
+                lore9.add("");
+                lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+                lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+                itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
@@ -108,7 +120,7 @@ public final class BoatFly extends JavaPlugin {
                 itemStack11.setItemMeta(itemMeta11);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheBoatFly");
-                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe","rty","uiu")
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
@@ -167,8 +179,8 @@ public final class BoatFly extends JavaPlugin {
                 itemStack10.setItemMeta(itemMeta10);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Boost");
-                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9)
-                        .shape("qwe","rty","uiu")
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
+                        .shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
@@ -228,7 +240,7 @@ public final class BoatFly extends JavaPlugin {
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Damager");
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
-                        .shape("qwe","rty","uiu")
+                        .shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
@@ -239,8 +251,10 @@ public final class BoatFly extends JavaPlugin {
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
             }
-        }
 
+        } catch (Exception e) {
+
+        }
     }
 
 

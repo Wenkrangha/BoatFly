@@ -10,14 +10,14 @@ public class InventoryClose implements Listener {
     @EventHandler
     public static void OnInventoryClose (InventoryCloseEvent event) {
         if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    if (event.getPlayer().getOpenInventory().getTitle().equalsIgnoreCase("飞船控制面包")) {
-                        event.getPlayer().addScoreboardTag("CanExit");
-                    }
-                }
-            }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 5);
+//            new BukkitRunnable() {
+//                @Override
+//                public void run() {
+//                    if (event.getPlayer().getOpenInventory().getTitle().equalsIgnoreCase("飞船控制面包")) {
+//                        event.getPlayer().addScoreboardTag("CanExit");
+//                    }
+//                }
+//            }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 1);
         }
     }
 }

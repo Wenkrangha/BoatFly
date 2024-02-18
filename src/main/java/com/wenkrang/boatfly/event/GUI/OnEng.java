@@ -82,14 +82,18 @@ public class OnEng implements Listener {
                             if (event.getWhoClicked().getVehicle() == null) {
                                 cancel();
                             }
-                            if (IsShutDown || event.getWhoClicked().getVehicle().getScoreboardTags().contains("OFF") && !event.getWhoClicked().getVehicle().getScoreboardTags().contains("coal0")) {
-                                cancel();
-                            }
+                            try {
+                                if (IsShutDown || event.getWhoClicked().getVehicle().getScoreboardTags().contains("OFF") && !event.getWhoClicked().getVehicle().getScoreboardTags().contains("coal0")) {
+                                    cancel();
+                                }
+                            }catch (Exception e) {}
+
                             new BukkitRunnable() {
 
                                 @Override
                                 public void run() {
-                                    if (event.getWhoClicked().getVehicle().getScoreboardTags().contains("coal0")) {
+
+                                    if (event.getWhoClicked().getVehicle() != null && event.getWhoClicked().getVehicle().getScoreboardTags().contains("coal0")) {
                                         String temp = null;
                                         for (String string : event.getWhoClicked().getVehicle().getScoreboardTags()) {
                                             if (string.contains("eng")) {
