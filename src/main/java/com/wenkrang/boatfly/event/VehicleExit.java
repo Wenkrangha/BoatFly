@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -129,10 +130,11 @@ public class VehicleExit implements Listener {
                 itemStack12.setItemMeta(itemMeta12);
                 ItemStack itemStack13 = new ItemStack(Material.COMPASS);
                 ItemMeta itemMeta13 = itemStack13.getItemMeta();
-                itemMeta13.setDisplayName("§9§l开始§r自动驾驶");
+                itemMeta13.setDisplayName("§9§l开始§r自动驾驶 ( 无法开启 )");
                 ArrayList<String> lore13 = new ArrayList<>();
                 lore13.add("§7在这个地方，你可以开启§7§l自动驾驶§7");
                 lore13.add("§7模式§7§m（我是谁，我要到哪里去）");
+                lore13.add("§7§l§n必须§r§7在§l高于§r§7365格的地方才能开启§lAF");
                 lore13.add("");
                 lore13.add("§6设置好电子指南针后，§6§l左键§6点击按钮，就会§c自动开启驾驶");
                 lore13.add("§6右键点击，就会取消§6§l自动驾驶");
@@ -308,11 +310,33 @@ public class VehicleExit implements Listener {
                                         break;
                                     }
                                 }
+
+                                if (event.getVehicle().getLocation().getBlockY() > 365) {
+                                    ItemStack itemStack = inventory.getItem(38);
+                                    ItemMeta itemMeta = itemStack.getItemMeta();
+                                    itemMeta.setDisplayName("§9§l开始§r自动驾驶");
+                                    itemStack.setItemMeta(itemMeta);
+                                    itemStack.setType(Material.BARRIER);
+                                    inventory.setItem(38, itemStack);
+                                } else {
+                                    ItemStack itemStack13 = new ItemStack(Material.COMPASS);
+                                    ItemMeta itemMeta13 = itemStack13.getItemMeta();
+                                    itemMeta13.setDisplayName("§9§l开始§r自动驾驶 ( 无法开启 )");
+                                    ArrayList<String> lore13 = new ArrayList<>();
+                                    lore13.add("§7在这个地方，你可以开启§7§l自动驾驶§7");
+                                    lore13.add("§7模式§7§m（我是谁，我要到哪里去）");
+                                    lore13.add("§7§l§n必须§r§7在§l高于§r§7365格的地方才能开启§lAF");
+                                    lore13.add("");
+                                    lore13.add("§6设置好电子指南针后，§6§l左键§6点击按钮，就会§c自动开启驾驶");
+                                    lore13.add("§6右键点击，就会取消§6§l自动驾驶");
+                                    itemMeta13.setLore(lore13);
+                                    itemStack13.setItemMeta(itemMeta13);
+                                    inventory.setItem(38, itemStack13);
+                                }
                             }
                         }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 0);
                     }
                 }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 5);
-
                 event.setCancelled(true);
             }
         }

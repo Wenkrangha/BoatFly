@@ -50,7 +50,7 @@ public class VehicleEnter implements Listener {
                         try {
                             if (event.getEntered().equals(event.getVehicle().getPassengers().get(0))) {
                                 double temp = (double) power / 100;
-                                double realpower = temp * 3;
+                                double realpower = temp * 2;
                                 Boat boat = (Boat) event.getVehicle();
                                 Vector multiply = event.getEntered().getLocation().getDirection().multiply(realpower);
                                 new BukkitRunnable() {
