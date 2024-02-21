@@ -167,7 +167,7 @@ public final class BoatFly extends JavaPlugin {
                 lore8.add("§7模块，用§7§l强大的材料§7制成");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_BLOCK);
+                ItemStack itemStack9 = new ItemStack(Material.DIAMOND_BLOCK);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHER_STAR);
@@ -227,7 +227,7 @@ public final class BoatFly extends JavaPlugin {
                 lore8.add("§7TNT和弓箭");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_BLOCK);
+                ItemStack itemStack9 = new ItemStack(Material.DIAMOND_BLOCK);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
@@ -242,7 +242,7 @@ public final class BoatFly extends JavaPlugin {
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
                         .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
                         .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))
+                        .setIngredient('y', new RecipeChoice.ExactChoice(new ItemStack(Material.DISPENSER, 1)))
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack9))
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);

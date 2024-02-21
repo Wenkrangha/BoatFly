@@ -146,7 +146,7 @@ public class Click implements Listener {
                 lore8.add("§7模块，用§7§l强大的材料§7制成");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_BLOCK);
+                ItemStack itemStack9 = new ItemStack(Material.DIAMOND_BLOCK);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHER_STAR);
@@ -217,7 +217,7 @@ public class Click implements Listener {
                 lore8.add("§7TNT和弓箭");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_BLOCK);
+                ItemStack itemStack9 = new ItemStack(Material.DIAMOND_BLOCK);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
@@ -235,7 +235,7 @@ public class Click implements Listener {
                 inventory.setItem(10, itemStack5);
                 inventory.setItem(12, itemStack6);
                 inventory.setItem(13, itemStack7);
-                inventory.setItem(14, itemStack8);
+                inventory.setItem(14, new ItemStack(Material.DISPENSER));
                 inventory.setItem(16, itemStack8);
                 inventory.setItem(21, itemStack9);
                 inventory.setItem(22, itemStack10);
