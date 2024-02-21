@@ -1,6 +1,12 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
+import com.wenkrang.boatfly.Entity.plane;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -11,8 +17,78 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.bukkit.block.BlockFace.NORTH;
+
 
 public class PlayerInteract implements Listener {
+    public static boolean isBelow1_20_2() {
+        String fullVersion = Bukkit.getServer().getVersion();
+        Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)");
+        Matcher matcher = pattern.matcher(fullVersion);
+
+        if (matcher.find()) {
+            int majorVersion = Integer.parseInt(matcher.group(1));
+            int minorVersion = Integer.parseInt(matcher.group(2));
+            int patchVersion = Integer.parseInt(matcher.group(3));
+
+            // 检查是否低于1.20.2
+            return (majorVersion < 1 ||
+                    (majorVersion == 1 && minorVersion < 20) ||
+                    (majorVersion == 1 && minorVersion == 20 && patchVersion < 2));
+        } else {
+            // 如果无法解析版本号，则认为不是预期的格式，返回 true 表示可能低于1.20.2
+            return true;
+        }
+    }
+
+    public static Location getOffsetForFace(BlockFace face) {
+        double dx = 0.0, dy = 0.0, dz = 0.0;
+        switch (face) {
+            case NORTH_WEST:
+                dx = -0.5;
+                dz = -0.5;
+                break;
+            case NORTH_EAST:
+                dx = 0.5;
+                dz = -0.5;
+                break;
+            case SOUTH_WEST:
+                dx = -0.5;
+                dz = 0.5;
+                break;
+            case SOUTH_EAST:
+                dx = 0.5;
+                dz = 0.5;
+                break;
+            // ... 其他斜向面的处理 ...
+        }
+        return new Location(null, dx, dy, dz); // 返回一个只有偏移量的Location对象
+    }
+    public static Location calculateParticleLocation(Location blockLocation, BlockFace face) {
+        switch (face) {
+            case NORTH:
+                return blockLocation.clone().add(0.5, 0.5, 0);
+            case SOUTH:
+                return blockLocation.clone().add(0.5, 0.5, 1);
+            case WEST:
+                return blockLocation.clone().add(0, 0.5, 0.5);
+            case EAST:
+                return blockLocation.clone().add(1, 0.5, 0.5);
+            case UP:
+                return blockLocation.clone().add(0.5, 1, 0.5);
+            case DOWN:
+                return blockLocation.clone().add(0.5, 0, 0.5);
+            default:
+                // 对于其他斜向面，需要额外计算偏移量
+                // 例如对于NORTH_EAST等方向，可以通过向量运算获得准确位置
+                // 这里假设你已经有一个名为getOffsetForFace的函数完成这项工作
+                return blockLocation.clone().add(getOffsetForFace(face));
+        }
+    }
+
     @EventHandler
     public static void OnPlayer (PlayerInteractEvent event) {
         ItemStack itemStack0 = new ItemStack(Material.WRITABLE_BOOK);
@@ -29,6 +105,23 @@ public class PlayerInteract implements Listener {
             if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 if (Objects.equals(event.getHand(), EquipmentSlot.HAND)) {
                     Main.Show(event.getPlayer());
+                }
+            }
+        }
+
+        if (isBelow1_20_2()) {
+            if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+                if (event.getHand().equals(EquipmentSlot.HAND)) {
+                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
+                        event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船")) {
+                        Block clickedBlock = event.getClickedBlock();
+                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
+                        plane.getplane(location);
+                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+                            event.getPlayer().getInventory().setItemInMainHand(null);
+                        }
+                        event.setCancelled(true);
+                    }
                 }
             }
         }

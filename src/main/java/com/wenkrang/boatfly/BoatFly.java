@@ -246,13 +246,13 @@ public final class BoatFly extends JavaPlugin {
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack9))
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
-            }
 
+            }
+            getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.2");
         } catch (Exception e) {
 
         }
     }
-
 
     @Override
     public void onDisable() {

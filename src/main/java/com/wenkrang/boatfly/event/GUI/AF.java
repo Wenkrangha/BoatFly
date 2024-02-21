@@ -142,9 +142,8 @@ public class AF implements Listener {
                                                     if (event.getWhoClicked().getLocation().distance(location) < 20) {
                                                         cancel();
                                                     }
-                                                    Vector multiply = location.toVector().subtract(event.getWhoClicked().getLocation().toVector());
-                                                    multiply.setY(0.5);
-                                                    multiply.multiply(realpower);
+                                                    Vector multiply = location.toVector().subtract(event.getWhoClicked().getLocation().toVector()).multiply(realpower);
+                                                    multiply.setY(0);
 
                                                     new BukkitRunnable() {
                                                         @Override
