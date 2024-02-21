@@ -26,17 +26,13 @@ public final class BoatFly extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getServer().getConsoleSender().sendMessage("\n" +
-                "______             _  ______ _       \n" +
-                "| ___ \\           | | |  ___| |      \n" +
-                "| |_/ / ___   __ _| |_| |_  | |_   _ \n" +
-                "| ___ \\/ _ \\ / _` | __|  _| | | | | |\n" +
-                "| |_/ / (_) | (_| | |_| |   | | |_| |\n" +
-                "\\____/ \\___/ \\__,_|\\__\\_|   |_|\\__, |\n" +
-                "                                __/ |\n" +
-                "                               |___/ \n");
-        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载插件...");
-        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载命令...");
+        getServer().getConsoleSender().sendMessage("    ____              __  ________     ");
+        getServer().getConsoleSender().sendMessage("   / __ )____  ____ _/ /_/ ____/ /_  __");
+        getServer().getConsoleSender().sendMessage("  / __  / __ \\/ __ `/ __/ /_  / / / / /");
+        getServer().getConsoleSender().sendMessage(" / /_/ / /_/ / /_/ / /_/ __/ / / /_/ / ");
+        getServer().getConsoleSender().sendMessage("/_____/\\____/\\__,_/\\__/_/   /_/\\__, /  ");
+        getServer().getConsoleSender().sendMessage("                              /____/   ");
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在注入命令...");
         Objects.requireNonNull(this.getCommand("bf")).setExecutor(new bf());
         getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载监听器...");
         getServer().getPluginManager().registerEvents(new VehicleExit(), this);
@@ -53,7 +49,7 @@ public final class BoatFly extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InventoryClose(), this);
         getServer().getPluginManager().registerEvents(new Click(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
-        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载插配方...");
+        getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载配方...");
         try {
             if (true) {
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);

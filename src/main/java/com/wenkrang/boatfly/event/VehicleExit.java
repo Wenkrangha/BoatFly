@@ -128,7 +128,7 @@ public class VehicleExit implements Listener {
                 lore12.add("§7你就可以更快地到达目的地了§7§l！");
                 itemMeta12.setLore(lore12);
                 itemStack12.setItemMeta(itemMeta12);
-                ItemStack itemStack13 = new ItemStack(Material.COMPASS);
+                ItemStack itemStack13 = new ItemStack(Material.BARRIER);
                 ItemMeta itemMeta13 = itemStack13.getItemMeta();
                 itemMeta13.setDisplayName("§9§l开始§r自动驾驶 ( 无法开启 )");
                 ArrayList<String> lore13 = new ArrayList<>();
@@ -314,14 +314,14 @@ public class VehicleExit implements Listener {
                                 if (event.getVehicle().getLocation().getBlockY() > 365) {
                                     ItemStack itemStack = inventory.getItem(38);
                                     ItemMeta itemMeta = itemStack.getItemMeta();
-                                    itemMeta.setDisplayName("§9§l开始§r自动驾驶");
+                                    itemMeta.setDisplayName("§9§l开始§f自动驾驶");
                                     itemStack.setItemMeta(itemMeta);
-                                    itemStack.setType(Material.BARRIER);
+                                    itemStack.setType(Material.COMPASS);
                                     inventory.setItem(38, itemStack);
                                 } else {
-                                    ItemStack itemStack13 = new ItemStack(Material.COMPASS);
+                                    ItemStack itemStack13 = new ItemStack(Material.BARRIER);
                                     ItemMeta itemMeta13 = itemStack13.getItemMeta();
-                                    itemMeta13.setDisplayName("§9§l开始§r自动驾驶 ( 无法开启 )");
+                                    itemMeta13.setDisplayName("§9§l开始§f自动驾驶 ( 无法开启 )");
                                     ArrayList<String> lore13 = new ArrayList<>();
                                     lore13.add("§7在这个地方，你可以开启§7§l自动驾驶§7");
                                     lore13.add("§7模式§7§m（我是谁，我要到哪里去）");

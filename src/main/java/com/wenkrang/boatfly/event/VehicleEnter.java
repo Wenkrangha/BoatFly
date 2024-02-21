@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
 import org.bukkit.entity.Boat;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
@@ -76,6 +77,10 @@ public class VehicleEnter implements Listener {
                         }
 
 
+                    }
+                    if (event.getVehicle().getScoreboardTags().contains("AF")) {
+                        Player player = (Player) event.getEntered();
+                        player.sendTitle("§9A§fF" , "", 0, 5, 3);
                     }
 
                 }

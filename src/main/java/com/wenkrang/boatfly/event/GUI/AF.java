@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.wenkrang.boatfly.Data.MainData.IsShutDown;
@@ -138,10 +139,13 @@ public class AF implements Listener {
                                                         }
                                                     }
                                                     Location location = new Location(event.getWhoClicked().getWorld(), x, event.getWhoClicked().getLocation().getBlockY(), z);
-                                                    if (event.getWhoClicked().getLocation().distance(location) < 5) {
+                                                    if (event.getWhoClicked().getLocation().distance(location) < 20) {
                                                         cancel();
                                                     }
-                                                    Vector multiply = location.toVector().subtract(event.getWhoClicked().getLocation().toVector()).multiply(realpower);
+                                                    Vector multiply = location.toVector().subtract(event.getWhoClicked().getLocation().toVector());
+                                                    multiply.setY(0.5);
+                                                    multiply.multiply(realpower);
+
                                                     new BukkitRunnable() {
                                                         @Override
                                                         public void run() {
@@ -182,5 +186,6 @@ public class AF implements Listener {
 
 
         }
+
     }
 }
