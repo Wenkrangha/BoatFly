@@ -2,13 +2,10 @@ package com.wenkrang.boatfly;
 
 import com.wenkrang.boatfly.Data.MainData;
 import com.wenkrang.boatfly.command.bf;
+import com.wenkrang.boatfly.event.*;
 import com.wenkrang.boatfly.event.GUI.*;
 import com.wenkrang.boatfly.event.GUI.book.Click;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
-import com.wenkrang.boatfly.event.PlayerItemHeld;
-import com.wenkrang.boatfly.event.PlayerSwapHandItems;
-import com.wenkrang.boatfly.event.VehicleEnter;
-import com.wenkrang.boatfly.event.VehicleExit;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -50,6 +47,7 @@ public final class BoatFly extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InventoryClose(), this);
         getServer().getPluginManager().registerEvents(new Click(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+        getServer().getPluginManager().registerEvents(new VehicleDestroy(), this);
         getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载配方...");
         try {
             if (true) {
