@@ -36,6 +36,16 @@ public class VehicleEnter implements Listener {
                     event.getVehicle().addScoreboardTag("huoyun");
                 }
             }
+            if (event.getVehicle().getCustomName().equalsIgnoreCase("§9§l客运§r飞船")) {
+                if (!event.getVehicle().getScoreboardTags().contains("CanFly")) {
+                    event.getVehicle().addScoreboardTag("CanFly");
+                    event.getVehicle().addScoreboardTag("eng0");
+                    event.getVehicle().addScoreboardTag("OFF");
+                    event.getVehicle().addScoreboardTag("coal0");
+                    event.getVehicle().addScoreboardTag("location0,0");
+                    event.getVehicle().addScoreboardTag("keyun");
+                }
+            }
             if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
                 event.getVehicle().addScoreboardTag("Run");
             }
@@ -63,6 +73,9 @@ public class VehicleEnter implements Listener {
                                 if (event.getEntered().equals(event.getVehicle().getPassengers().get(0))) {
                                     double temp = (double) power / 100;
                                     double realpower = temp * 2;
+                                    if (event.getVehicle().getScoreboardTags().contains("keyun")) {
+                                        realpower = temp * 3;
+                                    }
                                     Boat boat = (Boat) event.getVehicle();
                                     Vector multiply = event.getEntered().getLocation().getDirection().multiply(realpower);
                                     new BukkitRunnable() {

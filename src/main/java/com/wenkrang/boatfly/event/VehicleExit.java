@@ -283,10 +283,13 @@ public class VehicleExit implements Listener {
                                         inventory.setItem(15, itemStack);
                                     }
                                 }
-                                if (event.getVehicle().getScoreboardTags().contains("CanFire")) {
-                                    inventory.setItem(29, itemStack18);
-                                }else {
-                                    inventory.setItem(29, itemStack11);
+                                if (!event.getVehicle().getScoreboardTags().contains("keyun")) {
+                                    if (event.getVehicle().getScoreboardTags().contains("CanFire")) {
+                                        inventory.setItem(29, itemStack18);
+                                    }else {
+                                        inventory.setItem(29, itemStack11);
+                                    }
+
                                 }
 
                                 for (String string : event.getVehicle().getScoreboardTags()) {
@@ -344,6 +347,10 @@ public class VehicleExit implements Listener {
                     itemMeta.setDisplayName("§4§l§o弹出§f二号乘客 ( 不可用 )");
                     item.setItemMeta(itemMeta);
                     inventory.setItem(24, item);
+                }
+                if (event.getVehicle().getScoreboardTags().contains("keyun")) {
+                    inventory.setItem(27, itemStack4);
+                    inventory.setItem(29, itemStack4);
                 }
                 event.setCancelled(true);
             }

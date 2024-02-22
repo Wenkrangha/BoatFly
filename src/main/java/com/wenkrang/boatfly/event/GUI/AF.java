@@ -126,6 +126,9 @@ public class AF implements Listener {
                                                 if (event.getWhoClicked().equals(event.getWhoClicked().getVehicle().getPassengers().get(0))) {
                                                     double temp = (double) power / 100;
                                                     double realpower = temp * 2;
+                                                    if (event.getWhoClicked().getVehicle().getScoreboardTags().contains("keyun")) {
+                                                        realpower = temp * 3;
+                                                    }
                                                     Boat boat = (Boat) event.getWhoClicked().getVehicle();
                                                     int x = 0;
                                                     int z = 0;

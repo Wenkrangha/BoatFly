@@ -132,6 +132,17 @@ public class PlayerInteract implements Listener {
                         }
                         event.setCancelled(true);
                     }
+                    //"§9§l客运§r飞船"
+                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
+                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l客运§r飞船")) {
+                        Block clickedBlock = event.getClickedBlock();
+                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
+                        plane.getplanelevethree(location);
+                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+                            event.getPlayer().getInventory().setItemInMainHand(null);
+                        }
+                        event.setCancelled(true);
+                    }
                 }
             }
         }

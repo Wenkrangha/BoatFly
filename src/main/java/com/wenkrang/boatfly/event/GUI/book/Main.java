@@ -66,6 +66,18 @@ public class Main {
         lore5.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
         itemMeta5.setLore(lore5);
         itemStack5.setItemMeta(itemMeta5);
+        ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
+        ItemMeta itemMeta9 = itemStack9.getItemMeta();
+        itemMeta9.setDisplayName("§9§l飞§r船");
+        ArrayList<String> lore9 = new ArrayList<>();
+        lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+        lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+        lore9.add("§7由地去探索这个§7§l世界");
+        lore9.add("");
+        lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+        lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+        itemMeta9.setLore(lore9);
+        itemStack9.setItemMeta(itemMeta9);
         inventory.setItem(0, itemStack0);
         inventory.setItem(1, itemStack1);
         inventory.setItem(2, itemStack0);
@@ -75,11 +87,28 @@ public class Main {
         inventory.setItem(6, itemStack0);
         inventory.setItem(7, itemStack0);
         inventory.setItem(8, itemStack0);
-        inventory.setItem(9, itemStack2);
+        inventory.setItem(9, itemStack9);
         inventory.setItem(10, itemStack3);
         inventory.setItem(11, itemStack4);
         inventory.setItem(12, itemStack8);
         inventory.setItem(13, itemStack5);
+        if (true) {
+            ItemStack itemStack = new ItemStack(Material.OAK_BOAT);
+            ItemMeta itemMeta = itemStack.getItemMeta();
+            itemMeta.setDisplayName("§9§l客运§r飞船");
+            ArrayList<String> lore = new ArrayList<>();
+            lore.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+            lore.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+            lore.add("§7由地去探索这个§7§l世界");
+            lore.add("§7这艘船没有攻击模块，而且造价更低");
+            lore.add("");
+            lore.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+            lore.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+            itemMeta.setLore(lore);
+            itemStack.setItemMeta(itemMeta);
+            inventory.setItem(14, itemStack);
+        }
+
         player.openInventory(inventory);
     }
 }
