@@ -14,4 +14,15 @@ public class plane {
         boat.setCustomNameVisible(true);
         boat.setCustomName("§9§l飞§r船");
     }
+    public static void getplanelevetwo(Location location) {
+        org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
+        boat.addScoreboardTag("CanFly");
+        boat.addScoreboardTag("eng0");
+        boat.addScoreboardTag("OFF");
+        boat.addScoreboardTag("coal0");
+        boat.addScoreboardTag("location0,0");
+        boat.addScoreboardTag("huoyun");
+        boat.setCustomNameVisible(true);
+        boat.setCustomName("§9§l货运§r飞船");
+    }
 }

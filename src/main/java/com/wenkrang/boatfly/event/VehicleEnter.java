@@ -26,6 +26,16 @@ public class VehicleEnter implements Listener {
                     event.getVehicle().addScoreboardTag("location0,0");
                 }
             }
+            if (event.getVehicle().getCustomName().equalsIgnoreCase("§9§l货运§r飞船")) {
+                if (!event.getVehicle().getScoreboardTags().contains("CanFly")) {
+                    event.getVehicle().addScoreboardTag("CanFly");
+                    event.getVehicle().addScoreboardTag("eng0");
+                    event.getVehicle().addScoreboardTag("OFF");
+                    event.getVehicle().addScoreboardTag("coal0");
+                    event.getVehicle().addScoreboardTag("location0,0");
+                    event.getVehicle().addScoreboardTag("huoyun");
+                }
+            }
             if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
                 event.getVehicle().addScoreboardTag("Run");
             }

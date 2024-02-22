@@ -45,6 +45,27 @@ public class Main {
         lore4.add("§7TNT和弓箭");
         itemMeta4.setLore(lore4);
         itemStack4.setItemMeta(itemMeta4);
+        ItemStack itemStack8 = new ItemStack(Material.CHEST);
+        ItemMeta itemMeta8 = itemStack8.getItemMeta();
+        itemMeta8.setDisplayName("§9§l货运§r箱子");
+        ArrayList<String> lore8 = new ArrayList<>();
+        lore8.add("§7这是专门用于§7§l货运飞船§7的箱子，虽然看起来一样，");
+        lore8.add("§7但实际上就是§7§l一样§7的（");
+        itemMeta8.setLore(lore8);
+        itemStack8.setItemMeta(itemMeta8);
+        ItemStack itemStack5 = new ItemStack(Material.OAK_CHEST_BOAT);
+        ItemMeta itemMeta5 = itemStack5.getItemMeta();
+        itemMeta5.setDisplayName("§9§l货运§r飞船");
+        ArrayList<String> lore5 = new ArrayList<>();
+        lore5.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+        lore5.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+        lore5.add("§7由地去探索这个§7§l世界");
+        lore5.add("§7这艘飞船不仅可以§l载人§r§7，还可以§l§n运货");
+        lore5.add("");
+        lore5.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+        lore5.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+        itemMeta5.setLore(lore5);
+        itemStack5.setItemMeta(itemMeta5);
         inventory.setItem(0, itemStack0);
         inventory.setItem(1, itemStack1);
         inventory.setItem(2, itemStack0);
@@ -57,7 +78,8 @@ public class Main {
         inventory.setItem(9, itemStack2);
         inventory.setItem(10, itemStack3);
         inventory.setItem(11, itemStack4);
-
+        inventory.setItem(12, itemStack8);
+        inventory.setItem(13, itemStack5);
         player.openInventory(inventory);
     }
 }

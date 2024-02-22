@@ -112,15 +112,18 @@ public class OnEng implements Listener {
 
                                     int coal = 0;
                                     try {
-                                        if (event.getWhoClicked().getVehicle().getScoreboardTags().contains("OFF")) {
-                                            cancel();
-                                        }
-                                        for (String s : event.getWhoClicked().getVehicle().getScoreboardTags()) {
-                                            if (s.contains("coal")) {
-                                                coal = Integer.parseInt(s.replace("coal", ""));
-                                                break;
+                                        if (event.getWhoClicked().getVehicle() != null) {
+                                            if (event.getWhoClicked().getVehicle().getScoreboardTags().contains("OFF")) {
+                                                cancel();
+                                            }
+                                            for (String s : event.getWhoClicked().getVehicle().getScoreboardTags()) {
+                                                if (s.contains("coal")) {
+                                                    coal = Integer.parseInt(s.replace("coal", ""));
+                                                    break;
+                                                }
                                             }
                                         }
+
                                     }catch (Exception e) {}
 
                                     if (coal != 0) {

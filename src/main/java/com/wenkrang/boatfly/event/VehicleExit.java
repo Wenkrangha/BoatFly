@@ -337,6 +337,14 @@ public class VehicleExit implements Listener {
                         }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 0);
                     }
                 }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 5);
+                if (event.getVehicle().getScoreboardTags().contains("huoyun")) {
+                    ItemStack item = inventory.getItem(24);
+                    item.setType(Material.BARRIER);
+                    ItemMeta itemMeta = item.getItemMeta();
+                    itemMeta.setDisplayName("§4§l§o弹出§f二号乘客 ( 不可用 )");
+                    item.setItemMeta(itemMeta);
+                    inventory.setItem(24, item);
+                }
                 event.setCancelled(true);
             }
         }

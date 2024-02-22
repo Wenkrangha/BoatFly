@@ -12,6 +12,7 @@ import com.wenkrang.boatfly.event.VehicleExit;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
@@ -111,7 +112,7 @@ public final class BoatFly extends JavaPlugin {
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
-                ItemStack itemStack11 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
+                ItemStack itemStack11 = new ItemStack(Material.REDSTONE);
                 ItemMeta itemMeta11 = itemStack11.getItemMeta();
                 itemStack11.setItemMeta(itemMeta11);
 
@@ -139,7 +140,7 @@ public final class BoatFly extends JavaPlugin {
                 ItemStack itemStack2 = new ItemStack(Material.CONDUIT);
                 ItemMeta itemMeta2 = itemStack2.getItemMeta();
                 itemStack2.setItemMeta(itemMeta2);
-                ItemStack itemStack3 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
+                ItemStack itemStack3 = new ItemStack(Material.REDSTONE);
                 ItemMeta itemMeta3 = itemStack3.getItemMeta();
                 itemStack3.setItemMeta(itemMeta3);
                 ItemStack itemStack4 = new ItemStack(Material.END_CRYSTAL);
@@ -230,7 +231,7 @@ public final class BoatFly extends JavaPlugin {
                 ItemStack itemStack9 = new ItemStack(Material.DIAMOND_BLOCK);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
-                ItemStack itemStack10 = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
+                ItemStack itemStack10 = new ItemStack(Material.REDSTONE);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
 
@@ -247,6 +248,130 @@ public final class BoatFly extends JavaPlugin {
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
 
+            }
+            if (true) {
+                ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
+                ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                itemMeta0.setDisplayName(" ");
+                itemStack0.setItemMeta(itemMeta0);
+                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemMeta itemMeta1 = itemStack1.getItemMeta();
+                itemMeta1.setDisplayName("§9§l返回§r主页");
+                itemStack1.setItemMeta(itemMeta1);
+                ItemStack itemStack2 = new ItemStack(Material.SHULKER_SHELL);
+                ItemMeta itemMeta2 = itemStack2.getItemMeta();
+                itemStack2.setItemMeta(itemMeta2);
+                ItemStack itemStack3 = new ItemStack(Material.IRON_TRAPDOOR);
+                ItemMeta itemMeta3 = itemStack3.getItemMeta();
+                itemStack3.setItemMeta(itemMeta3);
+                ItemStack itemStack4 = new ItemStack(Material.CRAFTING_TABLE);
+                ItemMeta itemMeta4 = itemStack4.getItemMeta();
+                itemMeta4.setDisplayName("§9§l工作台§r合成");
+                ArrayList<String> lore4 = new ArrayList<>();
+                lore4.add("§7该物品使用§7§l工作台§7合成，请");
+                lore4.add("§7按照配方§7§l§n有序合成");
+                itemMeta4.setLore(lore4);
+                itemStack4.setItemMeta(itemMeta4);
+                ItemStack itemStack5 = new ItemStack(Material.HONEY_BLOCK);
+                ItemMeta itemMeta5 = itemStack5.getItemMeta();
+                itemStack5.setItemMeta(itemMeta5);
+                ItemStack itemStack6 = new ItemStack(Material.CHEST);
+                ItemMeta itemMeta6 = itemStack6.getItemMeta();
+                itemStack6.setItemMeta(itemMeta6);
+                ItemStack itemStack7 = new ItemStack(Material.SLIME_BLOCK);
+                ItemMeta itemMeta7 = itemStack7.getItemMeta();
+                itemStack7.setItemMeta(itemMeta7);
+                ItemStack itemStack8 = new ItemStack(Material.CHEST);
+                ItemMeta itemMeta8 = itemStack8.getItemMeta();
+                itemMeta8.setDisplayName("§9§l货运§r箱子");
+                ArrayList<String> lore8 = new ArrayList<>();
+                lore8.add("§7这是专门用于§7§l货运飞船§7的箱子，虽然看起来一样，");
+                lore8.add("§7但实际上就是§7§l一样§7的（");
+                itemMeta8.setLore(lore8);
+                itemStack8.setItemMeta(itemMeta8);
+                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemMeta itemMeta9 = itemStack9.getItemMeta();
+                itemStack9.setItemMeta(itemMeta9);
+                ItemStack itemStack10 = new ItemStack(Material.CAULDRON);
+                ItemMeta itemMeta10 = itemStack10.getItemMeta();
+                itemStack10.setItemMeta(itemMeta10);
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "superchest");
+                ShapedRecipe shapedRecipe = new ShapedRecipe(itemStack8)
+                        .shape("qwq","ert","yuy")
+                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
+                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
+                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack5))
+                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
+                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
+                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack9))
+                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
+                getServer().addRecipe(shapedRecipe);
+            }
+            if (true) {
+                Inventory inventory = Bukkit.createInventory(null, 27, "飞船配方-货运飞船");
+                ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
+                ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                itemMeta0.setDisplayName(" ");
+                itemStack0.setItemMeta(itemMeta0);
+                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemMeta itemMeta1 = itemStack1.getItemMeta();
+                itemMeta1.setDisplayName("§9§l返回§r主页");
+                itemStack1.setItemMeta(itemMeta1);
+                ItemStack itemStack2 = new ItemStack(Material.CHEST);
+                ItemMeta itemMeta2 = itemStack2.getItemMeta();
+                itemMeta2.setDisplayName("§9§l货运§r箱子");
+                ArrayList<String> lore2 = new ArrayList<>();
+                lore2.add("§7这是专门用于§7§l货运飞船§7的箱子，虽然看起来一样，");
+                lore2.add("§7但实际上就是§7§l一样§7的（");
+                itemMeta2.setLore(lore2);
+                itemStack2.setItemMeta(itemMeta2);
+                ItemStack itemStack3 = new ItemStack(Material.CRAFTING_TABLE);
+                ItemMeta itemMeta3 = itemStack3.getItemMeta();
+                itemMeta3.setDisplayName("§9§l工作台§r合成");
+                ArrayList<String> lore3 = new ArrayList<>();
+                lore3.add("§7该物品使用§7§l工作台§7合成，请");
+                lore3.add("§7按照配方§7§l§n有序合成");
+                itemMeta3.setLore(lore3);
+                itemStack3.setItemMeta(itemMeta3);
+                ItemStack itemStack4 = new ItemStack(Material.OAK_CHEST_BOAT);
+                ItemMeta itemMeta4 = itemStack4.getItemMeta();
+                itemMeta4.setDisplayName("§9§l货运§r飞船");
+                ArrayList<String> lore4 = new ArrayList<>();
+                lore4.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+                lore4.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+                lore4.add("§7由地去探索这个§7§l世界");
+                lore4.add("§7这艘飞船不仅可以§l载人§r§7，还可以§l§n运货");
+                lore4.add("");
+                lore4.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+                lore4.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+                itemMeta4.setLore(lore4);
+                itemStack4.setItemMeta(itemMeta4);
+                ItemStack itemStack5 = new ItemStack(Material.CAMPFIRE);
+                ItemMeta itemMeta5 = itemStack5.getItemMeta();
+                itemStack5.setItemMeta(itemMeta5);
+                ItemStack itemStack6 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemMeta itemMeta6 = itemStack6.getItemMeta();
+                itemStack6.setItemMeta(itemMeta6);
+                ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
+                ItemMeta itemMeta9 = itemStack9.getItemMeta();
+                itemMeta9.setDisplayName("§9§l飞§r船");
+                ArrayList<String> lore9 = new ArrayList<>();
+                lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+                lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+                lore9.add("§7由地去探索这个§7§l世界");
+                lore9.add("");
+                lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+                lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
+                itemMeta9.setLore(lore9);
+                itemStack9.setItemMeta(itemMeta9);
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "boatchest");
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4)
+                        .shape(" q "," w ","ere")
+                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
+                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack9))
+                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack5))
+                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6));
+                getServer().addRecipe(shapedRecipe);
             }
             getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.2");
         } catch (Exception e) {
