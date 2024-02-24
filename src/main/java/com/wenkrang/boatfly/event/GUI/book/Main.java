@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.event.GUI.book;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Dropper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.inventory.Inventory;
@@ -78,6 +79,25 @@ public class Main {
         lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
         itemMeta9.setLore(lore9);
         itemStack9.setItemMeta(itemMeta9);
+
+        ItemStack itemStack10 = new ItemStack(Material.DROPPER);
+        ItemMeta itemMeta10 = itemStack8.getItemMeta();
+        itemMeta10.setDisplayName("§9§l航空§r装配台");
+        ArrayList<String> lore10 = new ArrayList<>();
+        lore10.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
+        lore10.add("§7§l§o装配到上面§7，以加强它的性能");
+        lore10.add("");
+        lore10.add("§6§l右键§6打开装配面包");
+        itemMeta10.setLore(lore10);
+        itemStack10.setItemMeta(itemMeta10);
+        ItemStack itemStack11 = new ItemStack(Material.BARREL);
+        ItemMeta itemMeta11 = itemStack11.getItemMeta();
+        itemMeta11.setDisplayName("§9§l模块§r部分");
+        ArrayList<String> lore11 = new ArrayList<>();
+        lore11.add("§7这是关于飞船的§7§l模块配方§7，你可以将");
+        lore11.add("§7这些§7§l§n模块和飞船§7放入装配台来§7§l组装");
+        itemMeta2.setLore(lore11);
+        itemStack11.setItemMeta(itemMeta11);
         inventory.setItem(0, itemStack0);
         inventory.setItem(1, itemStack1);
         inventory.setItem(2, itemStack0);
@@ -92,6 +112,9 @@ public class Main {
         inventory.setItem(11, itemStack4);
         inventory.setItem(12, itemStack8);
         inventory.setItem(13, itemStack5);
+//        inventory.setItem(15, itemStack10);
+//        inventory.setItem(16, itemStack11);
+
         if (true) {
             ItemStack itemStack = new ItemStack(Material.OAK_BOAT);
             ItemMeta itemMeta = itemStack.getItemMeta();

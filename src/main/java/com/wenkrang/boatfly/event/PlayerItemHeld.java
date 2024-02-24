@@ -56,8 +56,6 @@ public class PlayerItemHeld implements Listener {
                         event.getPlayer().sendTitle("", "§9§l节流阀§r " + ": " + String.valueOf(power) + "%", 0, 10, 5);
                     }
                 }
-            }else {
-
             }
 
         }
