@@ -11,7 +11,7 @@ import java.util.Objects;
 public class CouldPut implements Listener {
     @EventHandler
     public static void OnPut(InventoryClickEvent event) {
-        if (!(event.getRawSlot() > event.getInventory().getSize()) && event.getView().getTitle().equalsIgnoreCase("飞船控制面包") && event.getRawSlot() != 15){
+        if (!(event.getRawSlot() > event.getInventory().getSize()) && event.getView().getTitle().equalsIgnoreCase("飞船控制面板") && event.getRawSlot() != 15){
             event.setCancelled(true);
         }
         if (event.getRawSlot() == 15) {
