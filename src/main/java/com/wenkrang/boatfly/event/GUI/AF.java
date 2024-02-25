@@ -18,7 +18,7 @@ import static com.wenkrang.boatfly.Data.MainData.IsShutDown;
 public class AF implements Listener {
     @EventHandler
     public static void OnPlayer (InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面板")) {
             if (event.getRawSlot() == 42) {
                 if (event.isLeftClick()) {
                     for (String string : event.getWhoClicked().getVehicle().getScoreboardTags()) {
