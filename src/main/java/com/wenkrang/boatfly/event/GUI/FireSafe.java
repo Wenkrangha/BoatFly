@@ -8,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class FireSafe implements Listener {
     @EventHandler
     public static void OnPlayer (InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面板")) {
             if (event.getRawSlot() == 29) {
                 if (event.getWhoClicked().getVehicle().getScoreboardTags().contains("CanFire")) {
                     event.getWhoClicked().getVehicle().removeScoreboardTag("CanFire");
