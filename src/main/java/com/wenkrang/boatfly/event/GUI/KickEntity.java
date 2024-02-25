@@ -11,7 +11,7 @@ import java.util.Objects;
 public class KickEntity implements Listener {
     @EventHandler
     public static void OnPlayer (InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面板")) {
             try {
                 if (event.getRawSlot() == 23) {
                     if (Objects.requireNonNull(event.getWhoClicked().getVehicle()).getPassengers().get(0) != null) {
