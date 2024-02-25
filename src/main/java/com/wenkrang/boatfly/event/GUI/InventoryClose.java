@@ -9,11 +9,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class InventoryClose implements Listener {
     @EventHandler
     public static void OnInventoryClose (InventoryCloseEvent event) {
-//        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+//        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面板")) {
 ////            new BukkitRunnable() {
 ////                @Override
 ////                public void run() {
-////                    if (event.getPlayer().getOpenInventory().getTitle().equalsIgnoreCase("飞船控制面包")) {
+////                    if (event.getPlayer().getOpenInventory().getTitle().equalsIgnoreCase("飞船控制面板")) {
 ////                        event.getPlayer().addScoreboardTag("CanExit");
 ////                    }
 ////                }
