@@ -466,7 +466,7 @@ public final class BoatFly extends JavaPlugin {
 //                lore4.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
 //                lore4.add("§7§l§o装配到上面§7，以加强它的性能");
 //                lore4.add("");
-//                lore4.add("§6§l右键§6打开装配面包");
+//                lore4.add("§6§l右键§6打开装配面板");
 //                itemMeta4.setLore(lore4);
 //                itemStack4.setItemMeta(itemMeta4);
 //                ItemStack itemStack5 = new ItemStack(Material.STONE);
