@@ -26,14 +26,14 @@ public class VehicleExit implements Listener {
         if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getExited().getScoreboardTags().contains("CanExit")) {
             if (event.getExited() instanceof Player && !event.getVehicle().isDead()) {
                 Player player = (Player) event.getExited();
-                Inventory inventory = Bukkit.createInventory(null, 54, "飞船控制面包");
+                Inventory inventory = Bukkit.createInventory(null, 54, "飞船控制面板");
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
                 ItemStack itemStack1 = new ItemStack(Material.COMPASS);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
-                itemMeta1.setDisplayName("§9§l飞行§r控制面包");
+                itemMeta1.setDisplayName("§9§l飞行§r控制面板");
                 ArrayList<String> lore1 = new ArrayList<>();
                 lore1.add("§7这是飞机的§7§l控制面板§7，可以控制飞机的");
                 lore1.add("§7各个装置，包括AF,引擎等等");
