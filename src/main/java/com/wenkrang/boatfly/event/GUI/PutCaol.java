@@ -12,7 +12,7 @@ import java.util.Objects;
 public class PutCaol implements Listener {
     @EventHandler
     public static void OnPlayer (InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面板")) {
             new BukkitRunnable() {
 
                 @Override
