@@ -1,14 +1,23 @@
 package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Boat;
+import org.bukkit.entity.Boss;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.*;
 import org.bukkit.util.Vector;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 import static com.wenkrang.boatfly.Data.MainData.IsShutDown;
@@ -48,6 +57,41 @@ public class VehicleEnter implements Listener {
             }
             if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
                 event.getVehicle().addScoreboardTag("Run");
+                if (event.getEntered() instanceof Player) {
+                    Player player = (Player) event.getEntered();
+                    BossBar bossBar = Bukkit.createBossBar("§9§l当前§r时速 : ", BarColor.YELLOW, BarStyle.SOLID);
+                    bossBar.addPlayer(player);
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            if (IsShutDown || !event.getVehicle().getScoreboardTags().contains("Run")) {
+                                cancel();
+                            }
+
+                            new BukkitRunnable() {
+
+                                @Override
+                                public void run() {
+                                    Location location = player.getLocation();
+                                    new BukkitRunnable() {
+
+                                        @Override
+                                        public void run() {
+                                            double distance = location.distance(player.getLocation());
+                                            bossBar.setTitle("§9§l当前§r时速 : " + String.valueOf(new BigDecimal(distance).setScale(5, RoundingMode.HALF_UP)) + " block/s");
+                                            bossBar.setProgress(distance / 50);
+                                        }
+                                    }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 20);
+                                }
+                            }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 0);
+                            if (!event.getVehicle().getPassengers().contains(event.getEntered())) {
+                                bossBar.removeAll();
+                                cancel();
+                            }
+                        }
+                    }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
+
+                }
             }
 
             //起飞!!!!

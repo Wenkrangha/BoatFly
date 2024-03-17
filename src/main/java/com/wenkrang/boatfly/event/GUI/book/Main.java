@@ -80,24 +80,24 @@ public class Main {
         itemMeta9.setLore(lore9);
         itemStack9.setItemMeta(itemMeta9);
 
-        ItemStack itemStack10 = new ItemStack(Material.DROPPER);
-        ItemMeta itemMeta10 = itemStack8.getItemMeta();
-        itemMeta10.setDisplayName("§9§l航空§r装配台");
-        ArrayList<String> lore10 = new ArrayList<>();
-        lore10.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
-        lore10.add("§7§l§o装配到上面§7，以加强它的性能");
-        lore10.add("");
-        lore10.add("§6§l右键§6打开装配面包");
-        itemMeta10.setLore(lore10);
-        itemStack10.setItemMeta(itemMeta10);
-        ItemStack itemStack11 = new ItemStack(Material.BARREL);
-        ItemMeta itemMeta11 = itemStack11.getItemMeta();
-        itemMeta11.setDisplayName("§9§l模块§r部分");
-        ArrayList<String> lore11 = new ArrayList<>();
-        lore11.add("§7这是关于飞船的§7§l模块配方§7，你可以将");
-        lore11.add("§7这些§7§l§n模块和飞船§7放入装配台来§7§l组装");
-        itemMeta2.setLore(lore11);
-        itemStack11.setItemMeta(itemMeta11);
+//        ItemStack itemStack10 = new ItemStack(Material.DROPPER);
+//        ItemMeta itemMeta10 = itemStack8.getItemMeta();
+//        itemMeta10.setDisplayName("§9§l航空§r装配台");
+//        ArrayList<String> lore10 = new ArrayList<>();
+//        lore10.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
+//        lore10.add("§7§l§o装配到上面§7，以加强它的性能");
+//        lore10.add("");
+//        lore10.add("§6§l右键§6打开装配面包");
+//        itemMeta10.setLore(lore10);
+//        itemStack10.setItemMeta(itemMeta10);
+//        ItemStack itemStack11 = new ItemStack(Material.BARREL);
+//        ItemMeta itemMeta11 = itemStack11.getItemMeta();
+//        itemMeta11.setDisplayName("§9§l模块§r部分");
+//        ArrayList<String> lore11 = new ArrayList<>();
+//        lore11.add("§7这是关于飞船的§7§l模块配方§7，你可以将");
+//        lore11.add("§7这些§7§l§n模块和飞船§7放入装配台来§7§l组装");
+//        itemMeta2.setLore(lore11);
+//        itemStack11.setItemMeta(itemMeta11);
         inventory.setItem(0, itemStack0);
         inventory.setItem(1, itemStack1);
         inventory.setItem(2, itemStack0);
@@ -131,6 +131,21 @@ public class Main {
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(14, itemStack);
         }
+//        if (true) {
+//            ItemStack itemStack6 = new ItemStack(Material.OAK_BOAT);
+//            ItemMeta itemMeta6 = itemStack6.getItemMeta();
+//            itemMeta6.setDisplayName("§9§l空白§r飞船");
+//            ArrayList<String> lore6 = new ArrayList<>();
+//            lore6.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+//            lore6.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+//            lore6.add("§7由地去探索这个§7§l世界");
+//            lore6.add("");
+//            lore6.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+//            itemMeta6.setLore(lore6);
+//            itemStack6.setItemMeta(itemMeta6);
+//            inventory.setItem(17, itemStack6);
+//
+//        }
 
         player.openInventory(inventory);
     }

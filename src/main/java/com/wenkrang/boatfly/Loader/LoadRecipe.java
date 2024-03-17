@@ -406,127 +406,94 @@ public class LoadRecipe {
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
             }
-//
-//
-//            if (true) {
-//                ItemStack itemStack0 = new ItemStack(Material.NETHERITE_SCRAP);
-//                ItemMeta itemMeta0 = itemStack0.getItemMeta();
-//                itemStack0.setItemMeta(itemMeta0);
-//                ItemStack itemStack1 = new ItemStack(Material.ANVIL);
-//                ItemMeta itemMeta1 = itemStack1.getItemMeta();
-//                itemStack1.setItemMeta(itemMeta1);
-//                ItemStack itemStack2 = new ItemStack(Material.GRINDSTONE);
-//                ItemMeta itemMeta2 = itemStack2.getItemMeta();
-//                itemStack2.setItemMeta(itemMeta2);
-//                ItemStack itemStack3 = new ItemStack(Material.SMITHING_TABLE);
-//                ItemMeta itemMeta3 = itemStack3.getItemMeta();
-//                itemStack3.setItemMeta(itemMeta3);
-//                ItemStack itemStack4 = new ItemStack(Material.DROPPER);
-//                ItemMeta itemMeta4 = itemStack4.getItemMeta();
-//                itemMeta4.setDisplayName("§9§l航空§r装配台");
-//                ArrayList<String> lore4 = new ArrayList<>();
-//                lore4.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
-//                lore4.add("§7§l§o装配到上面§7，以加强它的性能");
-//                lore4.add("");
-//                lore4.add("§6§l右键§6打开装配面包");
-//                itemMeta4.setLore(lore4);
-//                itemStack4.setItemMeta(itemMeta4);
-//                ItemStack itemStack5 = new ItemStack(Material.STONE);
-//                ItemMeta itemMeta5 = itemStack5.getItemMeta();
-//                itemStack5.setItemMeta(itemMeta5);
-//
-//                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Tflytable");
-//                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4);
-//                shapedRecipe.shape("qwe", "rty", "uio");
-//                shapedRecipe.setIngredient('q', new RecipeChoice.ExactChoice(itemStack0));
-//                shapedRecipe.setIngredient('w', new RecipeChoice.ExactChoice(itemStack0));
-//                shapedRecipe.setIngredient('e', new RecipeChoice.ExactChoice(itemStack0));
-//                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack1));
-//                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack2));
-//                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack3));
-//                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack5));
-//                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
-//                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack5));
-//                getServer().addRecipe(shapedRecipe);
-//            }
-//            if (true) {
-//                ItemStack itemStack0 = new ItemStack(Material.COMPARATOR);
-//                ItemMeta itemMeta0 = itemStack0.getItemMeta();
-//                itemStack0.setItemMeta(itemMeta0);
-//                ItemStack itemStack1 = new ItemStack(Material.REDSTONE_LAMP);
-//                ItemMeta itemMeta1 = itemStack1.getItemMeta();
-//                itemStack1.setItemMeta(itemMeta1);
-//                ItemStack itemStack2 = new ItemStack(Material.REDSTONE);
-//                ItemMeta itemMeta2 = itemStack2.getItemMeta();
-//                itemStack2.setItemMeta(itemMeta2);
-//                ItemStack itemStack3 = new ItemStack(Material.CLOCK);
-//                ItemMeta itemMeta3 = itemStack3.getItemMeta();
-//                itemMeta3.setDisplayName("§9§l仪表§r盘");
-//                ArrayList<String> lore3 = new ArrayList<>();
-//                lore3.add("§7这是§7§l§o飞机的仪表盘§7，用来查看§7§l飞机§7的各个");
-//                lore3.add("§7参数，对飞机来说是§7§l§n非常重要§7的东西");
-//                itemMeta3.setLore(lore3);
-//                itemStack3.setItemMeta(itemMeta3);
-//                ItemStack itemStack4 = new ItemStack(Material.GOLD_INGOT);
-//                ItemMeta itemMeta4 = itemStack4.getItemMeta();
-//                itemStack4.setItemMeta(itemMeta4);
-//                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TTChecker");
-//                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack3);
-//                shapedRecipe.shape(" w ", "rty", "uio");
-//                shapedRecipe.setIngredient('w', new RecipeChoice.ExactChoice(itemStack0));
-//                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack1));
-//                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack2));
-//                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack1));
-//                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack4));
-//                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack4));
-//                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack4));
-//                getServer().addRecipe(shapedRecipe);
-//
-//            }
-//            if (true) {
-//                ItemStack itemStack0 = new ItemStack(Material.SADDLE);
-//                ItemMeta itemMeta0 = itemStack0.getItemMeta();
-//                itemStack0.setItemMeta(itemMeta0);
-//                ItemStack itemStack1 = new ItemStack(Material.CLOCK);
-//                ItemMeta itemMeta1 = itemStack1.getItemMeta();
-//                itemMeta1.setDisplayName("§9§l仪表§r盘");
-//                ArrayList<String> lore1 = new ArrayList<>();
-//                lore1.add("§7这是§7§l§o飞机的仪表盘§7，用来查看§7§l飞机§7的各个");
-//                lore1.add("§7参数，对飞机来说是§7§l§n非常重要§7的东西");
-//                itemMeta1.setLore(lore1);
-//                itemStack1.setItemMeta(itemMeta1);
-//                ItemStack itemStack2 = new ItemStack(Material.COMPARATOR);
-//                ItemMeta itemMeta2 = itemStack2.getItemMeta();
-//                itemStack2.setItemMeta(itemMeta2);
-//                ItemStack itemStack3 = new ItemStack(Material.OAK_BOAT);
-//                ItemMeta itemMeta3 = itemStack3.getItemMeta();
-//                itemMeta3.setDisplayName("§9§l空白§r飞船");
-//                ArrayList<String> lore3 = new ArrayList<>();
-//                lore3.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
-//                lore3.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
-//                lore3.add("§7由地去探索这个§7§l世界");
-//                lore3.add("");
-//                lore3.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
-//                itemMeta3.setLore(lore3);
-//                itemStack3.setItemMeta(itemMeta3);
-//                ItemStack itemStack4 = new ItemStack(Material.NETHERITE_INGOT);
-//                ItemMeta itemMeta4 = itemStack4.getItemMeta();
-//                itemStack4.setItemMeta(itemMeta4);
-//                ItemStack itemStack5 = new ItemStack(Material.REDSTONE);
-//                ItemMeta itemMeta5 = itemStack5.getItemMeta();
-//                itemStack5.setItemMeta(itemMeta5);
-//                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TTheRawBoat");
-//                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack3);
-//                shapedRecipe.shape("   ", "rty", "uio");
-//                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack0));
-//                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack1));
-//                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack2));
-//                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack4));
-//                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
-//                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack4));
-//                getServer().addRecipe(shapedRecipe);
-//
-//            }
+
+
+            if (true) {
+                ItemStack itemStack0 = new ItemStack(Material.NETHERITE_SCRAP);
+                ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                itemStack0.setItemMeta(itemMeta0);
+                ItemStack itemStack1 = new ItemStack(Material.ANVIL);
+                ItemMeta itemMeta1 = itemStack1.getItemMeta();
+                itemStack1.setItemMeta(itemMeta1);
+                ItemStack itemStack2 = new ItemStack(Material.GRINDSTONE);
+                ItemMeta itemMeta2 = itemStack2.getItemMeta();
+                itemStack2.setItemMeta(itemMeta2);
+                ItemStack itemStack3 = new ItemStack(Material.SMITHING_TABLE);
+                ItemMeta itemMeta3 = itemStack3.getItemMeta();
+                itemStack3.setItemMeta(itemMeta3);
+                ItemStack itemStack4 = new ItemStack(Material.DROPPER);
+                ItemMeta itemMeta4 = itemStack4.getItemMeta();
+                itemMeta4.setDisplayName("§9§l航空§r装配台");
+                ArrayList<String> lore4 = new ArrayList<>();
+                lore4.add("§7你可以在这里§7§l装配§7你的飞机，将§7§l§n不同的模块");
+                lore4.add("§7§l§o装配到上面§7，以加强它的性能");
+                lore4.add("");
+                lore4.add("§6§l右键§6打开装配面包");
+                itemMeta4.setLore(lore4);
+                itemStack4.setItemMeta(itemMeta4);
+                ItemStack itemStack5 = new ItemStack(Material.STONE);
+                ItemMeta itemMeta5 = itemStack5.getItemMeta();
+                itemStack5.setItemMeta(itemMeta5);
+
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Tflytable");
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4);
+                shapedRecipe.shape("qwe", "rty", "uio");
+                shapedRecipe.setIngredient('q', new RecipeChoice.ExactChoice(itemStack0));
+                shapedRecipe.setIngredient('w', new RecipeChoice.ExactChoice(itemStack0));
+                shapedRecipe.setIngredient('e', new RecipeChoice.ExactChoice(itemStack0));
+                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack1));
+                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack2));
+                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack3));
+                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack5));
+                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
+                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack5));
+                getServer().addRecipe(shapedRecipe);
+            }
+
+            if (true) {
+                ItemStack itemStack0 = new ItemStack(Material.SADDLE);
+                ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                itemStack0.setItemMeta(itemMeta0);
+                ItemStack itemStack1 = new ItemStack(Material.CLOCK);
+                ItemMeta itemMeta1 = itemStack1.getItemMeta();
+                itemMeta1.setDisplayName("§9§l仪表§r盘");
+                ArrayList<String> lore1 = new ArrayList<>();
+                lore1.add("§7这是§7§l§o飞机的仪表盘§7，用来查看§7§l飞机§7的各个");
+                lore1.add("§7参数，对飞机来说是§7§l§n非常重要§7的东西");
+                itemMeta1.setLore(lore1);
+                itemStack1.setItemMeta(itemMeta1);
+                ItemStack itemStack2 = new ItemStack(Material.COMPARATOR);
+                ItemMeta itemMeta2 = itemStack2.getItemMeta();
+                itemStack2.setItemMeta(itemMeta2);
+                ItemStack itemStack3 = new ItemStack(Material.OAK_BOAT);
+                ItemMeta itemMeta3 = itemStack3.getItemMeta();
+                itemMeta3.setDisplayName("§9§l空白§r飞船");
+                ArrayList<String> lore3 = new ArrayList<>();
+                lore3.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
+                lore3.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
+                lore3.add("§7由地去探索这个§7§l世界");
+                lore3.add("");
+                lore3.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
+                itemMeta3.setLore(lore3);
+                itemStack3.setItemMeta(itemMeta3);
+                ItemStack itemStack4 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemMeta itemMeta4 = itemStack4.getItemMeta();
+                itemStack4.setItemMeta(itemMeta4);
+                ItemStack itemStack5 = new ItemStack(Material.REDSTONE);
+                ItemMeta itemMeta5 = itemStack5.getItemMeta();
+                itemStack5.setItemMeta(itemMeta5);
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TTheRawBoat");
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack3);
+                shapedRecipe.shape("   ", "rty", "uio");
+                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack0));
+                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack1));
+                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack2));
+                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack4));
+                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
+                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack4));
+                getServer().addRecipe(shapedRecipe);
+
+            }
 
         } catch (Exception e) {}
 

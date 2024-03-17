@@ -47,7 +47,7 @@ public final class BoatFly extends JavaPlugin {
             if (PlayerInteract.isBelow1_20_2()) {
                 ConsoleLoger.info("您的服务器版本低于1.20.2,部分功能可能无法正常使用");
             }
-            getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.4");
+            getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.5");
         } catch (Exception e) {}
     }
 
@@ -55,5 +55,6 @@ public final class BoatFly extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         MainData.IsShutDown = true;
+        ConsoleLoger.info("正在关闭 BoatFly ...");
     }
 }
