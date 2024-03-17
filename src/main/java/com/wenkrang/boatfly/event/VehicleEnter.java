@@ -79,7 +79,11 @@ public class VehicleEnter implements Listener {
                                         public void run() {
                                             double distance = location.distance(player.getLocation());
                                             bossBar.setTitle("§9§l当前§r时速 : " + String.valueOf(new BigDecimal(distance).setScale(5, RoundingMode.HALF_UP)) + " block/s");
-                                            bossBar.setProgress(distance / 50);
+                                            if (distance < 1) {
+                                                bossBar.setProgress(distance / 50);
+                                            }else {
+                                                bossBar.setProgress(1);
+                                            }
                                         }
                                     }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 20);
                                 }
