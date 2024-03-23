@@ -24,8 +24,8 @@ public class KickEntity implements Listener {
                 }
                 if (event.getRawSlot() == 24) {
                     if (Objects.requireNonNull(event.getWhoClicked().getVehicle()).getPassengers().get(1) != null) {
-                        if (event.getWhoClicked().getVehicle().getPassengers().get(0) instanceof Player) {
-                            event.getWhoClicked().getVehicle().getPassengers().get(0).addScoreboardTag("CanExit");
+                        if (event.getWhoClicked().getVehicle().getPassengers().get(1) instanceof Player) {
+                            event.getWhoClicked().getVehicle().getPassengers().get(1).addScoreboardTag("CanExit");
                         }
                         Objects.requireNonNull(event.getWhoClicked().getVehicle()).removePassenger(event.getWhoClicked().getVehicle().getPassengers().get(1));
                     }

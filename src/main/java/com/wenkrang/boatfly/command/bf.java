@@ -32,6 +32,7 @@ public class bf implements CommandExecutor {
         sender.sendMessage("§7[!]  §4飞船 - BoatFly §7正在运行");
         sender.sendMessage(" §4| §7help  帮助列表");
         sender.sendMessage(" §4| §7getbook  获取配方");
+        sender.sendMessage(" §4| §7- 创造下，右键配方可以将直接获取物品");
         sender.sendMessage(" §4| §7作者:Wenkrang");
     }
 
