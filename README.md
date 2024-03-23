@@ -1,4 +1,5 @@
 # BoatFly - 飞船
+![Image text](Boat.jpg)
 ### 作者 : Wenkrang 
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
