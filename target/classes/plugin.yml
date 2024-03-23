@@ -1,5 +1,5 @@
 name: BoatFly
-version: '${project.version}'
+version: '1.5'
 main: com.wenkrang.boatfly.BoatFly
 api-version: '1.16'
 commands:

@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
+import static com.wenkrang.boatfly.BoatFly.*;
 import static org.bukkit.Bukkit.getServer;
 
 public class LoadRecipe {
@@ -63,27 +64,14 @@ public class LoadRecipe {
                 lore8.add("§7TNT和弓箭");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
-                ItemMeta itemMeta9 = itemStack9.getItemMeta();
-                itemMeta9.setDisplayName("§9§l飞§r船");
-                ArrayList<String> lore9 = new ArrayList<>();
-                lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
-                lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
-                lore9.add("§7由地去探索这个§7§l世界");
-                lore9.add("");
-                lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
-                lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
-                itemMeta9.setLore(lore9);
-                itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
                 ItemStack itemStack11 = new ItemStack(Material.REDSTONE);
                 ItemMeta itemMeta11 = itemStack11.getItemMeta();
                 itemStack11.setItemMeta(itemMeta11);
-
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheBoatFly");
-                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe", "rty", "uiu")
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, REGULAR).shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
@@ -299,19 +287,6 @@ public class LoadRecipe {
                 lore3.add("§7按照配方§7§l§n有序合成");
                 itemMeta3.setLore(lore3);
                 itemStack3.setItemMeta(itemMeta3);
-                ItemStack itemStack4 = new ItemStack(Material.OAK_CHEST_BOAT);
-                ItemMeta itemMeta4 = itemStack4.getItemMeta();
-                itemMeta4.setDisplayName("§9§l货运§r飞船");
-                ArrayList<String> lore4 = new ArrayList<>();
-                lore4.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
-                lore4.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
-                lore4.add("§7由地去探索这个§7§l世界");
-                lore4.add("§7这艘飞船不仅可以§l载人§r§7，还可以§l§n运货");
-                lore4.add("");
-                lore4.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
-                lore4.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
-                itemMeta4.setLore(lore4);
-                itemStack4.setItemMeta(itemMeta4);
                 ItemStack itemStack5 = new ItemStack(Material.CAMPFIRE);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
@@ -331,7 +306,7 @@ public class LoadRecipe {
                 itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "boatchest");
-                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4)
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, FREIGHT)
                         .shape(" q "," w ","ere")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack9))
@@ -377,19 +352,6 @@ public class LoadRecipe {
                 itemMeta7.setLore(lore7);
                 itemStack7.setItemMeta(itemMeta7);
                 ItemStack itemStack8 = new ItemStack(Material.GLASS);
-                ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
-                ItemMeta itemMeta9 = itemStack9.getItemMeta();
-                itemMeta9.setDisplayName("§9§l客运§r飞船");
-                ArrayList<String> lore9 = new ArrayList<>();
-                lore9.add("§7这是BoatFly§7§l§n最重要的物品§7,是一");
-                lore9.add("§7个很快地§7§l交通工具§7,可以让§7§l§o玩家§7自");
-                lore9.add("§7由地去探索这个§7§l世界");
-                lore9.add("§7这艘船没有攻击模块，而且造价更低");
-                lore9.add("");
-                lore9.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
-                lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
-                itemMeta9.setLore(lore9);
-                itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
@@ -398,7 +360,7 @@ public class LoadRecipe {
                 itemStack11.setItemMeta(itemMeta11);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheLowBoatFly");
-                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("   ", "rty", "uiu")
+                ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, PASSENGER).shape("   ", "rty", "uiu")
                         .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
                         .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
                         .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))

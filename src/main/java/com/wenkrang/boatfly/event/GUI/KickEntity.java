@@ -11,12 +11,13 @@ import java.util.Objects;
 public class KickEntity implements Listener {
     @EventHandler
     public static void OnPlayer (InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")) {
+        if (event.getView().getTitle().equalsIgnoreCase("飞船控制面包")/* isn't it "版"?*/) {
             try {
                 if (event.getRawSlot() == 23) {
                     if (Objects.requireNonNull(event.getWhoClicked().getVehicle()).getPassengers().get(0) != null) {
                         if (event.getWhoClicked().getVehicle().getPassengers().get(0) instanceof Player) {
                             event.getWhoClicked().getVehicle().getPassengers().get(0).addScoreboardTag("CanExit");
+                            ((Player) event.getWhoClicked().getVehicle().getPassengers().get(0)).closeInventory();
                         }
                         Objects.requireNonNull(event.getWhoClicked().getVehicle()).removePassenger(event.getWhoClicked().getVehicle().getPassengers().get(0));
                     }
@@ -24,8 +25,9 @@ public class KickEntity implements Listener {
                 }
                 if (event.getRawSlot() == 24) {
                     if (Objects.requireNonNull(event.getWhoClicked().getVehicle()).getPassengers().get(1) != null) {
-                        if (event.getWhoClicked().getVehicle().getPassengers().get(0) instanceof Player) {
-                            event.getWhoClicked().getVehicle().getPassengers().get(0).addScoreboardTag("CanExit");
+                        if (event.getWhoClicked().getVehicle().getPassengers().get(1) instanceof Player) {
+                            event.getWhoClicked().getVehicle().getPassengers().get(1).addScoreboardTag("CanExit");
+                            ((Player) event.getWhoClicked().getVehicle().getPassengers().get(1)).closeInventory();
                         }
                         Objects.requireNonNull(event.getWhoClicked().getVehicle()).removePassenger(event.getWhoClicked().getVehicle().getPassengers().get(1));
                     }
