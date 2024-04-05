@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.lib.getSpeed;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
@@ -30,6 +31,7 @@ public class VehicleEnter implements Listener {
                 if (!event.getVehicle().getScoreboardTags().contains("CanFly")) {
                     event.getVehicle().addScoreboardTag("CanFly");
                     event.getVehicle().addScoreboardTag("eng0");
+                    event.getVehicle().addScoreboardTag("real0");
                     event.getVehicle().addScoreboardTag("OFF");
                     event.getVehicle().addScoreboardTag("coal0");
                     event.getVehicle().addScoreboardTag("location0,0");
@@ -39,6 +41,7 @@ public class VehicleEnter implements Listener {
                 if (!event.getVehicle().getScoreboardTags().contains("CanFly")) {
                     event.getVehicle().addScoreboardTag("CanFly");
                     event.getVehicle().addScoreboardTag("eng0");
+                    event.getVehicle().addScoreboardTag("real0");
                     event.getVehicle().addScoreboardTag("OFF");
                     event.getVehicle().addScoreboardTag("coal0");
                     event.getVehicle().addScoreboardTag("location0,0");
@@ -49,6 +52,7 @@ public class VehicleEnter implements Listener {
                 if (!event.getVehicle().getScoreboardTags().contains("CanFly")) {
                     event.getVehicle().addScoreboardTag("CanFly");
                     event.getVehicle().addScoreboardTag("eng0");
+                    event.getVehicle().addScoreboardTag("real0");
                     event.getVehicle().addScoreboardTag("OFF");
                     event.getVehicle().addScoreboardTag("coal0");
                     event.getVehicle().addScoreboardTag("location0,0");
@@ -79,10 +83,22 @@ public class VehicleEnter implements Listener {
                                         public void run() {
                                             double distance = location.distance(player.getLocation());
                                             bossBar.setTitle("§9§l当前§r时速 : " + String.valueOf(new BigDecimal(distance).setScale(5, RoundingMode.HALF_UP)) + " block/s");
-                                            if (distance < 1) {
+                                            if (distance < 50) {
                                                 bossBar.setProgress(distance / 50);
                                             }else {
                                                 bossBar.setProgress(1);
+                                            }
+                                            if (distance < 10) {
+                                                bossBar.setColor(BarColor.RED);
+                                            }
+                                            if (distance > 10 && distance < 20) {
+                                                bossBar.setColor(BarColor.YELLOW);
+                                            }
+                                            if (distance > 20 && distance < 40) {
+                                                bossBar.setColor(BarColor.GREEN);
+                                            }
+                                            if (distance > 40) {
+                                                bossBar.setColor(BarColor.BLUE);
                                             }
                                         }
                                     }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 20);
@@ -119,11 +135,27 @@ public class VehicleEnter implements Listener {
                         if (power > 0) {
                             try {
                                 if (event.getEntered().equals(event.getVehicle().getPassengers().get(0))) {
+                                    if (true) {
+                                        //计算真正的速度
+                                        String temp = null;
+                                        for (String string : event.getVehicle().getScoreboardTags()) {
+                                            if (string.contains("real")) {
+                                                temp = string;
+                                                break;
+                                            }
+                                        }
+                                        if (temp == null) {
+                                            event.getVehicle().addScoreboardTag("real0");
+                                        }
+                                    }
+
+                                    power = getSpeed.run(event.getVehicle(), power);
                                     double temp = (double) power / 100;
                                     double realpower = temp * 2;
                                     if (event.getVehicle().getScoreboardTags().contains("keyun")) {
                                         realpower = temp * 3;
                                     }
+
                                     Boat boat = (Boat) event.getVehicle();
                                     Vector multiply = event.getEntered().getLocation().getDirection().multiply(realpower);
                                     new BukkitRunnable() {
@@ -157,6 +189,7 @@ public class VehicleEnter implements Listener {
 
                     }
                 }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 1);
+////Debug Tools
 //            new BukkitRunnable() {
 //
 //                @Override

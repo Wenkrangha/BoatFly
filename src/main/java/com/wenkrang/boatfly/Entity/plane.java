@@ -8,6 +8,7 @@ public class plane {
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
+        boat.addScoreboardTag("real0");
         boat.addScoreboardTag("OFF");
         boat.addScoreboardTag("coal0");
         boat.addScoreboardTag("location0,0");
@@ -18,6 +19,7 @@ public class plane {
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
+        boat.addScoreboardTag("real0");
         boat.addScoreboardTag("OFF");
         boat.addScoreboardTag("coal0");
         boat.addScoreboardTag("location0,0");
@@ -29,6 +31,7 @@ public class plane {
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
+        boat.addScoreboardTag("real0");
         boat.addScoreboardTag("OFF");
         boat.addScoreboardTag("coal0");
         boat.addScoreboardTag("location0,0");
