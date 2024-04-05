@@ -16,8 +16,10 @@ import static org.bukkit.Bukkit.getServer;
 
 public class LoadRecipe {
     public static void run() {
+        //加载配方的函数
         getServer().getConsoleSender().sendMessage("§9§l[*] §r正在加载配方...");
         try {
+            //"if (true)"是用来隔离的，防止变量名重复
             if (true) {
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
@@ -81,8 +83,9 @@ public class LoadRecipe {
                 ItemStack itemStack11 = new ItemStack(Material.REDSTONE);
                 ItemMeta itemMeta11 = itemStack11.getItemMeta();
                 itemStack11.setItemMeta(itemMeta11);
-
+                //命名空间
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheBoatFly");
+                //配方
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
@@ -92,8 +95,10 @@ public class LoadRecipe {
                         .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack11))
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
+                //注册配方
                 getServer().addRecipe(shapedRecipe);
             }
+            //下面的作用同上
             if (true) {
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();

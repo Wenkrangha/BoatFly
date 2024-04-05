@@ -14,6 +14,7 @@ import static org.bukkit.Bukkit.getServer;
 
 public class LoadEvent {
     public static void run() {
+        //加载事件
         ConsoleLoger.info("正在加载监听器...");
         getServer().getPluginManager().registerEvents(new VehicleExit(), BoatFly.getPlugin(BoatFly.class));
         getServer().getPluginManager().registerEvents(new Exit(), BoatFly.getPlugin(BoatFly.class));
@@ -30,6 +31,8 @@ public class LoadEvent {
         getServer().getPluginManager().registerEvents(new Click(), BoatFly.getPlugin(BoatFly.class));
         getServer().getPluginManager().registerEvents(new PlayerInteract(), BoatFly.getPlugin(BoatFly.class));
         getServer().getPluginManager().registerEvents(new VehicleDestroy(), BoatFly.getPlugin(BoatFly.class));
+
+        //铺垫awa
 //        getServer().getPluginManager().registerEvents(new OpenTable(), BoatFly.getPlugin(BoatFly.class));
 //        getServer().getPluginManager().registerEvents(new TableCouldPut(), BoatFly.getPlugin(BoatFly.class));
 //        getServer().getPluginManager().registerEvents(new Click2(), BoatFly.getPlugin(BoatFly.class));
