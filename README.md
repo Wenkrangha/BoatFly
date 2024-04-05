@@ -1,4 +1,5 @@
 # BoatFly - 飞船
+![Image text](Boat.jpg)
 ### 作者 : Wenkrang 
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
@@ -14,3 +15,6 @@
 - Wurst等辅助模组的飞船创意
 - 来自通义千问大模型的帮助,通义千问能帮助开发者快速完成开发
 - bukkit.windit.net 中文Spigot Api文档
+## 感谢有你
+- 感谢来自各地的开发者助力项目开发
+- 具体名单请看贡献者列表
