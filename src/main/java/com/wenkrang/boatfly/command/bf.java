@@ -16,6 +16,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +63,10 @@ public class bf implements CommandExecutor {
                         itemStack0.setItemMeta(itemMeta0);
                         player.getInventory().addItem(itemStack0);
                     }
+                }
+                if (strings[0].equalsIgnoreCase("upgrade")) {
+                    Document document = Jsoup.parse("https://github.com/Wenkrangha/BoatFly/upgrade/Lasternumber");
+                    document.toString();
                 }
 
 
