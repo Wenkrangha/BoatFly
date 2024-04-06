@@ -20,11 +20,9 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.bukkit.block.BlockFace.NORTH;
-
 
 public class PlayerInteract implements Listener {
-    public static boolean isBelow1_20_2() {
+    public static boolean isBelow1_20_4() {
         String fullVersion = Bukkit.getServer().getVersion();
         Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)");
         Matcher matcher = pattern.matcher(fullVersion);
@@ -37,9 +35,9 @@ public class PlayerInteract implements Listener {
             // 检查是否低于1.20.2
             return (majorVersion < 1 ||
                     (majorVersion == 1 && minorVersion < 20) ||
-                    (majorVersion == 1 && minorVersion == 20 && patchVersion < 2));
+                    (majorVersion == 1 && minorVersion == 20 && patchVersion < 4));
         } else {
-            // 如果无法解析版本号，则认为不是预期的格式，返回 true 表示可能低于1.20.2
+            // 如果无法解析版本号，则认为不是预期的格式，返回 true 表示可能低于1.20.4
             return true;
         }
     }
@@ -109,7 +107,7 @@ public class PlayerInteract implements Listener {
             }
         }
 
-        if (isBelow1_20_2()) {
+        if (isBelow1_20_4()) {
             if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 if (event.getHand().equals(EquipmentSlot.HAND)) {
                     if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&

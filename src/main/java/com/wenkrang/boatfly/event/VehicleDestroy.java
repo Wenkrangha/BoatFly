@@ -32,7 +32,7 @@ public class VehicleDestroy implements Listener {
                     }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 1);
                 }
             }
-            if (PlayerInteract.isBelow1_20_2()) {
+            if (PlayerInteract.isBelow1_20_4()) {
                 if (event.getVehicle().getCustomName().equalsIgnoreCase("§9§l飞§r船")) {
                     new BukkitRunnable() {
                         @Override
