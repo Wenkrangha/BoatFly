@@ -65,8 +65,8 @@ public class bf implements CommandExecutor {
                     }
                 }
                 if (strings[0].equalsIgnoreCase("upgrade")) {
-                    Document document = Jsoup.parse("https://github.com/Wenkrangha/BoatFly/upgrade/Lasternumber");
-                    document.toString();
+                    Document document = Jsoup.parse("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Lasternumber");
+                    commandSender.sendMessage(document.toString());
                 }
 
 
