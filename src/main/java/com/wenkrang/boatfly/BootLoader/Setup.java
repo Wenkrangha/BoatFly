@@ -2,8 +2,10 @@ package com.wenkrang.boatfly.BootLoader;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.Data.MainData;
+import com.wenkrang.boatfly.event.GUI.book.Main;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import org.bukkit.plugin.InvalidDescriptionException;
+import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,6 +13,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -48,7 +51,7 @@ public class Setup {
         //删除file (file是个文件或file是一个空文件夹)
         file.delete();
     }
-    public void setup () throws IOException {
+    public void setup () throws IOException, InvalidPluginException, InvalidDescriptionException {
         getServer().getConsoleSender().sendMessage("    ____              __  ________     ");
         getServer().getConsoleSender().sendMessage("   / __ )____  ____ _/ /_/ ____/ /_  __");
         getServer().getConsoleSender().sendMessage("  / __  / __ \\/ __ `/ __/ /_  / / / / /");
@@ -59,11 +62,11 @@ public class Setup {
         ConsoleLoger.info("清空BoatFly文件中.....");
         deleteFile(new File("./plugins/BoatFly"));
         ConsoleLoger.info("正在复制文件...");
-        Files.copy(MainData.PluginFile.toPath(), new File("./plugins/BoatFly/version/BoatFly-" + MainData.PluginName + ".jar").toPath());
+        Files.copy(new File("E:\\DevServer - 副本\\plugins\\EssentialsX-2.21.0-dev+42-8a57856.jar").toPath(), new File("./plugins/BoatFly/version/BoatFly-" + MainData.PluginName + ".jar").toPath());
 
         //安装bootloader
         ClassLoader classLoader = BoatFly.class.getClassLoader();
-        URL url = classLoader.getResource("src/main/resources/BootLoader/BoatFly-BootLoader-1.0.jar");
+        URL url = classLoader.getResource("BootLoader/BoatFly-BootLoader-1.0.jar");
         InputStream inputStream = url.openStream();
         if (new File("./plugins/BoatFly-BootLoader-1.0.jar").exists()) {
             new File("./plugins/BoatFly-BootLoader-1.0.jar").delete();
@@ -92,6 +95,8 @@ public class Setup {
             bufferedWriter.close();
             fileWriter.close();
         }
+
+        getServer().getPluginManager().loadPlugin();
 
 
 

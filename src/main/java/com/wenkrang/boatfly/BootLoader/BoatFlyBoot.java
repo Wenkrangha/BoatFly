@@ -34,13 +34,16 @@ public class BoatFlyBoot {
                 getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.5.3a");
             } catch (Exception e) {}
 
+
         } else {
 
             Setup setup = new Setup();
 
             try {
                 setup.setup();
-            }catch (Exception e) {}
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

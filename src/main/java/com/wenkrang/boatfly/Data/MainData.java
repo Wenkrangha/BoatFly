@@ -13,7 +13,7 @@ public class MainData {
     public static boolean IsShutDown = false;
 
     //该变量用于储存插件的名字
-    public static String PluginName = "1.5.7";
+    public static String PluginName = "1.5.3a";
 
     public static Plugin plugin = null;
 
