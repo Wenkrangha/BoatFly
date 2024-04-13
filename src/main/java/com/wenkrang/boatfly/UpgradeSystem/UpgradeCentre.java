@@ -125,17 +125,18 @@ public class UpgradeCentre {
             InetAddress GITEE = InetAddress.getByName("gitee.com");
 
             boolean Checked = false;
-            if (GITHUB.isReachable(5000)) {
-                ConsoleLoger.info("将使用Github获取头文件");
-                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
-                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
-                Checked = true;
-            } else if (GITEE.isReachable(5000)) {
+
+            if (GITEE.isReachable(5000)) {
                 ConsoleLoger.info("将使用Gitee获取头文件");
 //https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name
                 UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
                 UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
 
+                Checked = true;
+            } else if (GITHUB.isReachable(5000)) {
+                ConsoleLoger.info("将使用Github获取头文件");
+                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
+                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
                 Checked = true;
             } else {
                 ConsoleLoger.error("网络连接失败，请检查网络连接");
