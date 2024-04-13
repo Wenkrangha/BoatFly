@@ -90,16 +90,7 @@ public class UpgradeCentre {
                         bufferedWriter.close();
                         fileWriter.close();
                     }
-                    if (true) {
-                        File file = new File("./plugins/BoatFly/SetupName");
-                        FileReader fr = new FileReader(file);
-                        BufferedReader br = new BufferedReader(fr);
-                        String s = br.readLine();
 
-                        Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
-
-                        ConsoleLoger.info(plugin.toString());
-                    }
                     ConsoleLoger.info("重启您的服务器以应用更新!");
                 }catch (Exception e) {
                     e.printStackTrace();
