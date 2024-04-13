@@ -7,6 +7,8 @@ import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
 import com.wenkrang.boatfly.item.Materials;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 
 import java.io.*;
 import java.net.URL;
@@ -29,7 +31,7 @@ public class init {
             File file = new File("./plugins/BoatFly/SetupNumber");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(MainData.Number);
+            bufferedWriter.write(String.valueOf(MainData.Number));
             bufferedWriter.close();
             fileWriter.close();
         }
@@ -53,6 +55,7 @@ public class init {
         }
     }
     public static void boot() {
+
         //启动插件,显示启动信息
         getServer().getConsoleSender().sendMessage("    ____              __  ________     ");
         getServer().getConsoleSender().sendMessage("   / __ )____  ____ _/ /_/ ____/ /_  __");

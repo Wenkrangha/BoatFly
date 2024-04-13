@@ -6,6 +6,9 @@ import com.wenkrang.boatfly.lib.ConsoleLoger;
 import com.wenkrang.boatfly.lib.Download;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 import org.apache.commons.io.FileUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.FileUtil;
 
 import java.io.*;
@@ -17,66 +20,93 @@ import static org.bukkit.Bukkit.getServer;
 
 public class UpgradeCentre {
     public static void upgrade() throws Exception {
-        InetAddress GITHUB = InetAddress.getByName("github.com");
-        InetAddress GITEE = InetAddress.getByName("gitee.com");
-        if (GITHUB.isReachable(5000)) {
-            ConsoleLoger.info("Github");
-            if (true) {
-                FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String Name = bufferedReader.readLine();
-                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
-                ConsoleLoger.info("GITHUB HELP");
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                try {
+                    InetAddress GITHUB = InetAddress.getByName("github.com");
+                    InetAddress GITEE = InetAddress.getByName("gitee.com");
+
+                    if (GITEE.isReachable(5000)) {
+                        ConsoleLoger.info("Gitee");
+                        if (true) {
+                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
+                            BufferedReader bufferedReader = new BufferedReader(fileReader);
+                            String Name = bufferedReader.readLine();
+                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
+                            ConsoleLoger.info("GITEE HELP");
+                        }
+                    } else if (GITHUB.isReachable(5000)) {
+                        ConsoleLoger.info("Github");
+                        if (true) {
+                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
+                            BufferedReader bufferedReader = new BufferedReader(fileReader);
+                            String Name = bufferedReader.readLine();
+                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
+                            ConsoleLoger.info("GITHUB HELP");
+                        }
+                    }
+
+                    String Name = null;
+                    String Number = null;
+                    if (true) {
+                        FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                        Name = bufferedReader.readLine();
+                        ConsoleLoger.info(Name);
+                        fileReader.close();
+                        bufferedReader.close();
+                    }
+
+                    if (true) {
+                        FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                        Number = bufferedReader.readLine();
+                        fileReader.close();
+                        bufferedReader.close();
+                    }
+
+                    new File("./plugins/BoatFly/SetupNumber").delete();
+                    new File("./plugins/BoatFly/SetupName").delete();
+
+                    if (true) {
+                        File file = new File("./plugins/BoatFly/SetupNumber");
+                        FileWriter fileWriter = new FileWriter(file);
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        bufferedWriter.write(Number);
+                        bufferedWriter.close();
+                        fileWriter.close();
+                    }
+
+                    if (true) {
+                        File file = new File("./plugins/BoatFly/SetupName");
+                        FileWriter fileWriter = new FileWriter(file);
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        bufferedWriter.write(Name);
+                        bufferedWriter.close();
+                        fileWriter.close();
+                    }
+                    if (true) {
+                        File file = new File("./plugins/BoatFly/SetupName");
+                        FileReader fr = new FileReader(file);
+                        BufferedReader br = new BufferedReader(fr);
+                        String s = br.readLine();
+
+                        Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
+
+                        ConsoleLoger.info(plugin.toString());
+                        Bukkit.getServer().getPluginManager().enablePlugin(plugin);
+
+                    }
+                    getServer().getPluginManager().disablePlugin(MainData.plugin);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
-        } else if (GITEE.isReachable(5000)) {
-            ConsoleLoger.info("Gitee");
-            if (true) {
-                FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String Name = bufferedReader.readLine();
-                UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
-                ConsoleLoger.info("GITEE HELP");
-            }
-        }
+        }.runTaskAsynchronously(BoatFly.getPlugin(BoatFly.class));
 
-        String Name = null;
-        String Number = null;
-        if (true) {
-            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            Name = bufferedReader.readLine();
-        }
-
-        if (true) {
-            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            Name = bufferedReader.readLine();
-        }
-
-        new File("./plugins/BoatFly/SetupNumber").delete();
-        new File("./plugins/BoatFly/SetupName").delete();
-
-        if (true) {
-            File file = new File("./plugins/BoatFly/SetupNumber");
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(Number);
-            bufferedWriter.close();
-            fileWriter.close();
-        }
-
-        if (true) {
-            File file = new File("./plugins/BoatFly/SetupName");
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("BoatFly-" + Name + ".jar");
-            bufferedWriter.close();
-            fileWriter.close();
-        }
-
-        new File ("./plugins/BoatFly/upgrade/reload").createNewFile();
-        MainData.plugin.onDisable();
-        getServer().getPluginManager().disablePlugin(MainData.plugin);
     }
 
     public static void update() throws Exception {

@@ -1,13 +1,6 @@
 package com.wenkrang.boatfly;
 
 import com.wenkrang.boatfly.Data.MainData;
-import com.wenkrang.boatfly.Loader.LoadCommand;
-import com.wenkrang.boatfly.Loader.LoadEvent;
-import com.wenkrang.boatfly.Loader.LoadRecipe;
-import com.wenkrang.boatfly.UpgradeSystem.CheckReloadFile;
-import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
-import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
-import com.wenkrang.boatfly.event.VehicleExit;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.InvalidDescriptionException;
@@ -19,9 +12,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
-import static org.bukkit.Bukkit.getScheduler;
-import static org.bukkit.Bukkit.getServer;
 
 
 public final class BoatFly extends JavaPlugin {
@@ -36,6 +26,8 @@ public final class BoatFly extends JavaPlugin {
         }else {
             if (!getFile().toPath().toString().contains("version")) {
                 try {
+
+
                     if (!new File("./plugins/BoatFly/SetupName").exists()) {
                         init.init();
                         File file = new File("./plugins/BoatFly/SetupName");
@@ -46,7 +38,7 @@ public final class BoatFly extends JavaPlugin {
                         Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
                         ConsoleLoger.info(plugin.toString());
                         Bukkit.getServer().getPluginManager().enablePlugin(plugin);
-                        getServer().getPluginManager().registerEvents(new CheckReloadFile(), BoatFly.getPlugin(BoatFly.class));
+
                     }else {
                         if (true) {
                             File file = new File("./plugins/BoatFly/SetupNumber");
@@ -69,7 +61,7 @@ public final class BoatFly extends JavaPlugin {
 
                         ConsoleLoger.info(plugin.toString());
                         Bukkit.getServer().getPluginManager().enablePlugin(plugin);
-                        getServer().getPluginManager().registerEvents(new CheckReloadFile(), BoatFly.getPlugin(BoatFly.class));
+
                     }
 
                 } catch (IOException | InvalidPluginException | InvalidDescriptionException e) {
