@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.event.GUI.table;
 
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Dropper;
@@ -42,14 +43,14 @@ public class OpenTable implements Listener {
                     ItemStack itemStack2 = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
                     ItemMeta itemMeta2 = itemStack2.getItemMeta();
                     itemStack2.setItemMeta(itemMeta2);
-                    ItemStack itemStack3 = new ItemStack(Material.OAK_SIGN);
+                    ItemStack itemStack3 = new ItemStack(Materials.sign);
                     ItemMeta itemMeta3 = itemStack3.getItemMeta();
                     itemMeta3.setDisplayName("§9§l将配件§r放在上方");
                     ArrayList<String> lore3 = new ArrayList<>();
                     lore3.add("§7将你的§7§l配件§7放在§7§l§n上面§7，然后按下§7§l§n下面的按钮");
                     itemMeta3.setLore(lore3);
                     itemStack3.setItemMeta(itemMeta3);
-                    ItemStack itemStack4 = new ItemStack(Material.OAK_SIGN);
+                    ItemStack itemStack4 = new ItemStack(Materials.sign);
                     ItemMeta itemMeta4 = itemStack4.getItemMeta();
                     itemMeta4.setDisplayName("§9§l请将飞机放在§r下方");
                     ArrayList<String> lore4 = new ArrayList<>();

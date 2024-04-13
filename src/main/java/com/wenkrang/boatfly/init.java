@@ -5,6 +5,7 @@ import com.wenkrang.boatfly.Loader.LoadCommand;
 import com.wenkrang.boatfly.Loader.LoadEvent;
 import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
+import com.wenkrang.boatfly.item.Materials;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 
 import java.io.*;
@@ -61,8 +62,12 @@ public class init {
         getServer().getConsoleSender().sendMessage("                              /____/   ");
         try {
             //这里将启动分为3个部分，1.加载指令 2.加载事件 3.加载合成
+            //1.加载指令
             LoadCommand.run();
+            //2.加载事件
             LoadEvent.run();
+            //3.加载合成
+            Materials.init();
             LoadRecipe.run();
             //检测服务器版本，动态修补兼容问题
             if (PlayerInteract.isBelow1_20_4()) {
