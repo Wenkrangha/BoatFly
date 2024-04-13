@@ -77,6 +77,7 @@ public class UpgradeCentre {
                         FileWriter fileWriter = new FileWriter(file);
                         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                         bufferedWriter.write(Number);
+                        MainData.Number = Integer.parseInt(Number);
                         bufferedWriter.close();
                         fileWriter.close();
                     }
