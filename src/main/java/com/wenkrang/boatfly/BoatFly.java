@@ -21,7 +21,7 @@ public final class BoatFly extends JavaPlugin {
         MainData.plugin = getPlugin(BoatFly.class);
         MainData.PluginFile = getFile();
         // Plugin startup logic
-        if (getName().equalsIgnoreCase("BoatFly")) {
+        if (getName().equalsIgnoreCase("BoatFly-1.5.5")) {
             init.boot();
         }else {
             if (!getFile().toPath().toString().contains("version")) {
