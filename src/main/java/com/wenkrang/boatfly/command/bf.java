@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.command;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.Entity.plane;
+import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
 import com.wenkrang.boatfly.lib.SpigotConsoleColors;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -17,6 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +65,15 @@ public class bf implements CommandExecutor {
                     }
                 }
                 if (strings[0].equalsIgnoreCase("upgrade")) {
-
+                    try {
+                        UpgradeCentre.update();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new RuntimeException(e);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        throw new RuntimeException(e);
+                    }
                 }
 
 
