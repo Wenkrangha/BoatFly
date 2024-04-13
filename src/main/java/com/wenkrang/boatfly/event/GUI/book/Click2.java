@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -38,11 +39,11 @@ public class Click2 implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
-                ItemStack itemStack2 = new ItemStack(Material.LIGHTNING_ROD);
+                ItemStack itemStack2 = new ItemStack(Materials.lightningRod);
                 ItemMeta itemMeta2 = itemStack2.getItemMeta();
                 itemStack2.setItemMeta(itemMeta2);
                 ItemStack itemStack3 = new ItemStack(Material.ANVIL);
@@ -59,10 +60,10 @@ public class Click2 implements Listener {
                 ItemStack itemStack5 = new ItemStack(Material.FURNACE);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
-                ItemStack itemStack6 = new ItemStack(Material.BLAST_FURNACE);
+                ItemStack itemStack6 = new ItemStack(Materials.blastFurnace);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack7 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemMeta7.setDisplayName("§9§l发动机§r模块-I");
                 ArrayList<String> lore7 = new ArrayList<>();
@@ -108,11 +109,11 @@ public class Click2 implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
-                ItemStack itemStack2 = new ItemStack(Material.LIGHTNING_ROD);
+                ItemStack itemStack2 = new ItemStack(Materials.lightningRod);
                 ItemMeta itemMeta2 = itemStack2.getItemMeta();
                 itemStack2.setItemMeta(itemMeta2);
                 ItemStack itemStack3 = new ItemStack(Material.ANVIL);
@@ -126,10 +127,10 @@ public class Click2 implements Listener {
                 lore4.add("§7按照配方§7§l§n有序合成");
                 itemMeta4.setLore(lore4);
                 itemStack4.setItemMeta(itemMeta4);
-                ItemStack itemStack5 = new ItemStack(Material.BLAST_FURNACE);
+                ItemStack itemStack5 = new ItemStack(Materials.blastFurnace);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
-                ItemStack itemStack6 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack6 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemMeta6.setDisplayName("§9§l发动机§r模块-I");
                 ArrayList<String> lore6 = new ArrayList<>();
@@ -139,7 +140,7 @@ public class Click2 implements Listener {
                 lore6.add("§3?§7可提供动力:§2+2");
                 itemMeta6.setLore(lore6);
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack7 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemMeta7.setDisplayName("§9§l发动机§r模块-II");
                 ArrayList<String> lore7 = new ArrayList<>();
@@ -152,7 +153,7 @@ public class Click2 implements Listener {
                 ItemStack itemStack8 = new ItemStack(Material.IRON_INGOT);
                 ItemMeta itemMeta8 = itemStack8.getItemMeta();
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemStack itemStack9 = new ItemStack(Materials.netheriteIngot);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 inventory.setItem(0, itemStack0);

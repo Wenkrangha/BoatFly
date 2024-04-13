@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Dropper;
@@ -30,7 +31,7 @@ public class Main {
         ItemMeta itemMeta2 = itemStack2.getItemMeta();
         itemMeta2.setDisplayName("§9§l飞§r船");
         itemStack2.setItemMeta(itemMeta2);
-        ItemStack itemStack3 = new ItemStack(Material.BEEHIVE);
+        ItemStack itemStack3 = new ItemStack(Materials.beeHive);
         ItemMeta itemMeta3 = itemStack3.getItemMeta();
         itemMeta3.setDisplayName("§9§l发动机§r模块");
         ArrayList<String> lore3 = new ArrayList<>();
@@ -54,7 +55,7 @@ public class Main {
         lore8.add("§7但实际上就是§7§l一样§7的（");
         itemMeta8.setLore(lore8);
         itemStack8.setItemMeta(itemMeta8);
-        ItemStack itemStack5 = new ItemStack(Material.OAK_CHEST_BOAT);
+        ItemStack itemStack5 = new ItemStack(Materials.chestBoat);
         ItemMeta itemMeta5 = itemStack5.getItemMeta();
         itemMeta5.setDisplayName("§9§l货运§r飞船");
         ArrayList<String> lore5 = new ArrayList<>();

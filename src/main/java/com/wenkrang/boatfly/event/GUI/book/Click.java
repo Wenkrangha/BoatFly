@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -23,7 +24,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -47,7 +48,7 @@ public class Click implements Listener {
                 ItemStack itemStack6 = new ItemStack(Material.SADDLE);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack7 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemMeta7.setDisplayName("§9§l发动机§r模块");
                 ArrayList<String> lore7 = new ArrayList<>();
@@ -75,7 +76,7 @@ public class Click implements Listener {
                 lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
                 itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
-                ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemStack itemStack10 = new ItemStack(Materials.netheriteIngot);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
                 ItemStack itemStack11 = new ItemStack(Material.REDSTONE);
@@ -111,7 +112,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -135,10 +136,10 @@ public class Click implements Listener {
                 ItemStack itemStack6 = new ItemStack(Material.FURNACE);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.BLAST_FURNACE);
+                ItemStack itemStack7 = new ItemStack(Materials.blastFurnace);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemStack7.setItemMeta(itemMeta7);
-                ItemStack itemStack8 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack8 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta8 = itemStack8.getItemMeta();
                 itemMeta8.setDisplayName("§9§l发动机§r模块");
                 ArrayList<String> lore8 = new ArrayList<>();
@@ -182,7 +183,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -192,7 +193,7 @@ public class Click implements Listener {
                 ItemStack itemStack3 = new ItemStack(Material.NETHER_STAR);
                 ItemMeta itemMeta3 = itemStack3.getItemMeta();
                 itemStack3.setItemMeta(itemMeta3);
-                ItemStack itemStack4 = new ItemStack(Material.TARGET);
+                ItemStack itemStack4 = new ItemStack(Materials.target);
                 ItemMeta itemMeta4 = itemStack4.getItemMeta();
                 itemStack4.setItemMeta(itemMeta4);
                 ItemStack itemStack5 = new ItemStack(Material.CRAFTING_TABLE);
@@ -206,7 +207,7 @@ public class Click implements Listener {
                 ItemStack itemStack6 = new ItemStack(Material.OBSERVER);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.NETHERITE_SWORD);
+                ItemStack itemStack7 = new ItemStack(Materials.netheriteSword);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemStack7.setItemMeta(itemMeta7);
                 ItemStack itemStack8 = new ItemStack(Material.DISPENSER);
@@ -254,7 +255,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -272,7 +273,7 @@ public class Click implements Listener {
                 lore4.add("§7按照配方§7§l§n有序合成");
                 itemMeta4.setLore(lore4);
                 itemStack4.setItemMeta(itemMeta4);
-                ItemStack itemStack5 = new ItemStack(Material.HONEY_BLOCK);
+                ItemStack itemStack5 = new ItemStack(Materials.honeyBlock);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
                 ItemStack itemStack6 = new ItemStack(Material.CHEST);
@@ -289,7 +290,7 @@ public class Click implements Listener {
                 lore8.add("§7但实际上就是§7§l一样§7的（");
                 itemMeta8.setLore(lore8);
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemStack itemStack9 = new ItemStack(Materials.netheriteIngot);
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 ItemStack itemStack10 = new ItemStack(Material.CAULDRON);
@@ -325,7 +326,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -345,7 +346,7 @@ public class Click implements Listener {
                 lore3.add("§7按照配方§7§l§n有序合成");
                 itemMeta3.setLore(lore3);
                 itemStack3.setItemMeta(itemMeta3);
-                ItemStack itemStack4 = new ItemStack(Material.OAK_CHEST_BOAT);
+                ItemStack itemStack4 = new ItemStack(Materials.chestBoat);
                 ItemMeta itemMeta4 = itemStack4.getItemMeta();
                 itemMeta4.setDisplayName("§9§l货运§r飞船");
                 ArrayList<String> lore4 = new ArrayList<>();
@@ -358,10 +359,10 @@ public class Click implements Listener {
                 lore4.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
                 itemMeta4.setLore(lore4);
                 itemStack4.setItemMeta(itemMeta4);
-                ItemStack itemStack5 = new ItemStack(Material.CAMPFIRE);
+                ItemStack itemStack5 = new ItemStack(Materials.campfire);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
-                ItemStack itemStack6 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemStack itemStack6 = new ItemStack(Materials.netheriteIngot);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
                 ItemStack itemStack9 = new ItemStack(Material.OAK_BOAT);
@@ -403,7 +404,7 @@ public class Click implements Listener {
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");
                 itemStack0.setItemMeta(itemMeta0);
-                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
                 itemMeta1.setDisplayName("§9§l返回§r主页");
                 itemStack1.setItemMeta(itemMeta1);
@@ -427,7 +428,7 @@ public class Click implements Listener {
                 ItemStack itemStack6 = new ItemStack(Material.SADDLE);
                 ItemMeta itemMeta6 = itemStack6.getItemMeta();
                 itemStack6.setItemMeta(itemMeta6);
-                ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+                ItemStack itemStack7 = new ItemStack(Materials.beeHive);
                 ItemMeta itemMeta7 = itemStack7.getItemMeta();
                 itemMeta7.setDisplayName("§9§l发动机§r模块");
                 ArrayList<String> lore7 = new ArrayList<>();
@@ -449,7 +450,7 @@ public class Click implements Listener {
                 lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
                 itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
-                ItemStack itemStack10 = new ItemStack(Material.NETHERITE_INGOT);
+                ItemStack itemStack10 = new ItemStack(Materials.netheriteIngot);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
                 ItemStack itemStack11 = new ItemStack(Material.REDSTONE);
@@ -482,11 +483,11 @@ public class Click implements Listener {
 //                ItemMeta itemMeta0 = itemStack0.getItemMeta();
 //                itemMeta0.setDisplayName(" ");
 //                itemStack0.setItemMeta(itemMeta0);
-//                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+//                ItemStack itemStack1 = new ItemStack(Materials.sign);
 //                ItemMeta itemMeta1 = itemStack1.getItemMeta();
 //                itemMeta1.setDisplayName("§9§l返回§r主页");
 //                itemStack1.setItemMeta(itemMeta1);
-//                ItemStack itemStack2 = new ItemStack(Material.NETHERITE_SCRAP);
+//                ItemStack itemStack2 = new ItemStack(Materials.netheriteScrap);
 //                ItemMeta itemMeta2 = itemStack2.getItemMeta();
 //                itemStack2.setItemMeta(itemMeta2);
 //                ItemStack itemStack3 = new ItemStack(Material.CRAFTING_TABLE);
@@ -500,10 +501,10 @@ public class Click implements Listener {
 //                ItemStack itemStack4 = new ItemStack(Material.ANVIL);
 //                ItemMeta itemMeta4 = itemStack4.getItemMeta();
 //                itemStack4.setItemMeta(itemMeta4);
-//                ItemStack itemStack5 = new ItemStack(Material.GRINDSTONE);
+//                ItemStack itemStack5 = new ItemStack(Materials.grindstone);
 //                ItemMeta itemMeta5 = itemStack5.getItemMeta();
 //                itemStack5.setItemMeta(itemMeta5);
-//                ItemStack itemStack6 = new ItemStack(Material.SMITHING_TABLE);
+//                ItemStack itemStack6 = new ItemStack(Materials.smithingTable);
 //                ItemMeta itemMeta6 = itemStack6.getItemMeta();
 //                itemStack6.setItemMeta(itemMeta6);
 //                ItemStack itemStack7 = new ItemStack(Material.DROPPER);
@@ -550,7 +551,7 @@ public class Click implements Listener {
 //                ItemMeta itemMeta0 = itemStack0.getItemMeta();
 //                itemMeta0.setDisplayName(" ");
 //                itemStack0.setItemMeta(itemMeta0);
-//                ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+//                ItemStack itemStack1 = new ItemStack(Materials.sign);
 //                ItemMeta itemMeta1 = itemStack1.getItemMeta();
 //                itemMeta1.setDisplayName("§9§l返回§r主页");
 //                itemStack1.setItemMeta(itemMeta1);
@@ -587,7 +588,7 @@ public class Click implements Listener {
 //                lore6.add("§6放下船§6§l后§6，§6§l§n右键§6上船");
 //                itemMeta6.setLore(lore6);
 //                itemStack6.setItemMeta(itemMeta6);
-//                ItemStack itemStack7 = new ItemStack(Material.NETHERITE_INGOT);
+//                ItemStack itemStack7 = new ItemStack(Materials.netheriteIngot);
 //                ItemMeta itemMeta7 = itemStack7.getItemMeta();
 //                itemStack7.setItemMeta(itemMeta7);
 //                ItemStack itemStack8 = new ItemStack(Material.REDSTONE);

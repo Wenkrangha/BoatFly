@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,7 +17,7 @@ public class Path2 {
         ItemMeta itemMeta0 = itemStack0.getItemMeta();
         itemMeta0.setDisplayName(" ");
         itemStack0.setItemMeta(itemMeta0);
-        ItemStack itemStack1 = new ItemStack(Material.OAK_SIGN);
+        ItemStack itemStack1 = new ItemStack(Materials.sign);
         ItemMeta itemMeta1 = itemStack1.getItemMeta();
         itemMeta1.setDisplayName("§9§l返回§r主页");
         itemStack1.setItemMeta(itemMeta1);
@@ -33,7 +34,7 @@ public class Path2 {
         inventory.setItem(8, itemStack0);
 
         if (true) {
-            ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+            ItemStack itemStack7 = new ItemStack(Materials.beeHive);
             ItemMeta itemMeta7 = itemStack7.getItemMeta();
             itemMeta7.setDisplayName("§9§l发动机§r模块-I");
             ArrayList<String> lore7 = new ArrayList<>();
@@ -46,7 +47,7 @@ public class Path2 {
             inventory.setItem(10, itemStack7);
         }
         if (true) {
-            ItemStack itemStack7 = new ItemStack(Material.BEEHIVE);
+            ItemStack itemStack7 = new ItemStack(Materials.beeHive);
             ItemMeta itemMeta7 = itemStack7.getItemMeta();
             itemMeta7.setDisplayName("§9§l发动机§r模块-II");
             ArrayList<String> lore7 = new ArrayList<>();
