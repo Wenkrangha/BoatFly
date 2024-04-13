@@ -1,4 +1,4 @@
-name: BoatFly
+name: BoatFly-Fully
 version: '${project.version}'
 main: com.wenkrang.boatfly.BoatFly
 api-version: '1.16'

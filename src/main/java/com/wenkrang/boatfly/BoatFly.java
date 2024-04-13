@@ -6,10 +6,18 @@ import com.wenkrang.boatfly.Loader.LoadEvent;
 import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.InvalidDescriptionException;
+import org.bukkit.plugin.InvalidPluginException;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
+import static org.bukkit.Bukkit.getScheduler;
 import static org.bukkit.Bukkit.getServer;
 
 
@@ -20,26 +28,51 @@ public final class BoatFly extends JavaPlugin {
         MainData.plugin = getPlugin(BoatFly.class);
         MainData.PluginFile = getFile();
         // Plugin startup logic
-        //启动插件,显示启动信息
-        getServer().getConsoleSender().sendMessage("    ____              __  ________     ");
-        getServer().getConsoleSender().sendMessage("   / __ )____  ____ _/ /_/ ____/ /_  __");
-        getServer().getConsoleSender().sendMessage("  / __  / __ \\/ __ `/ __/ /_  / / / / /");
-        getServer().getConsoleSender().sendMessage(" / /_/ / /_/ / /_/ / /_/ __/ / / /_/ / ");
-        getServer().getConsoleSender().sendMessage("/_____/\\____/\\__,_/\\__/_/   /_/\\__, /  ");
-        getServer().getConsoleSender().sendMessage("                              /____/   ");
-        try {
-            //这里将启动分为3个部分，1.加载指令 2.加载事件 3.加载合成
-            LoadCommand.run();
-            LoadEvent.run();
-            LoadRecipe.run();
-            //检测服务器版本，动态修补兼容问题
-            if (PlayerInteract.isBelow1_20_4()) {
-                //提醒腐竹更新服务器
-                ConsoleLoger.info("您的服务器版本低于1.20.4,部分功能可能无法正常使用");
+        if (getName().equalsIgnoreCase("BoatFly")) {
+            init.boot();
+        }else {
+            if (!getFile().toPath().toString().contains("version")) {
+                try {
+                    if (!new File("./plugins/BoatFly/SetupName").exists()) {
+                        init.init();
+                        File file = new File("./plugins/BoatFly/SetupName");
+                        FileReader fr = new FileReader(file);
+                        BufferedReader br = new BufferedReader(fr);
+                        String s = br.readLine();
+                        ConsoleLoger.info("./plugins/BoatFly/version/" + s);
+                        Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
+                        ConsoleLoger.info(plugin.toString());
+                        Bukkit.getServer().getPluginManager().enablePlugin(plugin);
+                    }else {
+                        if (true) {
+                            File file = new File("./plugins/BoatFly/SetupNumber");
+                            FileReader fr = new FileReader(file);
+                            BufferedReader br = new BufferedReader(fr);
+                            String s = br.readLine();
+
+                            int i = Integer.parseInt(s);
+
+                            if (MainData.Number > i) {
+                                init.upgrade();
+                            }
+                        }
+                        File file = new File("./plugins/BoatFly/SetupName");
+                        FileReader fr = new FileReader(file);
+                        BufferedReader br = new BufferedReader(fr);
+                        String s = br.readLine();
+
+                        Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
+
+                        ConsoleLoger.info(plugin.toString());
+                        Bukkit.getServer().getPluginManager().enablePlugin(plugin);
+                    }
+
+                } catch (IOException | InvalidPluginException | InvalidDescriptionException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
             }
-            //加载完成
-            getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : 1.5.3a");
-        } catch (Exception e) {}
+        }
     }
 
     @Override
