@@ -4,7 +4,10 @@ import com.wenkrang.boatfly.Data.MainData;
 import com.wenkrang.boatfly.Loader.LoadCommand;
 import com.wenkrang.boatfly.Loader.LoadEvent;
 import com.wenkrang.boatfly.Loader.LoadRecipe;
+import com.wenkrang.boatfly.UpgradeSystem.CheckReloadFile;
+import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
+import com.wenkrang.boatfly.event.VehicleExit;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.InvalidDescriptionException;
@@ -43,6 +46,7 @@ public final class BoatFly extends JavaPlugin {
                         Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
                         ConsoleLoger.info(plugin.toString());
                         Bukkit.getServer().getPluginManager().enablePlugin(plugin);
+                        getServer().getPluginManager().registerEvents(new CheckReloadFile(), BoatFly.getPlugin(BoatFly.class));
                     }else {
                         if (true) {
                             File file = new File("./plugins/BoatFly/SetupNumber");
@@ -65,6 +69,7 @@ public final class BoatFly extends JavaPlugin {
 
                         ConsoleLoger.info(plugin.toString());
                         Bukkit.getServer().getPluginManager().enablePlugin(plugin);
+                        getServer().getPluginManager().registerEvents(new CheckReloadFile(), BoatFly.getPlugin(BoatFly.class));
                     }
 
                 } catch (IOException | InvalidPluginException | InvalidDescriptionException e) {
