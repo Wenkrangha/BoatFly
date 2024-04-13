@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
+import static com.wenkrang.boatfly.Data.MainData.keys;
 import static org.bukkit.Bukkit.getServer;
 
 public class LoadRecipe {
@@ -86,6 +87,7 @@ public class LoadRecipe {
                 itemStack11.setItemMeta(itemMeta11);
                 //命名空间
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheBoatFly");
+                keys.add(namespacedKey);
                 //配方
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
@@ -148,6 +150,7 @@ public class LoadRecipe {
                 itemStack10.setItemMeta(itemMeta10);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Boost");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
                         .shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
@@ -208,6 +211,7 @@ public class LoadRecipe {
                 itemStack10.setItemMeta(itemMeta10);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Damager");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
                         .shape("qwe", "rty", "uiu")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
@@ -268,6 +272,7 @@ public class LoadRecipe {
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
                 itemStack10.setItemMeta(itemMeta10);
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "superchest");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey,itemStack8)
                         .shape("qwq","ert","yuy")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
@@ -337,6 +342,7 @@ public class LoadRecipe {
                 itemMeta9.setLore(lore9);
                 itemStack9.setItemMeta(itemMeta9);
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "boatchest");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4)
                         .shape(" q "," w ","ere")
                         .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
@@ -404,6 +410,7 @@ public class LoadRecipe {
                 itemStack11.setItemMeta(itemMeta11);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheLowBoatFly");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("   ", "rty", "uiu")
                         .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
                         .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
@@ -442,6 +449,7 @@ public class LoadRecipe {
                 itemStack5.setItemMeta(itemMeta5);
 
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Tflytable");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4);
                 shapedRecipe.shape("qwe", "rty", "uio");
                 shapedRecipe.setIngredient('q', new RecipeChoice.ExactChoice(itemStack0));
@@ -489,6 +497,7 @@ public class LoadRecipe {
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemStack5.setItemMeta(itemMeta5);
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TTheRawBoat");
+                keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack3);
                 shapedRecipe.shape("   ", "rty", "uio");
                 shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack0));

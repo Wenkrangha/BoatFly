@@ -1,9 +1,11 @@
 package com.wenkrang.boatfly.Data;
 
 import com.wenkrang.boatfly.BoatFly;
+import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainData {
     //这里存放各种需要用到的公共变量
@@ -20,4 +22,6 @@ public class MainData {
     public static File PluginFile = null;
 
     public static int Number = 2;
+
+    public static ArrayList<NamespacedKey> keys = new ArrayList<>();
 }

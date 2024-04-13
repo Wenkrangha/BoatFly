@@ -35,6 +35,7 @@ public class bf implements CommandExecutor {
         sender.sendMessage(" §4| §7help  帮助列表");
         sender.sendMessage(" §4| §7getbook  获取配方");
         sender.sendMessage(" §4| §7- 创造下，右键配方可以将直接获取物品");
+        sender.sendMessage(" §4| §7upgrade  全自动更新插件");
         sender.sendMessage(" §4| §7作者:Wenkrang");
     }
 

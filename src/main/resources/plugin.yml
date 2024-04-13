@@ -3,6 +3,6 @@ version: '${project.version}'
 main: com.wenkrang.boatfly.BoatFly
 api-version: '1.13'
 commands:
-  bf:
+  bf-1.5.5:
     description: Spigot版本的飞船插件的主命令
-    usage: /bf
+    usage: /bf-1.5.5

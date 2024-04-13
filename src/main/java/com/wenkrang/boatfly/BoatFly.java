@@ -26,8 +26,6 @@ public final class BoatFly extends JavaPlugin {
         }else {
             if (!getFile().toPath().toString().contains("version")) {
                 try {
-
-
                     if (!new File("./plugins/BoatFly/SetupName").exists()) {
                         init.init();
                         File file = new File("./plugins/BoatFly/SetupName");
