@@ -98,13 +98,8 @@ public class UpgradeCentre {
                         Plugin plugin = Bukkit.getServer().getPluginManager().loadPlugin(new File("./plugins/BoatFly/version/" + s));
 
                         ConsoleLoger.info(plugin.toString());
-                        Bukkit.getServer().getPluginManager().enablePlugin(plugin);
-
                     }
-                    for (NamespacedKey namespacedKey : keys) {
-                        getServer().removeRecipe(namespacedKey);
-                    }
-                    getServer().getPluginManager().disablePlugin(MainData.plugin);
+                    ConsoleLoger.info("重启您的服务器以应用更新!");
                 }catch (Exception e) {
                     e.printStackTrace();
                 }

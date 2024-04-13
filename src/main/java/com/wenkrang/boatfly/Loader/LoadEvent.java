@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.Loader;
 
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.UpgradeSystem.UpgradeCheck;
 import com.wenkrang.boatfly.event.*;
 import com.wenkrang.boatfly.event.GUI.*;
 import com.wenkrang.boatfly.event.GUI.book.Click;
@@ -31,6 +32,7 @@ public class LoadEvent {
         getServer().getPluginManager().registerEvents(new Click(), BoatFly.getPlugin(BoatFly.class));
         getServer().getPluginManager().registerEvents(new PlayerInteract(), BoatFly.getPlugin(BoatFly.class));
         getServer().getPluginManager().registerEvents(new VehicleDestroy(), BoatFly.getPlugin(BoatFly.class));
+        getServer().getPluginManager().registerEvents(new UpgradeCheck(), BoatFly.getPlugin(BoatFly.class));
 
         //铺垫awa
 //        getServer().getPluginManager().registerEvents(new OpenTable(), BoatFly.getPlugin(BoatFly.class));
