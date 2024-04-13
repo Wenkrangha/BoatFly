@@ -17,7 +17,9 @@ import java.nio.file.Files;
 import static org.bukkit.Bukkit.getServer;
 
 public class init {
+    //初始化插件
     public static void init() throws IOException {
+        //复制插件至版本文件夹
         new File("./plugins/BoatFly/version").mkdirs();
         if (true) {
             ClassLoader classLoader = BoatFly.class.getClassLoader();
@@ -26,7 +28,7 @@ public class init {
             Files.copy(inputStream, new File("./plugins/BoatFly/version/BoatFly-" + MainData.PluginName + ".jar").toPath());
             inputStream.close();
         }
-
+        //储存加载器应加载的插件的版本号
         if (true) {
             File file = new File("./plugins/BoatFly/SetupNumber");
             FileWriter fileWriter = new FileWriter(file);
@@ -35,7 +37,7 @@ public class init {
             bufferedWriter.close();
             fileWriter.close();
         }
-
+        //储存加载器应加载的插件的名字
         if (true) {
             File file = new File("./plugins/BoatFly/SetupName");
             FileWriter fileWriter = new FileWriter(file);
@@ -44,7 +46,7 @@ public class init {
             bufferedWriter.close();
             fileWriter.close();
         }
-
+        //储存加载器的路径
         if (true) {
             File file = new File("./plugins/BoatFly/Bootloader");
             FileWriter fileWriter = new FileWriter(file);
@@ -82,6 +84,7 @@ public class init {
         } catch (Exception e) {}
     }
     public static void upgrade() throws IOException {
+        //和init差不多
         new File("./plugins/BoatFly/SetupNumber").delete();
         new File("./plugins/BoatFly/SetupName").delete();
         new File("./plugins/BoatFly/Bootloader").delete();

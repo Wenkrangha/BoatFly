@@ -4,7 +4,11 @@ import org.bukkit.Location;
 
 
 public class plane {
+    //这些方法用于生成飞船
+    //但现在已经不怎么用了
+    //所有的Tag都在玩家乘上的时候添加
     public static void getplane(Location location) {
+
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
@@ -15,6 +19,7 @@ public class plane {
         boat.setCustomNameVisible(true);
         boat.setCustomName("§9§l飞§r船");
     }
+    //货运飞船的tag
     public static void getplanelevetwo(Location location) {
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
@@ -27,6 +32,7 @@ public class plane {
         boat.setCustomNameVisible(true);
         boat.setCustomName("§9§l货运§r飞船");
     }
+    //客运飞船的tag
     public static void getplanelevethree(Location location) {
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");

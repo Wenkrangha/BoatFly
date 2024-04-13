@@ -10,10 +10,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class BfTabComplete implements TabCompleter {
+    //插件补全器
+    //用于补全命令
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         switch (strings.length) {
             case 1:
+                //第一项补全
                 return Arrays.asList("help", "getbook");
             default:
                 return Collections.emptyList();
