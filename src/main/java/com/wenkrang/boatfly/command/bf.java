@@ -15,6 +15,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -76,7 +77,11 @@ public class bf implements CommandExecutor {
                         throw new RuntimeException(e);
                     }
                 }
+                if (strings[0].equalsIgnoreCase("tset")) {
+                    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BoatFly-BootLoader");
+                    Bukkit.getServer().getPluginManager().disablePlugin(plugin);
 
+                }
 
             } else {
 
