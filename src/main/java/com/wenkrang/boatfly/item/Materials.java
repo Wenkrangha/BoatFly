@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.item;
 
 import org.bukkit.Material;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
+import java.lang.NoSuchFieldError;
 
 public class Materials {
     //wild update
@@ -25,13 +26,13 @@ public class Materials {
     public static void init() {
         try {
             chestBoat = Material.OAK_CHEST_BOAT;
-        } catch (IllegalArgumentException e) {
+        } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.19，正在回退新内容");
             chestBoat = Material.OAK_BOAT;
         }
         try {
             lightningRod = Material.LIGHTNING_ROD;
-        } catch (IllegalArgumentException e) {
+        } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.17，正在回退新内容");
             lightningRod = Material.STICK;
         }
@@ -40,7 +41,7 @@ public class Materials {
             netheriteIngot = Material.NETHERITE_INGOT;
             netheriteScrap = Material.NETHERITE_SCRAP;
             netheriteSword = Material.NETHERITE_SWORD;
-        } catch (IllegalArgumentException e) {
+        } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.16，正在回退新内容");
             target = Material.STONE;
             netheriteIngot = Material.DIAMOND;
@@ -50,7 +51,7 @@ public class Materials {
         try {
             beeHive = Material.BEEHIVE;
             honeyBlock = Material.HONEY_BLOCK;
-        } catch (IllegalArgumentException e) {
+        } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.15，正在回退新内容");
             beeHive = Material.CHEST;
             honeyBlock = Material.SLIME_BLOCK;
@@ -61,7 +62,7 @@ public class Materials {
             smithingTable = Material.SMITHING_TABLE;
             sign = Material.OAK_SIGN;
             grindstone = Material.GRINDSTONE;
-        } catch (IllegalArgumentException e) {
+        } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.14，正在回退新内容");
             campfire = Material.FLINT_AND_STEEL;
             blastFurnace = Material.FURNACE;
