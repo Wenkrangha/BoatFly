@@ -20,6 +20,7 @@ public class Materials {
     //village and pillage update
     public static Material campfire;
     public static Material blastFurnace;
+    public static Material smoker;
     public static Material smithingTable;
     public static Material sign;
     public static Material grindstone;
@@ -59,6 +60,7 @@ public class Materials {
         try {
             campfire = Material.CAMPFIRE;
             blastFurnace = Material.BLAST_FURNACE;
+            smoker = Material.SMOKER;
             smithingTable = Material.SMITHING_TABLE;
             sign = Material.OAK_SIGN;
             grindstone = Material.GRINDSTONE;
@@ -66,6 +68,7 @@ public class Materials {
             ConsoleLoger.info("服务器版本低于1.14，正在回退新内容");
             campfire = Material.FLINT_AND_STEEL;
             blastFurnace = Material.FURNACE;
+            smoker = Material.FURNACE;
             smithingTable = Material.CRAFTING_TABLE;
             sign = Material.BOOK; //1.13尽量不用sign
             grindstone = Material.STONE;

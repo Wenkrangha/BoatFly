@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.event;
 
+import com.wenkrang.boatfly.item.Materials;
 import com.wenkrang.boatfly.BoatFly;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -39,7 +40,7 @@ public class VehicleExit implements Listener {
                 lore1.add("§7各个装置，包括AF,引擎等等");
                 itemMeta1.setLore(lore1);
                 itemStack1.setItemMeta(itemMeta1);
-                ItemStack itemStack2 = new ItemStack(Material.SMOKER);
+                ItemStack itemStack2 = new ItemStack(Materials.smoker);
                 ItemMeta itemMeta2 = itemStack2.getItemMeta();
                 itemMeta2.setDisplayName("§6§l引擎§6设置");
                 ArrayList<String> lore2 = new ArrayList<>();
@@ -160,7 +161,7 @@ public class VehicleExit implements Listener {
                 lore15.add("§6右键减少100");
                 itemMeta15.setLore(lore15);
                 itemStack15.setItemMeta(itemMeta15);
-                ItemStack itemStack16 = new ItemStack(Material.HONEY_BLOCK);
+                ItemStack itemStack16 = new ItemStack(Materials.honeyBlock);
                 ItemMeta itemMeta16 = itemStack16.getItemMeta();
                 itemMeta16.setDisplayName("§9§l设置§rZ坐标");
                 ArrayList<String> lore16 = new ArrayList<>();
