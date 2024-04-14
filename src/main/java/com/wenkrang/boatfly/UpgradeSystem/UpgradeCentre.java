@@ -30,25 +30,16 @@ public class UpgradeCentre {
                     InetAddress GITHUB = InetAddress.getByName("github.com");
                     InetAddress GITEE = InetAddress.getByName("gitee.com");
 
-                    if (GITEE.isReachable(5000)) {
-                        ConsoleLoger.info("使用Gitee进行更新");
-                        if (true) {
-                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
-                            BufferedReader bufferedReader = new BufferedReader(fileReader);
-                            String Name = bufferedReader.readLine();
-                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
-                            ConsoleLoger.info("jar下载完成");
-                        }
-                    } else if (GITHUB.isReachable(5000)) {
-                        ConsoleLoger.info("使用Github进行更新");
-                        if (true) {
-                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
-                            BufferedReader bufferedReader = new BufferedReader(fileReader);
-                            String Name = bufferedReader.readLine();
-                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/" + Name,"plugins/BoatFly/version/" + Name);
-                            ConsoleLoger.info("jar下载完成");
-                        }
+
+                    ConsoleLoger.info("使用Gitee进行更新");
+                    if (true) {
+                        FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                        String Name = bufferedReader.readLine();
+                        UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/" + Name, "plugins/BoatFly/version/" + Name);
+                        ConsoleLoger.info("jar下载完成");
                     }
+
 
                     String Name = null;
                     String Number = null;
@@ -56,7 +47,7 @@ public class UpgradeCentre {
                         FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
                         Name = bufferedReader.readLine();
-                        ConsoleLoger.info(Name);
+                        ConsoleLoger.info("下载完成：" + Name);
                         fileReader.close();
                         bufferedReader.close();
                     }
@@ -102,47 +93,60 @@ public class UpgradeCentre {
     }
 
     public static void update() throws Exception {
-        ConsoleLoger.info("初始化更新程序");
-        new File("./plugins/BoatFly/upgrade/").mkdir();
-        new File("./plugins/BoatFly/upgrade/Name").delete();
-        new File("./plugins/BoatFly/upgrade/Number").delete();
-        InetAddress TEST = InetAddress.getByName("www.bing.com");
-        if (TEST.isReachable(5000)) {
-            InetAddress GITHUB = InetAddress.getByName("github.com");
-            InetAddress GITEE = InetAddress.getByName("gitee.com");
+        new BukkitRunnable() {
 
-            boolean Checked = false;
-
-            if (GITEE.isReachable(5000)) {
-                ConsoleLoger.info("将使用Gitee获取头文件");
+            @Override
+            public void run() {
+                try {
+                    ConsoleLoger.info("初始化更新程序");
+                    new File("./plugins/BoatFly/upgrade/").mkdir();
+                    new File("./plugins/BoatFly/upgrade/Name").delete();
+                    new File("./plugins/BoatFly/upgrade/Number").delete();
+                    InetAddress TEST = InetAddress.getByName("www.bing.com");
+                    UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
+                    if (TEST.isReachable(8000) | new File("plugins/BoatFly/upgrade/Name").exists()) {
+                        InetAddress GITHUB = InetAddress.getByName("github.com");
+                        InetAddress GITEE = InetAddress.getByName("gitee.com");
+                        new File("./plugins/BoatFly/upgrade/Name").delete();
+                        boolean Checked = false;
+                        UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
+                        if (GITEE.isReachable(5000) | new File("plugins/BoatFly/upgrade/Name").exists()) {
+                            ConsoleLoger.info("将使用Gitee获取头文件");
 //https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name
-                UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
-                UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
+                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
+                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
 
-                Checked = true;
-            } else if (GITHUB.isReachable(5000)) {
-                ConsoleLoger.info("将使用Github获取头文件");
-                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
-                UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
-                Checked = true;
-            } else {
-                ConsoleLoger.error("网络连接失败，请检查网络连接");
-            }
-            if (Checked) {
-                if (true) {
-                    FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-                    BufferedReader bufferedReader = new BufferedReader(fileReader);
-                    String Number = bufferedReader.readLine();
-                    if (Integer.parseInt(Number) > MainData.Number) {
-                        ConsoleLoger.info("发现新版本!即将安装");
-                        upgrade();
+                            Checked = true;
+                        } else if (GITHUB.isReachable(5000)) {
+                            ConsoleLoger.info("将使用Github获取头文件");
+                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
+                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
+                            Checked = true;
+                        } else {
+                            ConsoleLoger.error("无法获取头文件，网络连接失败，请检查网络连接");
+                        }
+                        if (Checked) {
+                            if (true) {
+                                FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                                String Number = bufferedReader.readLine();
+                                if (Integer.parseInt(Number) > MainData.Number) {
+                                    ConsoleLoger.info("发现新版本!即将安装");
+                                    upgrade();
+                                } else {
+                                    ConsoleLoger.info("无可用更新");
+                                }
+                            }
+                        }
                     } else {
-                        ConsoleLoger.info("无可用更新");
+                        ConsoleLoger.error("网络连接失败，请检查网络连接");
                     }
+                }catch (Exception e) {
+                    e.printStackTrace();
                 }
+
             }
-        } else {
-            ConsoleLoger.error("网络连接失败，请检查网络连接");
-        }
+        }.runTaskAsynchronously(BoatFly.getPlugin(BoatFly.class));
+
     }
 }
