@@ -1,6 +1,7 @@
 # BoatFly - 飞船
 ![Image text](Boat.jpg)
 ### 作者 : Wenkrang 
+### 兼容性 : Wenkrang , Fangtang3
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
 - 这是一个能让你在Spigot Server用船飞的插件!
