@@ -18,7 +18,11 @@ public class PutCaol implements Listener {
                 @Override
                 public void run() {
                     try {
-                        if (event.getInventory().getItem(15) != null && Objects.requireNonNull(event.getInventory().getItem(15)).getType().equals(Material.COAL) && !event.getWhoClicked().getVehicle().getScoreboardTags().contains("ON")) {
+                        if (event.getInventory().getItem(15) != null &&
+                                (Objects.requireNonNull(event.getInventory().getItem(15)).getType().equals(Material.COAL) ||
+                                Objects.requireNonNull(event.getInventory().getItem(15)).getType().equals(Material.DRIED_KELP_BLOCK) ||
+                                        Objects.requireNonNull(event.getInventory().getItem(15)).getType().equals(Material.CHARCOAL)) &&
+                                !event.getWhoClicked().getVehicle().getScoreboardTags().contains("ON")) {
                             try {
                                 for (String string : Objects.requireNonNull(event.getWhoClicked().getVehicle()).getScoreboardTags()) {
                                     if (string.contains("coal")) {
