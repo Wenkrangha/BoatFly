@@ -1,6 +1,7 @@
 # BoatFly - 飞船
 ![Image text](Boat.jpg)
 ### 作者 : Wenkrang 
+### 兼容性 : Wenkrang , Fangtang3
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
 - 这是一个能让你在Spigot Server用船飞的插件!
@@ -15,6 +16,9 @@
 - Wurst等辅助模组的飞船创意
 - 来自通义千问大模型的帮助,通义千问能帮助开发者快速完成开发
 - bukkit.windit.net 中文Spigot Api文档
+## 开发指南
+   BoatFly的启动系统非常复杂，如果您想编译完整的BoatFly，请先阅读 [开发指南]()
+您可以在wiki中找到它，直接编译的BoatFly也可以使用，但请注意，这样编译的不包含BootLoader和更新功能
 ## 感谢有你
 - 感谢来自各地的开发者助力项目开发
 - 具体名单请看贡献者列表
