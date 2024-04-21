@@ -33,7 +33,7 @@ jobs:
         - run: rm -rf /target
         - name: Build BoatFly BootLoader
           run: mvn package -q
-        - run: ls target 
+        - run: ls BoatFly-Bootloader
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
