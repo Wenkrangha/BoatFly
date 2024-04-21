@@ -17,7 +17,7 @@ public class BfTabComplete implements TabCompleter {
         switch (strings.length) {
             case 1:
                 //第一项补全
-                return Arrays.asList("help", "getbook");
+                return Arrays.asList("help", "getbook","upgrade");
             default:
                 return Collections.emptyList();
         }

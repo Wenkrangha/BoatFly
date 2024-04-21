@@ -17,7 +17,7 @@
 - 来自通义千问大模型的帮助,通义千问能帮助开发者快速完成开发
 - bukkit.windit.net 中文Spigot Api文档
 ## 开发指南
-   BoatFly的启动系统非常复杂，如果您想编译完整的BoatFly，请先阅读 [开发指南]()
+   BoatFly的启动系统非常复杂，如果您想编译完整的BoatFly，请先阅读 [开发指南](https://github.com/Wenkrangha/BoatFly/wiki/Dev-Guide)
 您可以在wiki中找到它，直接编译的BoatFly也可以使用，但请注意，这样编译的不包含BootLoader和更新功能
 ## 感谢有你
 - 感谢来自各地的开发者助力项目开发
