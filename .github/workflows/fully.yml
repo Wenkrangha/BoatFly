@@ -30,7 +30,7 @@ jobs:
         - run: cd ..
         - name: get-pom-version
           id: pom-version
-          uses: CptMokoena/maven-get-version-action@master
+          uses: CptMokoena/maven-get-version-action@main
           with:
             path: BoatFly/pom.xml
         - run: cp ./BoatFly/target/BoatFly-${{ steps.pom-version.outputs.version }}.jar ./BoatFly-BootLoader/src/main/resources/
