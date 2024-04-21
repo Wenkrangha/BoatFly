@@ -28,10 +28,12 @@ jobs:
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ..
-        - run: cp ./BoatFly/pom.xml ./
-        - uses: entimaniac/read-pom-version-action@1.0.0
-        - run: cp ./BoatFly/target/BoatFly-$version.jar
-        - run: rm ./pom.xml
+        - name: get-pom-version
+          id: pom-version
+          uses: CptMokoena/maven-get-version-action@master
+          with:
+            path: BoatFly/pom.xml
+        - run: cp ./BoatFly/target/BoatFly-${{ steps.pom-version.outputs.version }}.jar ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
