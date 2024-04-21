@@ -9,7 +9,17 @@ jobs:
           with:
             distribution: 'zulu' # See 'Supported distributions' for available options
             java-version: '21'
-        - run: echo [*] JDK环境 已安装
+        - name: Clone Wenkrangha/BoatFly PUBLIC repository
+          uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+          with:
+            depth: 1
+            branch: 'master'
+            owner: 'Wenkrangha'
+            repository: 'BoatFly'
+        - run: cd BoatFly
+        - name: Build BoatFly
+          run: mvn package -q
+        - run: cd ..
         - name: Clone Wenkrangha/BoatFly-BootLoader PUBLIC repository
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
@@ -17,8 +27,18 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - run: echo [*] BootLoader已克隆
+        - run: cd ..
+        - name: get-pom-version
+          id: pom-version
+          uses: CptMokoena/maven-get-version-action@main
+          with:
+            path: BoatFly/pom.xml
+        - run: cp ./BoatFly/target/BoatFly-${{ steps.pom-version.outputs.version }}.jar ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
-          run: mvn package
-        
+          run: mvn package -q
+        - uses: actions/upload-artifact@v1
+          with:
+            name: BoatFly-Fully
+            path: ${{ github.workspace }}/BoatFly-BootLoader/target/BoatFly-BootLoader-1.0-jar
+
