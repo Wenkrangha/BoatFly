@@ -32,6 +32,7 @@ jobs:
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
+        - run: ls /BoatFly-Bootloader/target/  
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
