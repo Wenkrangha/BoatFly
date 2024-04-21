@@ -9,7 +9,6 @@ jobs:
           with:
             distribution: 'zulu' # See 'Supported distributions' for available options
             java-version: '21'
-
         - name: Clone Wenkrangha/BoatFly PUBLIC repository
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
