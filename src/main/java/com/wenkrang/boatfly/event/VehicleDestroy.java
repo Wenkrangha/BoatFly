@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
+import com.wenkrang.boatfly.item.Materials;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -59,7 +60,7 @@ public class VehicleDestroy implements Listener {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            ItemStack itemStack4 = new ItemStack(Material.OAK_CHEST_BOAT);
+                            ItemStack itemStack4 = new ItemStack(Materials.chestBoat);
                             ItemMeta itemMeta4 = itemStack4.getItemMeta();
                             itemMeta4.setDisplayName("§9§l货运§r飞船");
                             ArrayList<String> lore4 = new ArrayList<>();
@@ -82,7 +83,7 @@ public class VehicleDestroy implements Listener {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            ItemStack itemStack4 = new ItemStack(Material.OAK_CHEST_BOAT);
+                            ItemStack itemStack4 = new ItemStack(Materials.chestBoat);
                             ItemMeta itemMeta4 = itemStack4.getItemMeta();
                             itemMeta4.setDisplayName("§9§l客运§r飞船");
                             ArrayList<String> lore4 = new ArrayList<>();
