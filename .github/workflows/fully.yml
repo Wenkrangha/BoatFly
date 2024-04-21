@@ -30,7 +30,7 @@ jobs:
         - run: cd ..
         - run: cp ./BoatFly/pom.xml ./
         - uses: entimaniac/read-pom-version-action@1.0.0
-        - run: cp ./BoatFly/target/BoatFly-${{ steps.yourStepIdGoesHere.outputs.version }}.jar
+        - run: cp ./BoatFly/target/BoatFly-$version.jar
         - run: rm ./pom.xml
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
