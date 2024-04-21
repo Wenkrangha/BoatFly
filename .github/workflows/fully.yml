@@ -27,11 +27,11 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - name: Get Version
-          uses: ./BoatFly/
-          id: getVersion
         - run: cd ..
-        - run: cp ./BoatFly/target/BoatFly-${{ steps.yourStepIdGoesHere.outputs.version }} ./BoatFly-BootLoader/src/main/resources/
+        - run: cp ./BoatFly/pom.xml ./
+        - uses: entimaniac/read-pom-version-action@1.0.0
+        - run: cp ./BoatFly/target/BoatFly-${{ steps.yourStepIdGoesHere.outputs.version }}.jar
+        - run: rm ./pom.xml
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
