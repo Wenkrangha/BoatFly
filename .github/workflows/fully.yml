@@ -28,7 +28,7 @@ jobs:
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ..
-        - run: cp target/BoatFly-*.jar ./BoatFly-BootLoader/src/main/resources/
+        - run: cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
