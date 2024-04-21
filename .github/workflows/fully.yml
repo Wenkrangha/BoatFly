@@ -14,7 +14,8 @@ jobs:
           with:
             depth: 1
             branch: 'master'
-            owner: 'Wenkrangha'
+            owner: 'Wenkrangha' 
+            #请更改用户为你的用户名
             repository: 'BoatFly'
         - run: cd BoatFly
         - name: Build BoatFly
@@ -25,6 +26,7 @@ jobs:
           with:
             depth: 1
             branch: 'master'
+            #请更改用户为你的用户名
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ..
@@ -38,4 +40,4 @@ jobs:
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
-            path: BoatFly-Bootloader/target/BoatFly-BootLoader-1.0-jar
+            path: BoatFly-Bootloader/target/BoatFly-BootLoader-1.0.jar
