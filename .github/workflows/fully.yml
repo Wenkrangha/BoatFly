@@ -27,10 +27,11 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - run: cd ./BoatFly    
-        - run: version=`mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout`   
+        - name: Get Version
+          uses: ./BoatFly/
+          id: getVersion
         - run: cd ..
-        - run: cp ./BoatFly/target/BoatFly-$version ./BoatFly-BootLoader/src/main/resources/
+        - run: cp ./BoatFly/target/BoatFly-${{ steps.yourStepIdGoesHere.outputs.version }} ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
