@@ -36,5 +36,5 @@ jobs:
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
-            path: /BoatFly-Bootloader/target/BoatFly-BootLoader-1.0-jar
+            path: target/BoatFly-BootLoader-1.0-jar
 
