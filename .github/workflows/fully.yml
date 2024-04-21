@@ -27,7 +27,9 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - run: version=`awk '/<version>[^<]+<\/version>/{gsub(/<version>|<\/version>/,"",$1);print $1;exit;}' ./BoatFly/pom.xml`   
+        - run: cd ./BoatFly    
+        - run: version=`awk '/<version>[^<]+<\/version>/{gsub(/<version>|<\/version>/,"",$1);print $1;exit;}' pom.xml`   
+        - run: cd ..
         - run: cp ./BoatFly/target/BoatFly-$version ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
