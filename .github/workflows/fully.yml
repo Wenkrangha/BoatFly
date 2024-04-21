@@ -27,12 +27,13 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - run: cp ./BoatFly/target/BoatFly-* ./BoatFly-BootLoader/src/main/resources/
+        - run: version=`awk '/<version>[^<]+<\/version>/{gsub(/<version>|<\/version>/,"",$1);print $1;exit;}' ./BoatFly/pom.xml`   
+        - run: cp ./BoatFly/target/BoatFly-$version ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
-            path: ${{ github.workspace }}/BoatFly/target/BoatFly-*
+            path: ${{ github.workspace }}/BoatFly/target/BoatFly-$version
 
