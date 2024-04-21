@@ -4,6 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+        - name: Setup JDK 21 for BoatFly
         - uses: actions/checkout@v4
         - uses: actions/setup-java@v4
           with:
@@ -16,7 +17,7 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly'
-        - run: cd BoatFly
+            run: cd BoatFly
         - name: Build BoatFly
           run: mvn package -q
         - run: cd ..
@@ -28,10 +29,7 @@ jobs:
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ..
-        - run: ls
-        - run: ls BoatFly
-        - run: ls BoatFly/target
-        - run: cp BoatFly/target/BoatFly-master.jar ./BoatFly-BootLoader/src/main/resources/
+        - run: cp target/BoatFly-*.jar ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
           run: mvn package -q
