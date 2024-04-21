@@ -9,4 +9,16 @@ jobs:
           with:
             distribution: 'zulu' # See 'Supported distributions' for available options
             java-version: '21'
-        - run: java HelloWorldApp.java
+        - run: echo [*] JDK环境 已安装
+        - name: Clone Wenkrangha/BoatFly-BootLoader PUBLIC repository
+          uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+          with:
+            depth: 1
+            branch: 'master'
+            owner: 'Wenkrangha'
+            repository: 'BoatFly-Bootloader'
+        - run: echo [*] BootLoader已克隆
+        - run: cd BoatFly-Bootloader
+        - name: Build BoatFly BootLoader
+          run: mvn package
+        
