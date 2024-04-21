@@ -18,7 +18,7 @@ jobs:
             repository: 'BoatFly'
         - run: cd BoatFly
         - name: Build BoatFly
-          run: mvn package
+          run: mvn package -q
         - run: cd ..
         - name: Clone Wenkrangha/BoatFly-BootLoader PUBLIC repository
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
@@ -28,14 +28,14 @@ jobs:
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ./BoatFly    
-        - run: version=`awk '/<version>[^<]+<\/version>/{gsub(/<version>|<\/version>/,"",$1);print $1;exit;}' pom.xml`   
+        - run: version=`mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout`   
         - run: cd ..
         - run: cp ./BoatFly/target/BoatFly-$version ./BoatFly-BootLoader/src/main/resources/
         - run: cd BoatFly-Bootloader
         - name: Build BoatFly BootLoader
-          run: mvn package
+          run: mvn package -q
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
-            path: ${{ github.workspace }}/BoatFly/target/BoatFly-$version
+            path: ${{ github.workspace }}/BoatFly-BootLoader/target/BoatFly-BootLoader-1.0-jar
 
