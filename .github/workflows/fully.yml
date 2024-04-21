@@ -17,7 +17,7 @@ jobs:
             branch: 'master'
             owner: 'Wenkrangha'
             repository: 'BoatFly'
-            run: cd BoatFly
+        - run: cd BoatFly
         - name: Build BoatFly
           run: mvn package -q
         - run: cd ..
