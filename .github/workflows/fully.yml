@@ -30,9 +30,9 @@ jobs:
         - run: cd ..
         - run: cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
         - run: cd BoatFly-Bootloader
+        - run: rm -rf /target
         - name: Build BoatFly BootLoader
           run: mvn package -q
-        - run: ls /BoatFly-Bootloader/target/  
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
