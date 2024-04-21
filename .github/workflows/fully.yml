@@ -28,15 +28,14 @@ jobs:
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
         - run: cd ..
-        - run: ls
-        - run: ls BoatFly
-        - run: ls BoatFly/target
-        - run: cp BoatFly/target/BoatFly-master.jar ./BoatFly-BootLoader/src/main/resources/
+        - run: cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
         - run: cd BoatFly-Bootloader
+        - run: rm -rf /target
         - name: Build BoatFly BootLoader
           run: mvn package -q
+        - run: ls target 
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
-            path: ${{ github.workspace }}/BoatFly-BootLoader/target/BoatFly-BootLoader-1.0-jar
+            path: target/BoatFly-BootLoader-1.0-jar
 
