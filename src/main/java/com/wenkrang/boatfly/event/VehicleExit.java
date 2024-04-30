@@ -18,6 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.wenkrang.boatfly.Data.MainData.IsShutDown;
 
@@ -26,7 +27,13 @@ public class VehicleExit implements Listener {
     public static void OnVehicleExit (VehicleExitEvent event) {
         if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getExited().getScoreboardTags().contains("CanExit")) {
             if (event.getExited() instanceof Player && !event.getVehicle().isDead()) {
+                Boolean IsExit = true;
                 Player player = (Player) event.getExited();
+                if (event.getVehicle().getLocation().getBlock().getType() == Material.WATER) {
+                    player.addScoreboardTag("CanExit");
+                    Objects.requireNonNull(event.getVehicle()).removePassenger(player);
+                    IsExit = false;
+                }
                 Inventory inventory = Bukkit.createInventory(null, 54, "飞船控制面包");
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
@@ -353,7 +360,10 @@ public class VehicleExit implements Listener {
                     inventory.setItem(27, itemStack4);
                     inventory.setItem(29, itemStack4);
                 }
-                event.setCancelled(true);
+                if (IsExit == false) {
+                    player.closeInventory();
+                }
+                event.setCancelled(IsExit);
             }
         }
         if (event.getExited().getScoreboardTags().contains("CanExit")) {
