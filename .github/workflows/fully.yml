@@ -9,7 +9,7 @@ jobs:
           with:
             distribution: 'zulu' # See 'Supported distributions' for available options
             java-version: '21'
-        - name: Clone Wenkrangha/BoatFly PUBLIC repository
+        - name: 克隆 Wenkrangha/BoatFly 公共存储库
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
             depth: 1
@@ -17,11 +17,9 @@ jobs:
             owner: 'Wenkrangha' 
             #请更改用户为你的用户名
             repository: 'BoatFly'
-        - run: cd BoatFly
-        - name: Build BoatFly
+        - name: 编译 BoatFly 本体
           run: mvn package -q
-        - run: cd ..
-        - name: Clone Wenkrangha/BoatFly-BootLoader PUBLIC repository
+        - name: 克隆 Wenkrangha/BoatFly-BootLoader 公共存储库
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
             depth: 1
@@ -29,10 +27,11 @@ jobs:
             #请更改用户为你的用户名
             owner: 'Wenkrangha'
             repository: 'BoatFly-Bootloader'
-        - run: cd ..
-        - run: cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
-        - run: rm -rf /target
-        - name: Build BoatFly BootLoader
+        - name: 准备资源文件以开始编译 BoatFly-Bootloader    
+          run: |
+             cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
+             rm -rf /target
+        - name: 编译 BoatFly-BootLoader 启动器 
           run: |
             cd BoatFly-Bootloader
             ls
