@@ -1,24 +1,12 @@
 package com.wenkrang.boatfly.UpgradeSystem;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.Data.MainData;
+import com.wenkrang.boatfly.DataSystem.MainData;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
-import com.wenkrang.boatfly.lib.Download;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
-import org.apache.commons.io.FileUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.NamespacedKey;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.FileUtil;
 
 import java.io.*;
-import java.net.InetAddress;
-import java.net.URL;
-import java.nio.file.Files;
-
-import static com.wenkrang.boatfly.Data.MainData.keys;
-import static org.bukkit.Bukkit.getServer;
 
 public class UpgradeCentre {
     public static void upgrade() throws Exception {

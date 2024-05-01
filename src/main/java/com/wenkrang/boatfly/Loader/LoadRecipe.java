@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
-import static com.wenkrang.boatfly.Data.MainData.keys;
+import static com.wenkrang.boatfly.DataSystem.MainData.keys;
 import static org.bukkit.Bukkit.getServer;
 
 public class LoadRecipe {

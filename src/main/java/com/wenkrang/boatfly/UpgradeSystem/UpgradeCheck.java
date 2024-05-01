@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.UpgradeSystem;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.Data.MainData;
+import com.wenkrang.boatfly.DataSystem.MainData;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 import org.bukkit.event.EventHandler;
@@ -12,7 +12,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.net.InetAddress;
 
 import static com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre.upgrade;
 
