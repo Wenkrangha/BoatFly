@@ -60,7 +60,6 @@ public class UpgradeCheck implements Listener {
                         }
                     }
                 }catch (Exception e) {
-                    e.printStackTrace();
                 }
 
             }
