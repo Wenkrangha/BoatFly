@@ -34,8 +34,7 @@ jobs:
         - name: 编译 BoatFly-BootLoader 启动器 
           run: |
             cd BoatFly-Bootloader
-            ls
-            mvn package
+            mvn package -q
         - uses: actions/upload-artifact@v1
           with:
             name: BoatFly-Fully
