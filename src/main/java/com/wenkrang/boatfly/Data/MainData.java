@@ -15,13 +15,13 @@ public class MainData {
     public static boolean IsShutDown = false;
 
     //该变量用于储存插件的名字
-    public static String PluginName = "1.5.4a";
+    public static String PluginName = "1.5.5a";
     //该变量用于储存该插件对象
     public static Plugin plugin = null;
     //该变量用于储存该插件文件对象
     public static File PluginFile = null;
     //该变量用于储存版本号
-    public static int Number = 3;
+    public static int Number = 4;
     //该变量用于储存所有BoatFly添加的配方的Key
     public static ArrayList<NamespacedKey> keys = new ArrayList<>();
 }

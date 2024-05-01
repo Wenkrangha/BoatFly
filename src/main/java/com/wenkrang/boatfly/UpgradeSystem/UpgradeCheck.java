@@ -24,38 +24,38 @@ public class UpgradeCheck implements Listener {
             @Override
             public void run() {
                 try {
+                    Source.getSource();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }.runTaskLaterAsynchronously(BoatFly.getPlugin(BoatFly.class), 0);
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                try {
                     new File("./plugins/BoatFly/upgrade/").mkdir();
                     new File("./plugins/BoatFly/upgrade/Name").delete();
                     new File("./plugins/BoatFly/upgrade/Number").delete();
-                    InetAddress TEST = InetAddress.getByName("www.bing.com");
-                    if (TEST.isReachable(5000)) {
-                        InetAddress GITHUB = InetAddress.getByName("github.com");
-                        InetAddress GITEE = InetAddress.getByName("gitee.com");
+                    boolean Checked = false;
+                    Source.getSource();
 
-                        boolean Checked = false;
+                    UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Name", "plugins/BoatFly/upgrade/Name");
+                    UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Number", "plugins/BoatFly/upgrade/Number");
 
-                        if (GITEE.isReachable(5000)) {
+                    Checked = true;
 
-                            //https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name
-                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
-                            UnsafeDownloader.downloadFile("https://gitee.com/wenkrang/BoatFly/raw/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
-
-                            Checked = true;
-                        } else if (GITHUB.isReachable(5000)) {
-
-                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Name","plugins/BoatFly/upgrade/Name");
-                            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Number","plugins/BoatFly/upgrade/Number");
-                            Checked = true;
-                        }
-                        if (Checked) {
-                            if (true) {
-                                FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-                                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                                String Number = bufferedReader.readLine();
-                                if (Integer.parseInt(Number) > MainData.Number) {
-                                    ConsoleLoger.info("发现新版本!即将安装");
-                                    upgrade();
-                                }
+                    if (Checked) {
+                        if (true) {
+                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                            BufferedReader bufferedReader = new BufferedReader(fileReader);
+                            String Number = bufferedReader.readLine();
+                            if (Integer.parseInt(Number) > MainData.Number) {
+                                ConsoleLoger.info("发现新版本!即将安装");
+                                upgrade();
+                            } else {
+                                ConsoleLoger.info("无可用更新");
                             }
                         }
                     }
@@ -63,6 +63,6 @@ public class UpgradeCheck implements Listener {
                 }
 
             }
-        }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 6000);
+        }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 5000, 6000);
     }
 }
