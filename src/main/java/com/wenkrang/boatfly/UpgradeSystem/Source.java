@@ -16,7 +16,7 @@ public class Source {
         UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Source","plugins/BoatFly/Source");
         FileReader fileReader = new FileReader(new File("plugins/BoatFly/Source"));
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String[] Sources = bufferedReader.readLine().split("^");
+        String[] Sources = bufferedReader.readLine().split("\\^");
 
         for (String s : Sources) {
             InetAddress inetAddress = InetAddress.getByName(s);

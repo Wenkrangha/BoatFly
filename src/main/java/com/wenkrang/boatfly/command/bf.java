@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.command;
 
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
+import com.wenkrang.boatfly.lib.PlugmanX.Unload;
 import com.wenkrang.boatfly.lib.SpigotConsoleColors;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,6 +15,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class bf implements CommandExecutor {
     /**
@@ -68,9 +70,11 @@ public class bf implements CommandExecutor {
                     }
                 }
                 if (strings[0].equalsIgnoreCase("tset")) {
-                    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BoatFly-BootLoader");
-                    Bukkit.getServer().getPluginManager().disablePlugin(plugin);
-
+                    Plugin plugin = Bukkit.getPluginManager().getPlugin(strings[1]);
+                    Unload unload = new Unload();
+                    if (plugin != null) {
+                        unload.unload(plugin);
+                    }
                 }
 
             } else {
