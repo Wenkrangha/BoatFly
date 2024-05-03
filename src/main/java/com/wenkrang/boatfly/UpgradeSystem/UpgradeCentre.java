@@ -65,9 +65,9 @@ public class UpgradeCentre {
                         fileWriter.close();
                     }
 
-                        Plugman.reloadMe();
+                        Reboot.reloadMe();
                 }catch (Exception e) {
-                    e.printStackTrace();
+                    ConsoleLoger.error(e.getMessage());
                 }
 
             }
