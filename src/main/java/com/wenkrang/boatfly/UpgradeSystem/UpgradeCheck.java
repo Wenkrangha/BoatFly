@@ -52,8 +52,6 @@ public class UpgradeCheck implements Listener {
                             if (Integer.parseInt(Number) > MainData.Number) {
                                 ConsoleLoger.info("发现新版本!即将安装");
                                 upgrade();
-                            } else {
-                                ConsoleLoger.info("无可用更新");
                             }
                         }
 
