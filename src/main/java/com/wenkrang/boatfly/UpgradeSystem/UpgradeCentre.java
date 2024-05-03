@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.*;
 
 public class UpgradeCentre {
-    public static void upgrade() throws Exception {
+    public static void upgrade() {
         new BukkitRunnable() {
 
             @Override
@@ -65,7 +65,7 @@ public class UpgradeCentre {
                         fileWriter.close();
                     }
 
-                    ConsoleLoger.info("重启您的服务器或禁用BoatFly并重载BootLoader以应用更新!");
+                        Plugman.reloadMe();
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -75,7 +75,7 @@ public class UpgradeCentre {
 
     }
 
-    public static void update() throws Exception {
+    public static void update() {
         new BukkitRunnable() {
 
             @Override
@@ -109,7 +109,7 @@ public class UpgradeCentre {
                     }
 
                 }catch (Exception e) {
-
+                    ConsoleLoger.error(e.getMessage());
                 }
 
             }

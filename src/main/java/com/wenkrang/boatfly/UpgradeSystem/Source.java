@@ -1,12 +1,12 @@
 package com.wenkrang.boatfly.UpgradeSystem;
 
-import com.google.common.net.InetAddresses;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -20,8 +20,6 @@ public class Source {
 
         for (String s : Sources) {
             InetAddress inetAddress = InetAddress.getByName(s);
-            //就这个地方
-            //你看看怎么改改
             if (System.getProperty("os.name").startsWith("Windows")) {
                 if (inetAddress.isReachable(500)) {
                     SourceURL = s;
