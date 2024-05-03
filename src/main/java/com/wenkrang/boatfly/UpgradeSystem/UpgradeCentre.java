@@ -95,16 +95,14 @@ public class UpgradeCentre {
                     Checked = true;
 
                     if (Checked) {
-                        if (true) {
-                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-                            BufferedReader bufferedReader = new BufferedReader(fileReader);
-                            String Number = bufferedReader.readLine();
-                            if (Integer.parseInt(Number) > MainData.Number) {
-                                ConsoleLoger.info("发现新版本!即将安装");
-                                upgrade();
-                            } else {
-                                ConsoleLoger.info("无可用更新");
-                            }
+                        FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                        String Number = bufferedReader.readLine();
+                        if (Integer.parseInt(Number) > MainData.Number) {
+                            ConsoleLoger.info("发现新版本!即将安装");
+                            upgrade();
+                        } else {
+                            ConsoleLoger.info("无可用更新");
                         }
                     }
 
