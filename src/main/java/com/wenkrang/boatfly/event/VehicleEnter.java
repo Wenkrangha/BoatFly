@@ -13,6 +13,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 import org.bukkit.util.Vector;
 
 import java.math.BigDecimal;
@@ -60,6 +64,8 @@ public class VehicleEnter implements Listener {
             if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
                 event.getVehicle().addScoreboardTag("Run");
                 if (event.getEntered() instanceof Player) {
+
+                    //速度条
                     Player player = (Player) event.getEntered();
                     BossBar bossBar = Bukkit.createBossBar("§9§l当前§r时速 : ", BarColor.YELLOW, BarStyle.SOLID);
                     bossBar.addPlayer(player);
@@ -109,6 +115,36 @@ public class VehicleEnter implements Listener {
                         }
                     }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
 
+//                    //仪表盘
+//                    Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+//                    Objective objective = scoreboard.registerNewObjective(player.getName(), "dummy", "飞船仪表盘");
+//                    objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+//
+//                    player.setScoreboard(scoreboard);
+//                    Team team = scoreboard.registerNewTeam("1");
+//                    team.addEntry("1");
+//                    objective.getScore("1").setScore(1);
+//                    team.setPrefix("");
+//                    new BukkitRunnable() {
+//                        @Override
+//                        public void run() {
+//                            if (IsShutDown || !event.getVehicle().getScoreboardTags().contains("Run")) {
+//                                cancel();
+//                            }
+//                            int coal = 0;
+//                            for (String s : event.getVehicle().getScoreboardTags()) {
+//                                if (s.contains("coal")) {
+//                                    coal = Integer.parseInt(s.replace("coal", ""));
+//                                    break;
+//                                }
+//                            }
+//                            team.setPrefix("飞船拥有的煤炭：");
+//                            team.setSuffix(String.valueOf(coal));
+//                            if (!event.getVehicle().getPassengers().contains(event.getEntered())) {
+//                                scoreboard.resetScores("1");
+//                            }
+//                        }
+//                    }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
                 }
             }
 
@@ -187,6 +223,9 @@ public class VehicleEnter implements Listener {
 
                     }
                 }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 1);
+
+
+
 ////Debug Tools
 //            new BukkitRunnable() {
 //

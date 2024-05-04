@@ -1,11 +1,14 @@
 package com.wenkrang.boatfly.UpgradeSystem;
 
 import com.google.common.net.InetAddresses;
+import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 
 import java.io.*;
 import java.net.InetAddress;
+import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collectors;
