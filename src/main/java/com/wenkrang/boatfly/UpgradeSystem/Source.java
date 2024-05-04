@@ -17,28 +17,6 @@ import java.util.stream.Collectors;
 public class Source {
     public static String SourceURL = null;
     public static String getSource(Boolean Log) throws Exception {
-        new File("./plugins/BoatFly/DevelopMode").delete();
-        new File("./plugins/BoatFly/DevelopMode").mkdirs();
-        if (true) {
-            ClassLoader classLoader = BoatFly.class.getClassLoader();
-            URL resource = classLoader.getResource("DevelopMode");
-            InputStream inputStream = resource.openStream();
-            Files.copy(inputStream, new File("./plugins/BoatFly/DevelopMode").toPath());
-            inputStream.close();
-        }
-
-        FileReader frr = new FileReader(new File("plugins/BoatFly/DevelopMode"));
-        BufferedReader brr = new BufferedReader(frr);;
-
-        boolean aTrue = brr.readLine().equalsIgnoreCase("true");
-
-        frr.close();
-        brr.close();
-        if (aTrue) {
-            SourceURL = "https://gitee.com/boat-fly-development-team/BoatFly/raw/develop/";
-            return "https://gitee.com/boat-fly-development-team/BoatFly/raw/develop/";
-        }
-
         UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Source","plugins/BoatFly/Source");
         FileReader fileReader = new FileReader(new File("plugins/BoatFly/Source"));
         BufferedReader bufferedReader = new BufferedReader(fileReader);

@@ -30,36 +30,38 @@ public class UpgradeCheck implements Listener {
                 }
             }
         }.runTaskLaterAsynchronously(BoatFly.getPlugin(BoatFly.class), 0);
-        new BukkitRunnable() {
+        if (Source.SourceURL == null) {
+            return;
+        }
 
+        new BukkitRunnable() {
             @Override
             public void run() {
                 try {
                     new File("./plugins/BoatFly/upgrade/").mkdir();
                     new File("./plugins/BoatFly/upgrade/Name").delete();
                     new File("./plugins/BoatFly/upgrade/Number").delete();
-                    boolean Checked = false;
+
                     Source.getSource(false);
 
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Name", "plugins/BoatFly/upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Number", "plugins/BoatFly/upgrade/Number");
 
 
-                        if (true) {
-                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-                            BufferedReader bufferedReader = new BufferedReader(fileReader);
-                            String Number = bufferedReader.readLine();
-                            if (Integer.parseInt(Number) > MainData.Number) {
-                                ConsoleLoger.info("发现新版本!即将安装");
-                                upgrade();
-                            }
-                        }
+                    FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String Number = bufferedReader.readLine();
+                    if (Integer.parseInt(Number) > MainData.Number) {
+                        ConsoleLoger.info("发现新版本!即将安装");
+                        upgrade();
+                    }
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
         }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 5000, 6000);
+
     }
 }
