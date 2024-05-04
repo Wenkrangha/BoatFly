@@ -64,6 +64,7 @@
   </build>
 
   <repositories>
+
       <repository>
           <id>spigotmc-repo</id>
           <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
@@ -72,6 +73,12 @@
           <id>sonatype</id>
           <url>https://oss.sonatype.org/content/groups/public/</url>
       </repository>
+      <repository>
+          <id>lenni0451-maven-releases</id>
+          <name>Lenni0451 Maven Repository</name>
+          <url>https://maven.lenni0451.net/releases</url>
+      </repository>
+
   </repositories>
   <dependencies>
       <dependency>
@@ -86,10 +93,21 @@
           <version>3.10.0</version>
       </dependency>
       <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.9</version>
+      </dependency>
+      <dependency>
           <groupId>org.spigotmc</groupId>
           <artifactId>spigot-api</artifactId>
           <version>1.20.6-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.jetbrains</groupId>
+          <artifactId>annotations</artifactId>
+          <version>RELEASE</version>
+          <scope>compile</scope>
       </dependency>
   </dependencies>
 </project>

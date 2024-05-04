@@ -23,8 +23,9 @@ public class UpgradeCheck implements Listener {
             @Override
             public void run() {
                 try {
-                    Source.getSource();
+                    Source.getSource(false);
                 } catch (Exception e) {
+                    e.printStackTrace();
                     throw new RuntimeException(e);
                 }
             }
@@ -38,14 +39,12 @@ public class UpgradeCheck implements Listener {
                     new File("./plugins/BoatFly/upgrade/Name").delete();
                     new File("./plugins/BoatFly/upgrade/Number").delete();
                     boolean Checked = false;
-                    Source.getSource();
+                    Source.getSource(false);
 
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Name", "plugins/BoatFly/upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Number", "plugins/BoatFly/upgrade/Number");
 
-                    Checked = true;
 
-                    if (Checked) {
                         if (true) {
                             FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
                             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -57,8 +56,9 @@ public class UpgradeCheck implements Listener {
                                 ConsoleLoger.info("无可用更新");
                             }
                         }
-                    }
+
                 }catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

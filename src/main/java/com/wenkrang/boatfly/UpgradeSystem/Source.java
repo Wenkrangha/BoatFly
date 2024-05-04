@@ -1,5 +1,7 @@
 package com.wenkrang.boatfly.UpgradeSystem;
 
+import com.google.common.net.InetAddresses;
+import com.wenkrang.boatfly.lib.ConsoleLoger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 
 import java.io.BufferedReader;
@@ -12,17 +14,37 @@ import java.util.stream.Collectors;
 
 public class Source {
     public static String SourceURL = null;
-    public static String getSource() throws Exception {
+    public static String getSource(Boolean Log) throws Exception {
         UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Source","plugins/BoatFly/Source");
         FileReader fileReader = new FileReader(new File("plugins/BoatFly/Source"));
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String[] Sources = bufferedReader.readLine().split("^");
+        String[] Sources = bufferedReader.readLine().split("\\^");
+        bufferedReader.close();
+        fileReader.close();
+        if (Log) {
+            ConsoleLoger.info("源文件下载完成");
+        }
+        UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/SourceDomain","plugins/BoatFly/SourceDomain");
+        FileReader fr = new FileReader(new File("plugins/BoatFly/SourceDomain"));
+        BufferedReader br = new BufferedReader(fr);
 
-        for (String s : Sources) {
+        String[] DomainSources = br.readLine().split("\\^");
+        br.close();
+        fr.close();
+        if (Log) {
+            ConsoleLoger.info("源域名文件下载完成");
+        }
+        for (int i = 0;i < DomainSources.length;i++) {
+            String s = DomainSources[i];
+
             InetAddress inetAddress = InetAddress.getByName(s);
             if (System.getProperty("os.name").startsWith("Windows")) {
                 if (inetAddress.isReachable(500)) {
-                    SourceURL = s;
+                    SourceURL = Sources[i];
+                    if (Log) {
+                        ConsoleLoger.info("测速完成");
+                        ConsoleLoger.info("Source : " + SourceURL);
+                    }
                 }
             } else {
                 Process ping = Runtime.getRuntime().exec("ping -c 4" + inetAddress);
@@ -31,10 +53,13 @@ public class Source {
                                 ping.getInputStream())).
                         lines().collect(Collectors.joining("\n"))
                         .contains("ttl")) {
-                    SourceURL = s;
+                    SourceURL = Sources[i];
+                    if (Log) {
+                        ConsoleLoger.info("测速完成");
+                        ConsoleLoger.info("Source : " + SourceURL);
+                    }
                 }
             }
-
         }
         return null;
     }

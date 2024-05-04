@@ -87,8 +87,9 @@ public class UpgradeCentre {
                     new File("./plugins/BoatFly/upgrade/Number").delete();
                     boolean Checked = false;
                     ConsoleLoger.info("正在更新源地址");
-                    Source.getSource();
+                    Source.getSource(true);
                     ConsoleLoger.info("正在获取头文件");
+                    ConsoleLoger.info(Source.SourceURL + "upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Name", "plugins/BoatFly/upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Number", "plugins/BoatFly/upgrade/Number");
 

@@ -1,6 +1,9 @@
 package com.wenkrang.boatfly.command;
 
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
+
+import com.wenkrang.boatfly.lib.ConsoleLoger;
+
 import com.wenkrang.boatfly.lib.SpigotConsoleColors;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -11,9 +14,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class bf implements CommandExecutor {
     /**
@@ -66,11 +76,6 @@ public class bf implements CommandExecutor {
                         e.printStackTrace();
                         throw new RuntimeException(e);
                     }
-                }
-                if (strings[0].equalsIgnoreCase("tset")) {
-                    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BoatFly-BootLoader");
-                    Bukkit.getServer().getPluginManager().disablePlugin(plugin);
-
                 }
 
             } else {
