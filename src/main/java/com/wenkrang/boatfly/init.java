@@ -32,7 +32,7 @@ public class init {
             //检测服务器版本，动态修补兼容问题
             if (PlayerInteract.isBelow1_20_4()) {
                 //提醒腐竹更新服务器
-                ConsoleLoger.info("您的服务器版本低于1.20.4,部分功能可能无法正常使用");
+                ConsoleLoger.warn("您的服务器版本低于1.20.4,部分功能可能无法正常使用");
             }
             //加载完成
             getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : " + MainData.PluginName);

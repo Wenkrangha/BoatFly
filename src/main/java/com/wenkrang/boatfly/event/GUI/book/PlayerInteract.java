@@ -1,7 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
 import com.wenkrang.boatfly.Entity.plane;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,31 +16,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import static com.wenkrang.boatfly.lib.VersionChecker.isVersionBelow;
 
 
 public class PlayerInteract implements Listener {
-    public static boolean isBelow1_20_4() {
-        String fullVersion = Bukkit.getServer().getVersion();
-        Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)");
-        Matcher matcher = pattern.matcher(fullVersion);
-
-        if (matcher.find()) {
-            int majorVersion = Integer.parseInt(matcher.group(1));
-            int minorVersion = Integer.parseInt(matcher.group(2));
-            int patchVersion = Integer.parseInt(matcher.group(3));
-
-            // 检查是否低于1.20.2
-            return (majorVersion < 1 ||
-                    (majorVersion == 1 && minorVersion < 20) ||
-                    (majorVersion == 1 && minorVersion == 20 && patchVersion < 4));
-        } else {
-            // 如果无法解析版本号，则认为不是预期的格式，返回 true 表示可能低于1.20.4
-            return true;
-        }
-    }
-
+    public static boolean isBelow1_20_4() {return isVersionBelow("1.20.3");}
     public static Location getOffsetForFace(BlockFace face) {
         double dx = 0.0, dy = 0.0, dz = 0.0;
         switch (face) {
@@ -109,7 +89,7 @@ public class PlayerInteract implements Listener {
 
         if (isBelow1_20_4()) {
             if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-                if (event.getHand().equals(EquipmentSlot.HAND)) {
+                if (Objects.equals(event.getHand(), EquipmentSlot.HAND)) {
                     if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
                         event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船")) {
                         Block clickedBlock = event.getClickedBlock();
@@ -118,7 +98,6 @@ public class PlayerInteract implements Listener {
                         if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
                             event.getPlayer().getInventory().setItemInMainHand(null);
                         }
-                        event.setCancelled(true);
                     }
                     if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
                             event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l货运§r飞船")) {
@@ -128,7 +107,6 @@ public class PlayerInteract implements Listener {
                         if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
                             event.getPlayer().getInventory().setItemInMainHand(null);
                         }
-                        event.setCancelled(true);
                     }
                     //"§9§l客运§r飞船"
                     if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
@@ -139,8 +117,17 @@ public class PlayerInteract implements Listener {
                         if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
                             event.getPlayer().getInventory().setItemInMainHand(null);
                         }
-                        event.setCancelled(true);
                     }
+                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
+                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l房§r船")) {
+                        Block clickedBlock = event.getClickedBlock();
+                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
+                        plane.getFangchuan(location);
+                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+                            event.getPlayer().getInventory().setItemInMainHand(null);
+                        }
+                    }
+                    event.setCancelled(true);
                 }
             }
         }

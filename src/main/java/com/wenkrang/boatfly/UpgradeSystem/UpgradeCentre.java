@@ -65,7 +65,7 @@ public class UpgradeCentre {
                         fileWriter.close();
                     }
 
-                        Reboot.reloadMe();
+                    ConsoleLoger.info("请重启您的服务器或禁用BoatFly并重载BootLoader以应用更新!");
                 }catch (Exception e) {
                     ConsoleLoger.error(e.getMessage());
                 }

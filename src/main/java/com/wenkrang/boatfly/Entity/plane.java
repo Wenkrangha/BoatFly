@@ -8,7 +8,6 @@ public class plane {
     //但现在已经不怎么用了
     //所有的Tag都在玩家乘上的时候添加
     public static void getplane(Location location) {
-
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
@@ -44,5 +43,18 @@ public class plane {
         boat.addScoreboardTag("keyun");
         boat.setCustomNameVisible(true);
         boat.setCustomName("§9§l货运§r飞船");
+    }
+    //房船的tag
+    public static void getFangchuan(Location location) {
+        org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
+        boat.addScoreboardTag("CanFly");
+        boat.addScoreboardTag("eng0");
+        boat.addScoreboardTag("real0");
+        boat.addScoreboardTag("OFF");
+        boat.addScoreboardTag("coal0");
+        boat.addScoreboardTag("location0,0");
+        boat.addScoreboardTag("fangchuan");
+        boat.setCustomNameVisible(true);
+        boat.setCustomName("§9§l房§r船");
     }
 }
