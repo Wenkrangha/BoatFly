@@ -45,7 +45,7 @@ public class UpgradeCentre {
                         fileReader.close();
                         bufferedReader.close();
                     }
-                    ConsoleLoger.info("正在替换文件中，请勿关闭服务器..");
+                    System.out.print(".");
                     new File("./plugins/BoatFly/SetupNumber").delete();
                     new File("./plugins/BoatFly/SetupName").delete();
 
@@ -58,7 +58,7 @@ public class UpgradeCentre {
                         bufferedWriter.close();
                         fileWriter.close();
                     }
-                    ConsoleLoger.info("正在替换文件中，请勿关闭服务器...");
+                    System.out.print(".");
                     if (true) {
                         File file = new File("./plugins/BoatFly/SetupName");
                         FileWriter fileWriter = new FileWriter(file);

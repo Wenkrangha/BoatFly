@@ -1,0 +1,7 @@
+# BoatFly Configuration File
+# 配置文件版本，请勿修改！
+config-version: 1
+# 更新使用的软件源
+# auto: 自动选择
+# 也可以填入URL
+update-source: "auto"
