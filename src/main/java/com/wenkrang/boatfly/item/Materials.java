@@ -1,8 +1,7 @@
 package com.wenkrang.boatfly.item;
 
-import org.bukkit.Material;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
-import java.lang.NoSuchFieldError;
+import org.bukkit.Material;
 
 public class Materials {
     //wild update
@@ -24,6 +23,10 @@ public class Materials {
     public static Material smithingTable;
     public static Material sign;
     public static Material grindstone;
+    //???
+    public static Material none;
+    public static Material off;
+    public static Material on;
     public static void init() {
         try {
             chestBoat = Material.OAK_CHEST_BOAT;
@@ -73,5 +76,8 @@ public class Materials {
             sign = Material.BOOK; //1.13尽量不用sign
             grindstone = Material.STONE;
         }
+        none = Material.LIGHT_BLUE_STAINED_GLASS_PANE;
+        off = Material.RED_STAINED_GLASS_PANE;
+        on = Material.GREEN_STAINED_GLASS_PANE;
     }
 }

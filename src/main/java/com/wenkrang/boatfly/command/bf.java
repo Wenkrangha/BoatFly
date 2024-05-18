@@ -1,11 +1,7 @@
 package com.wenkrang.boatfly.command;
 
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
-
-import com.wenkrang.boatfly.lib.ConsoleLoger;
-
 import com.wenkrang.boatfly.lib.SpigotConsoleColors;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,17 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
 
-import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import static org.bukkit.Bukkit.getServer;
 
 public class bf implements CommandExecutor {
     /**
@@ -69,9 +56,6 @@ public class bf implements CommandExecutor {
                 if (strings[0].equalsIgnoreCase("upgrade")) {
                     try {
                         UpgradeCentre.update();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        throw new RuntimeException(e);
                     } catch (Exception e) {
                         e.printStackTrace();
                         throw new RuntimeException(e);

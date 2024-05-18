@@ -1,42 +1,43 @@
 package com.wenkrang.boatfly.Loader;
 
-import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCheck;
-import com.wenkrang.boatfly.event.*;
 import com.wenkrang.boatfly.event.GUI.*;
 import com.wenkrang.boatfly.event.GUI.book.Click;
-import com.wenkrang.boatfly.event.GUI.book.Click2;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
-import com.wenkrang.boatfly.event.GUI.table.OpenTable;
-import com.wenkrang.boatfly.event.GUI.table.TableCouldPut;
+import com.wenkrang.boatfly.event.*;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 
+import static com.wenkrang.boatfly.DataSystem.MainData.plugin;
 import static org.bukkit.Bukkit.getServer;
 
 public class LoadEvent {
     public static void run() {
         //加载事件
-        ConsoleLoger.info("正在加载监听器...");
-        getServer().getPluginManager().registerEvents(new VehicleExit(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new Exit(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new PlayerItemHeld(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new OnEng(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new VehicleEnter(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new KickEntity(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new CouldPut(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new PutCaol(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new FireSafe(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new PlayerSwapHandItems(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new AF(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new InventoryClose(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new Click(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new PlayerInteract(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new VehicleDestroy(), BoatFly.getPlugin(BoatFly.class));
-        getServer().getPluginManager().registerEvents(new UpgradeCheck(), BoatFly.getPlugin(BoatFly.class));
+        try {
+            ConsoleLoger.info("正在加载监听器...");
+            getServer().getPluginManager().registerEvents(new VehicleExit(), plugin);
+            getServer().getPluginManager().registerEvents(new Exit(), plugin);
+            getServer().getPluginManager().registerEvents(new PlayerItemHeld(), plugin);
+            getServer().getPluginManager().registerEvents(new OnEng(), plugin);
+            getServer().getPluginManager().registerEvents(new VehicleEnter(), plugin);
+            getServer().getPluginManager().registerEvents(new KickEntity(), plugin);
+            getServer().getPluginManager().registerEvents(new CouldPut(), plugin);
+            getServer().getPluginManager().registerEvents(new PutCaol(), plugin);
+            getServer().getPluginManager().registerEvents(new FireSafe(), plugin);
+            getServer().getPluginManager().registerEvents(new PlayerSwapHandItems(), plugin);
+            getServer().getPluginManager().registerEvents(new AF(), plugin);
+            getServer().getPluginManager().registerEvents(new InventoryClose(), plugin);
+            getServer().getPluginManager().registerEvents(new Click(), plugin);
+            getServer().getPluginManager().registerEvents(new PlayerInteract(), plugin);
+            getServer().getPluginManager().registerEvents(new VehicleDestroy(), plugin);
+            getServer().getPluginManager().registerEvents(new UpgradeCheck(), plugin);
 
-        //铺垫awa
+            //铺垫awa
 //        getServer().getPluginManager().registerEvents(new OpenTable(), BoatFly.getPlugin(BoatFly.class));
 //        getServer().getPluginManager().registerEvents(new TableCouldPut(), BoatFly.getPlugin(BoatFly.class));
 //        getServer().getPluginManager().registerEvents(new Click2(), BoatFly.getPlugin(BoatFly.class));
+        } catch (Exception e) {
+            ConsoleLoger.error("啊？事件注册失败：" + e.getMessage());
+        }
     }
 }
