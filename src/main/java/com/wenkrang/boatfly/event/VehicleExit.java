@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.item.Materials;
+import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

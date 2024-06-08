@@ -5,7 +5,7 @@ import com.wenkrang.boatfly.Loader.LoadCommand;
 import com.wenkrang.boatfly.Loader.LoadEvent;
 import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
-import com.wenkrang.boatfly.item.Materials;
+import com.wenkrang.boatfly.lib.Materials;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 
 import static org.bukkit.Bukkit.getServer;

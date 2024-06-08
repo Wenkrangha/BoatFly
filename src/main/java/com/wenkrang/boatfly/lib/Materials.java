@@ -1,6 +1,5 @@
-package com.wenkrang.boatfly.item;
+package com.wenkrang.boatfly.lib;
 
-import com.wenkrang.boatfly.lib.ConsoleLoger;
 import org.bukkit.Material;
 
 public class Materials {
@@ -8,6 +7,7 @@ public class Materials {
     public static Material chestBoat;
     //caves and cliffs
     public static Material lightningRod;
+    public static Material deepslate;
     //nether update
     public static Material target;
     public static Material netheriteScrap;
@@ -36,9 +36,11 @@ public class Materials {
         }
         try {
             lightningRod = Material.LIGHTNING_ROD;
+            deepslate = Material.DEEPSLATE;
         } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.17，正在回退新内容");
             lightningRod = Material.STICK;
+            deepslate = Material.STONE;
         }
         try {
             target = Material.TARGET;

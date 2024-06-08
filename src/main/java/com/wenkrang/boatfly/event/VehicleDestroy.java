@@ -2,7 +2,7 @@ package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
-import com.wenkrang.boatfly.item.Materials;
+import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
