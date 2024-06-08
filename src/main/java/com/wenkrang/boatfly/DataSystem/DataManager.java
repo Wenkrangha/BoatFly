@@ -12,11 +12,12 @@ public class DataManager {
         DataBasePath = dataBasePath;
     }
 
-    public void add(String name, String value) throws IOException {
+    public void set(String name, String value) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(value);
         DataBasePath.mkdirs();
         File file = new File(DataBasePath.getPath() + "/" + name + ".json");
+        file.delete();
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(json);
