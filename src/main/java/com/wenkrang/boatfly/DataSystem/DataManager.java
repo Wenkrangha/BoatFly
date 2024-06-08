@@ -12,7 +12,7 @@ public class DataManager {
         DataBasePath = dataBasePath;
     }
 
-    public void set(String name, String value) throws IOException {
+    public void set(String name, Object value) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(value);
         DataBasePath.mkdirs();
