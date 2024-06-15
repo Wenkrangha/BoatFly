@@ -8,7 +8,6 @@ public class plane {
     //但现在已经不怎么用了
     //所有的Tag都在玩家乘上的时候添加
     public static void getplane(Location location) {
-
         org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");

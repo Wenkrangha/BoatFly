@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.event;
 
-import com.wenkrang.boatfly.item.Materials;
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -33,9 +33,9 @@ public class VehicleExit implements Listener {
                     IsExit = false;
                 }
                 Inventory inventory = Bukkit.createInventory(null, 54, "飞船控制面包");
-                ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
+                ItemStack itemStack0 = new ItemStack(Materials.none);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
-                itemMeta0.setDisplayName(" ");
+                itemMeta0.setDisplayName("§b-");
                 itemStack0.setItemMeta(itemMeta0);
                 ItemStack itemStack1 = new ItemStack(Material.COMPASS);
                 ItemMeta itemMeta1 = itemStack1.getItemMeta();
@@ -55,7 +55,7 @@ public class VehicleExit implements Listener {
                 lore2.add("§6使用§l滚轮§r§6来调整§l§n节流阀");
                 itemMeta2.setLore(lore2);
                 itemStack2.setItemMeta(itemMeta2);
-                ItemStack itemStack3 = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+                ItemStack itemStack3 = new ItemStack(Materials.off);
                 ItemMeta itemMeta3 = itemStack3.getItemMeta();
                 itemMeta3.setDisplayName("§9§l引擎§r关闭");
                 ArrayList<String> lore3 = new ArrayList<>();
@@ -68,7 +68,7 @@ public class VehicleExit implements Listener {
                 ItemMeta itemMeta4 = itemStack4.getItemMeta();
                 itemMeta4.setDisplayName(" ");
                 itemStack4.setItemMeta(itemMeta4);
-                ItemStack itemStack5 = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+                ItemStack itemStack5 = new ItemStack(Materials.off);
                 ItemMeta itemMeta5 = itemStack5.getItemMeta();
                 itemMeta5.setDisplayName("§9§l引擎§r燃料口");
                 ArrayList<String> lore5 = new ArrayList<>();
@@ -176,7 +176,7 @@ public class VehicleExit implements Listener {
                 lore16.add("§6右键减少100");
                 itemMeta16.setLore(lore16);
                 itemStack16.setItemMeta(itemMeta16);
-                ItemStack itemStack17 = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
+                ItemStack itemStack17 = new ItemStack(Materials.on);
                 ItemMeta itemMeta17 = itemStack17.getItemMeta();
                 itemMeta17.setDisplayName("§9§l引擎§r开启");
                 ArrayList<String> lore17 = new ArrayList<>();
@@ -193,7 +193,6 @@ public class VehicleExit implements Listener {
                 lore18.add("§7如果§7§n没有开启，就无法发射");
                 itemMeta18.setLore(lore18);
                 itemStack18.setItemMeta(itemMeta18);
-
                 inventory.setItem(0, itemStack0);
                 inventory.setItem(1, itemStack1);
                 inventory.setItem(2, itemStack0);
@@ -297,7 +296,6 @@ public class VehicleExit implements Listener {
                                     }
 
                                 }
-
                                 for (String string : event.getVehicle().getScoreboardTags()) {
                                     if (string.contains("location")) {
                                         String location = string.replace("location", "");
