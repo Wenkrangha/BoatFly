@@ -13,12 +13,13 @@ import java.util.Collections;
 
 public class Source {
     public volatile static String SourceURL = null; // 使用volatile修饰以增强线程安全
+    public static boolean DevMode = false;
 
     public static String getSource(Boolean Log) {
         String tempSourceURL = null; // 使用局部变量进行操作，最后再赋值给静态变量
 
         try {
-            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/Source", "plugins/BoatFly/Source");
+            UnsafeDownloader.downloadFile("https://gitee.com/boat-fly-development-team/BoatFly/raw/master/upgrade/Source", "plugins/BoatFly/Source");
             BufferedReader bufferedReader = getBufferedReader("plugins/BoatFly/Source");
             String[] Sources = bufferedReader.readLine().split("\\^");
             bufferedReader.close();
@@ -27,7 +28,7 @@ public class Source {
                 ConsoleLoger.info("源文件下载完成");
             }
 
-            UnsafeDownloader.downloadFile("https://raw.githubusercontent.com/Wenkrangha/BoatFly/master/upgrade/SourceDomain", "plugins/BoatFly/SourceDomain");
+            UnsafeDownloader.downloadFile("https://gitee.com/boat-fly-development-team/BoatFly/raw/master/upgrade/SourceDomain", "plugins/BoatFly/SourceDomain");
             BufferedReader domainBufferedReader = getBufferedReader("plugins/BoatFly/SourceDomain");
             String[] DomainSources = domainBufferedReader.readLine().split("\\^");
             ArrayList<Integer> SpeedList = new ArrayList<>();
@@ -66,7 +67,10 @@ public class Source {
         }
 
         SourceURL = tempSourceURL;
-        return null;
+        if (DevMode) {
+            SourceURL = "https://gitee.com/boat-fly-development-team/BoatFly/raw/develop/";
+        }
+        return SourceURL;
     }
 
     private static boolean isReachable(InetAddress inetAddress) throws IOException {
