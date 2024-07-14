@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
 import com.wenkrang.boatfly.Entity.plane;
-import org.bukkit.Bukkit;
+import com.wenkrang.boatfly.lib.VersionChecker;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,27 +17,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 public class PlayerInteract implements Listener {
     public static boolean isBelow1_20_4() {
-        String fullVersion = Bukkit.getServer().getVersion();
-        Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)");
-        Matcher matcher = pattern.matcher(fullVersion);
-
-        if (matcher.find()) {
-            int majorVersion = Integer.parseInt(matcher.group(1));
-            int minorVersion = Integer.parseInt(matcher.group(2));
-            int patchVersion = Integer.parseInt(matcher.group(3));
-
-            // 检查是否低于1.20.2
-            return (majorVersion < 1 ||
-                    (majorVersion == 1 && minorVersion < 20) ||
-                    (majorVersion == 1 && minorVersion == 20 && patchVersion < 4));
-        } else {
-            // 如果无法解析版本号，则认为不是预期的格式，返回 true 表示可能低于1.20.4
+        try {
+            return VersionChecker.isVersionBelow("1.20.3");
+        } catch (IllegalArgumentException e) {
             return true;
         }
     }

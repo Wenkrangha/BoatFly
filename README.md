@@ -5,7 +5,7 @@
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
 >这是一个能让你在Spigot Server用船飞的插件! <br />
-**前置** 插件 : PlugManX （ **自动安装** ）<br />
+**前置** 插件 : LightUI （ **自动安装** ）<br />
 主命令 : **/bf**
 ## 已可用功能 
 - [x] AF自动驾驶
@@ -17,7 +17,6 @@
 - Wurst等辅助模组的飞船创意
 - 来自通义千问大模型的帮助,通义千问能帮助开发者快速完成开发
 - bukkit.windit.net 中文Spigot Api文档
-- PlugManX的插件卸载与加载功能
 
 ## 开发指南
 >   BoatFly的启动系统非常复杂，如果您想编译完整的BoatFly，请先阅读 [开发指南](https://github.com/Wenkrangha/BoatFly/wiki/Dev-Guide)

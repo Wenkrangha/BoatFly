@@ -1,7 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.table;
 
-import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.item.Materials;
+import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Dropper;
@@ -13,7 +12,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Objects;
