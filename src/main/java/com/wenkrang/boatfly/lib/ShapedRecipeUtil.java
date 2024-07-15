@@ -17,6 +17,8 @@ public class ShapedRecipeUtil {
             var c = shape[i].charAt(i);
             if (c != ' ') {
                 map.put(recipe.getIngredientMap().get(c), 1);
+            } else {
+                itemStacks.set(i, null);
             }
         }
         map.forEach((k, v) -> map.merge(k, v, Integer::sum));

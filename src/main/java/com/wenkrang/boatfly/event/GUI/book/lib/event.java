@@ -1,8 +1,10 @@
 package com.wenkrang.boatfly.event.GUI.book.lib;
 
 import com.wenkrang.boatfly.lib.Materials;
+import com.wenkrang.boatfly.lib.ShapedRecipeUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -12,6 +14,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class event implements Listener {
     public void enter(InventoryClickEvent event) {
@@ -97,8 +100,18 @@ public class event implements Listener {
                 inventory.setItem(10, itemStack4);
 
                 ShapedRecipe shapedRecipe = BookAPI.recipes.get(i).shapedRecipe;
+                List<ItemStack> itemStacks = ShapedRecipeUtil.getItemStacks(shapedRecipe);
+                inventory.setItem(4, itemStacks.get(0));
+                inventory.setItem(5, itemStacks.get(1));
+                inventory.setItem(6, itemStacks.get(2));
+                inventory.setItem(12, itemStacks.get(3));
+                inventory.setItem(13, itemStacks.get(4));
+                inventory.setItem(14, itemStacks.get(5));
+                inventory.setItem(21, itemStacks.get(6));
+                inventory.setItem(22, itemStacks.get(7));
+                inventory.setItem(23, itemStacks.get(8));
 
-
+                event.getWhoClicked().openInventory(inventory);
             }
         }
 
@@ -118,6 +131,20 @@ public class event implements Listener {
             if (flag) {
                 enter(event);
             }
+        }
+
+        if (event.getView().getTitle().equalsIgnoreCase("飞船配方主页")) {
+            event.setCancelled(true);
+        }
+        if (event.getView().getTitle().contains("飞船模块配方 - ")) {
+            ItemStack itemStack1 = new ItemStack(Materials.sign);
+            ItemMeta itemMeta1 = itemStack1.getItemMeta();
+            itemMeta1.setDisplayName("§9§l返回§r主页");
+            itemStack1.setItemMeta(itemMeta1);
+            if (event.getInventory().getItem(event.getRawSlot()).equals(itemStack1)) {
+                Loader.run((Player) event.getWhoClicked());
+            }
+            event.setCancelled(true);
         }
     }
 }
