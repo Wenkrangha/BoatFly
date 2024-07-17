@@ -137,7 +137,7 @@ public class OnEng implements Listener {
                                         event.getWhoClicked().getVehicle().addScoreboardTag("coal" + String.valueOf(coal));
                                     } else {
                                         String temp = null;
-                                        for (String string : event.getWhoClicked().getVehicle().getScoreboardTags()) {
+                                        for (String string : Objects.requireNonNull(event.getWhoClicked().getVehicle()).getScoreboardTags()) {
                                             if (string.contains("eng")) {
                                                 temp = string;
                                                 break;

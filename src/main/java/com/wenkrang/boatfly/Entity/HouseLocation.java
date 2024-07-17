@@ -15,8 +15,8 @@ import java.util.Set;
 public class HouseLocation {
     public static Location getRandomHouseLocation() {
         Random rand = new Random();
-        double x = rand.nextDouble(50000000) - 25000000;
-        double z = rand.nextDouble(50000000) - 25000000;
+        double x = (rand.nextDouble() * 50000000) - 25000000;
+        double z = (rand.nextDouble() * 50000000) - 25000000;
         double y = -64D;
         Location location;
         Material stone = Materials.deepslate;
@@ -43,8 +43,8 @@ public class HouseLocation {
                 (lc2.getBlock().getType().equals(stone) || lc2.getBlock().getType().equals(Material.BEDROCK)) &&
                 (lc3.getBlock().getType().equals(stone) || lc3.getBlock().getType().equals(Material.BEDROCK)) &&
                 (lc4.getBlock().getType().equals(stone) || lc4.getBlock().getType().equals(Material.BEDROCK)))) {
-            x = rand.nextDouble(50000000) - 25000000;
-            z = rand.nextDouble(50000000) - 25000000;
+            x = (rand.nextDouble() * 50000000) - 25000000;
+            z = (rand.nextDouble() * 50000000) - 25000000;
             lc1 = new Location(overworld, x + 15, y + 3, z + 15);
             lc2 = new Location(overworld, x - 15, y + 3, z - 15);
             lc3 = new Location(overworld, x + 15, y + 3, z - 15);

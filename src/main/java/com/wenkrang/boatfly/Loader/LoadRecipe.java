@@ -1,6 +1,8 @@
 package com.wenkrang.boatfly.Loader;
 
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.event.GUI.book.lib.BookAPI;
+import com.wenkrang.boatfly.event.GUI.book.lib.Recipe;
 import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -512,5 +514,11 @@ public class LoadRecipe {
 
         } catch (Exception e) {}
 
+//        try {
+//            for (Recipe recipe : BookAPI.recipes) {
+//                getServer().addRecipe(recipe.shapedRecipe);
+//            }
+//        }catch (Exception e) {}
+//自动测试
     }
 }
