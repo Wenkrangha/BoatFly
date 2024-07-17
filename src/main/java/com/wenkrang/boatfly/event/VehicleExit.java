@@ -27,7 +27,9 @@ public class VehicleExit implements Listener {
             if (event.getExited() instanceof Player && !event.getVehicle().isDead()) {
                 Boolean IsExit = true;
                 Player player = (Player) event.getExited();
-                if (event.getVehicle().getLocation().getBlock().getType() == Material.WATER) {
+                Location location = event.getVehicle().getLocation();
+                location.add(0, 1, 0);
+                if (location.getBlock().getType() == Material.WATER) {
                     player.addScoreboardTag("CanExit");
                     Objects.requireNonNull(event.getVehicle()).removePassenger(player);
                     IsExit = false;

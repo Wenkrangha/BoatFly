@@ -7,6 +7,7 @@ import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
 import com.wenkrang.boatfly.lib.Materials;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
+import com.wenkrang.boatfly.lib.VersionChecker;
 
 import static org.bukkit.Bukkit.getServer;
 
@@ -29,8 +30,9 @@ public class init {
             //3.加载合成
             Materials.init();
             LoadRecipe.run();
+            ConsoleLoger.info("当前服务器版本：" + VersionChecker.getVersion());
             //检测服务器版本，动态修补兼容问题
-            if (PlayerInteract.isBelow1_20_4()) {
+            if (VersionChecker.isVersionBelow("1.20.4")) {
                 //提醒腐竹更新服务器
                 ConsoleLoger.warn("您的服务器版本低于1.20.4,部分功能可能无法正常使用");
             }

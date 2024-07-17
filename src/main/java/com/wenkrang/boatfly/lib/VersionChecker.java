@@ -27,12 +27,31 @@ public class VersionChecker {
         while (matcher.find()) {
             // 使用 matcher.group() 方法来获取匹配的组
             String group = matcher.group(0);
-            int i = Integer.parseInt(group);
-            if (i < Integer.parseInt(requiredVersion)) {
+            float i = Float.parseFloat(group);
+            if (i < Float.parseFloat(requiredVersion)) {
                 return true;
             }
         }
 
         return false; // 版本相同或高于所需版本
+    }
+
+    public static String getVersion() {
+        String currentVersion = Bukkit.getVersion();
+        // 从Bukkit.getVersion()返回的字符串中提取纯净的版本号，假设版本号位于 "CraftBukkit version git-SomeHash (MC: 1.20.1)" 形式的字符串中
+
+        // 定义一个正则表达式来匹配版本号
+        Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)(?:\\.(\\d+))?");
+
+        // 创建一个 matcher 对象
+        Matcher matcher = pattern.matcher(currentVersion);
+
+        while (matcher.find()) {
+            // 使用 matcher.group() 方法来获取匹配的组
+            String group = matcher.group(0);
+
+            return group;
+        }
+        return currentVersion;
     }
 }

@@ -21,7 +21,7 @@ import java.util.Objects;
 public class PlayerInteract implements Listener {
     public static boolean isBelow1_20_4() {
         try {
-            return VersionChecker.isVersionBelow("1.20.3");
+            return VersionChecker.isVersionBelow("1.20.4");
         } catch (IllegalArgumentException e) {
             return true;
         }
