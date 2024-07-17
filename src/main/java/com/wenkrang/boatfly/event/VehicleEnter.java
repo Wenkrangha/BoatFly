@@ -115,36 +115,36 @@ public class VehicleEnter implements Listener {
                         }
                     }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
 
-//                    //仪表盘
-//                    Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-//                    Objective objective = scoreboard.registerNewObjective(player.getName(), "dummy", "飞船仪表盘");
-//                    objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-//
-//                    player.setScoreboard(scoreboard);
-//                    Team team = scoreboard.registerNewTeam("1");
-//                    team.addEntry("1");
-//                    objective.getScore("1").setScore(1);
-//                    team.setPrefix("");
-//                    new BukkitRunnable() {
-//                        @Override
-//                        public void run() {
-//                            if (IsShutDown || !event.getVehicle().getScoreboardTags().contains("Run")) {
-//                                cancel();
-//                            }
-//                            int coal = 0;
-//                            for (String s : event.getVehicle().getScoreboardTags()) {
-//                                if (s.contains("coal")) {
-//                                    coal = Integer.parseInt(s.replace("coal", ""));
-//                                    break;
-//                                }
-//                            }
-//                            team.setPrefix("飞船拥有的煤炭：");
-//                            team.setSuffix(String.valueOf(coal));
-//                            if (!event.getVehicle().getPassengers().contains(event.getEntered())) {
-//                                scoreboard.resetScores("1");
-//                            }
-//                        }
-//                    }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
+                    //仪表盘
+                    Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+                    Objective objective = scoreboard.registerNewObjective(player.getName(), "dummy", "飞船仪表盘");
+                    objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+
+                    player.setScoreboard(scoreboard);
+                    Team team = scoreboard.registerNewTeam("1");
+                    team.addEntry("1");
+                    objective.getScore("1").setScore(1);
+                    team.setPrefix("");
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            if (IsShutDown || !event.getVehicle().getScoreboardTags().contains("Run")) {
+                                cancel();
+                            }
+                            int coal = 0;
+                            for (String s : event.getVehicle().getScoreboardTags()) {
+                                if (s.contains("coal")) {
+                                    coal = Integer.parseInt(s.replace("coal", ""));
+                                    break;
+                                }
+                            }
+                            team.setPrefix("飞船拥有的煤炭：");
+                            team.setSuffix(String.valueOf(coal));
+                            if (!event.getVehicle().getPassengers().contains(event.getEntered())) {
+                                scoreboard.resetScores("1");
+                            }
+                        }
+                    }.runTaskTimer(BoatFly.getPlugin(BoatFly.class), 0, 1);
                 }
             }
 

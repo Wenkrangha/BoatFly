@@ -2,6 +2,9 @@ package com.wenkrang.boatfly.lib;
 
 import org.bukkit.Bukkit;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class VersionChecker {
 
     /**
@@ -14,26 +17,20 @@ public class VersionChecker {
         // 获取当前服务器版本
         String currentVersion = Bukkit.getVersion();
         // 从Bukkit.getVersion()返回的字符串中提取纯净的版本号，假设版本号位于 "CraftBukkit version git-SomeHash (MC: 1.20.1)" 形式的字符串中
-        String[] versionParts = currentVersion.split(" ")[4].split("-")[0].split("\\.");
 
-        // 将所需版本号按点分割
-        String[] requiredVersionParts = requiredVersion.split("\\.");
+        // 定义一个正则表达式来匹配版本号
+        Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)(?:\\.(\\d+))?");
 
-        try {
-            // 比较版本号的每一个部分
-            for (int i = 0; i < Math.max(versionParts.length, requiredVersionParts.length); i++) {
-                // 处理位数不足的情况，不足的位视为0
-                int currentPart = i < versionParts.length ? Integer.parseInt(versionParts[i]) : 0;
-                int requiredPart = i < requiredVersionParts.length ? Integer.parseInt(requiredVersionParts[i]) : 0;
+        // 创建一个 matcher 对象
+        Matcher matcher = pattern.matcher(currentVersion);
 
-                if (currentPart < requiredPart) {
-                    return true; // 当前版本低于所需版本
-                } else if (currentPart > requiredPart) {
-                    return false; // 当前版本高于或等于所需版本
-                }
+        while (matcher.find()) {
+            // 使用 matcher.group() 方法来获取匹配的组
+            String group = matcher.group(0);
+            int i = Integer.parseInt(group);
+            if (i < Integer.parseInt(requiredVersion)) {
+                return true;
             }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Invalid version format", e);
         }
 
         return false; // 版本相同或高于所需版本
