@@ -26,9 +26,12 @@ public class VersionChecker {
 
         while (matcher.find()) {
             // 使用 matcher.group() 方法来获取匹配的组
-            String group = matcher.group(0);
-            float i = Float.parseFloat(group);
-            if (i < Float.parseFloat(requiredVersion)) {
+            String group = matcher.group(0).replace(".","");
+            int i = Integer.parseInt(group);
+            if (i < 1000) {
+                i = i * 10;
+            }
+            if (i < Integer.parseInt(requiredVersion.replace(".",""))) {
                 return true;
             }
         }
