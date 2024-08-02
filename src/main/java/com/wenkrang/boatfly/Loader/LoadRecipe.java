@@ -96,8 +96,8 @@ public class LoadRecipe {
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
                         .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))
+                        .setIngredient('t', Material.BEEHIVE)
+                        .setIngredient('y', Material.DISPENSER)
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack11))
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
                 //注册配方
