@@ -78,6 +78,17 @@ public class Main {
         lore9.add("§6在§6§l船上§6,按§f§l§o§nShift§6打开面板");
         itemMeta9.setLore(lore9);
         itemStack9.setItemMeta(itemMeta9);
+        ItemStack itemStack10 = new ItemStack(Material.CLOCK);
+        ItemMeta itemMeta10 = itemStack10.getItemMeta();
+        itemMeta10.setItemName("§9飞船§r寻找器");
+        ArrayList<String> lore10 = new ArrayList<>();
+        lore10.add("§7它可以§n帮助§r§7你寻找§l100格内的飞船§r§7，给于你与它的§n距离§r§7");
+        lore10.add("§7再也不怕§n飞船§r§7丢了捏（");
+        lore10.add("");
+        lore10.add("§6§n§l右键 §r§7寻找");
+        itemMeta10.setLore(lore10);
+        itemStack10.setItemMeta(itemMeta10);
+
 
 //        ItemStack itemStack10 = new ItemStack(Material.DROPPER);
 //        ItemMeta itemMeta10 = itemStack8.getItemMeta();
@@ -111,6 +122,7 @@ public class Main {
         inventory.setItem(11, itemStack4);
         inventory.setItem(12, itemStack8);
         inventory.setItem(13, itemStack5);
+        inventory.setItem(15, itemStack10);
 //        inventory.setItem(15, itemStack10);
 //        inventory.setItem(16, itemStack11);
 

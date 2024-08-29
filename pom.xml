@@ -6,7 +6,7 @@
 
     <groupId>com.wenkrang</groupId>
     <artifactId>BoatFly</artifactId>
-    <version>1.5.6fb1</version>
+    <version>1.5.7</version>
     <packaging>jar</packaging>
 
     <name>BoatFly</name>

@@ -477,6 +477,69 @@ public class Click implements Listener {
                     event.getWhoClicked().closeInventory();
                 }
             }
+            if (event.getRawSlot() == 15) {
+                Inventory inventory = Bukkit.createInventory(null, 27, "飞船配方-客运飞船");
+                ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
+                ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                itemMeta0.setDisplayName(" ");
+                itemStack0.setItemMeta(itemMeta0);
+                ItemStack itemStack1 = new ItemStack(Materials.sign);
+                ItemMeta itemMeta1 = itemStack1.getItemMeta();
+                itemMeta1.setDisplayName("§9§l返回§r主页");
+                itemStack1.setItemMeta(itemMeta1);
+                ItemStack itemStack2 = new ItemStack(Material.CONDUIT);
+                ItemMeta itemMeta2 = itemStack2.getItemMeta();
+                itemStack2.setItemMeta(itemMeta2);
+                ItemStack itemStack3 = new ItemStack(Material.BEACON);
+                ItemMeta itemMeta3 = itemStack3.getItemMeta();
+                itemStack3.setItemMeta(itemMeta3);
+                ItemStack itemStack4 = new ItemStack(Material.END_CRYSTAL);
+                ItemMeta itemMeta4 = itemStack4.getItemMeta();
+                itemStack4.setItemMeta(itemMeta4);
+                ItemStack itemStack5 = new ItemStack(Material.CRAFTING_TABLE);
+                ItemMeta itemMeta5 = itemStack5.getItemMeta();
+                itemMeta5.setDisplayName("§9§l工作台§r合成");
+                ArrayList<String> lore5 = new ArrayList<>();
+                lore5.add("§7该物品使用§7§l工作台§7合成，请");
+                lore5.add("§7按照配方§7§l§n有序合成");
+                itemMeta5.setLore(lore5);
+                itemStack5.setItemMeta(itemMeta5);
+                ItemStack itemStack10 = new ItemStack(Material.CLOCK);
+                ItemMeta itemMeta10 = itemStack10.getItemMeta();
+                itemMeta10.setItemName("§9飞船§r寻找器");
+                ArrayList<String> lore10 = new ArrayList<>();
+                lore10.add("§7它可以§n帮助§r§7你寻找§l100格内的飞船§r§7，给于你与它的§n距离§r§7");
+                lore10.add("§7再也不怕§n飞船§r§7丢了捏（");
+                lore10.add("");
+                lore10.add("§6§n§l右键 §r§7寻找");
+                itemMeta10.setLore(lore10);
+                itemStack10.setItemMeta(itemMeta10);
+                ItemStack itemStack11 = new ItemStack(Material.CLOCK);
+                ItemStack itemStack12 = new ItemStack(Material.REDSTONE);
+
+                inventory.setItem(0, itemStack0);
+                inventory.setItem(1, itemStack1);
+                inventory.setItem(2, itemStack0);
+                inventory.setItem(6, itemStack0);
+                inventory.setItem(7, itemStack0);
+                inventory.setItem(8, itemStack0);
+                inventory.setItem(10, itemStack5);
+                inventory.setItem(16, itemStack10);
+                inventory.setItem(13, itemStack11);
+                inventory.setItem(22, itemStack12);
+
+                event.getWhoClicked().openInventory(inventory);
+
+                if (event.isRightClick() && event.getWhoClicked().getGameMode().equals(GameMode.CREATIVE)) {
+                    event.getWhoClicked().getInventory().addItem(itemStack10);
+                    event.getWhoClicked().closeInventory();
+                }
+            }
+            //3   4   5
+            //12  13  14
+            //21  22  23
+
+
 //            if (event.getRawSlot() == 15) {
 //                Inventory inventory = Bukkit.createInventory(null, 27, "飞船配方-航空装配台");
 //                ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
