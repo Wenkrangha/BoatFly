@@ -8,6 +8,8 @@ import com.wenkrang.boatfly.Loader.LoadRecipe;
 import com.wenkrang.boatfly.lib.ConsoleLoger;
 import com.wenkrang.boatfly.lib.VersionChecker;
 
+import java.util.Arrays;
+
 import static org.bukkit.Bukkit.getServer;
 
 public final class init {
@@ -40,6 +42,9 @@ public final class init {
             }
             //加载完成
             getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : " + MainData.PluginName);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            ConsoleLoger.error(e.toString());
+            Arrays.stream(e.getStackTrace()).forEach(i -> ConsoleLoger.error(" at " + i.toString()));
+        }
     }
 }
