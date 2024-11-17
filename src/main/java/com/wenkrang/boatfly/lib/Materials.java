@@ -2,7 +2,13 @@ package com.wenkrang.boatfly.lib;
 
 import org.bukkit.Material;
 
-public class Materials {
+import java.util.HashMap;
+import java.util.Map;
+
+public final class Materials {
+    private Materials() {
+        throw new IllegalStateException("new Materials()");
+    }
     //wild update
     public static Material chestBoat;
     //caves and cliffs
@@ -27,7 +33,9 @@ public class Materials {
     public static Material none;
     public static Material off;
     public static Material on;
-    public static void init() {
+    //material map
+    public static Map<String, Material> materials = new HashMap<>();
+    public static void offlineInit() {
         try {
             chestBoat = Material.OAK_CHEST_BOAT;
         } catch (NoSuchFieldError e) {
@@ -75,7 +83,7 @@ public class Materials {
             blastFurnace = Material.FURNACE;
             smoker = Material.FURNACE;
             smithingTable = Material.CRAFTING_TABLE;
-            sign = Material.BOOK; //1.13尽量不用sign
+            sign = Material.valueOf("SIGN");
             grindstone = Material.STONE;
         }
         none = Material.LIGHT_BLUE_STAINED_GLASS_PANE;

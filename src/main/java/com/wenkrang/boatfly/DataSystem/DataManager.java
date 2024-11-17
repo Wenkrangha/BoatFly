@@ -37,7 +37,7 @@ public class DataManager {
         return o;
     }
 
-    public void delete(String name) throws IOException {
+    public void delete(String name) {
         File file = new File(DataBasePath.getPath() + "/" + name + ".json");
         file.delete();
     }
