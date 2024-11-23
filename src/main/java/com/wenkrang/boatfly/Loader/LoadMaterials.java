@@ -39,7 +39,6 @@ public final class LoadMaterials {
             final var fileReader = new FileReader("plugins/BoatFly/MaterialLocal.json");
             ((JsonObject) JsonParser.parseReader(fileReader)).entrySet().forEach(i -> {
                 if (Objects.equals(i.getKey(), "minecraft")) {
-                    ConsoleLoger.info("当前版本为" + i.getValue().toString());
                     if (VersionChecker.isVersionBelow(i.getValue().toString().substring(1, 5))) {
                         file.delete();
                         throw new RuntimeException("break");
