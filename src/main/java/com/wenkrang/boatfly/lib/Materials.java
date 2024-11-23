@@ -2,7 +2,13 @@ package com.wenkrang.boatfly.lib;
 
 import org.bukkit.Material;
 
-public class Materials {
+import java.util.HashMap;
+import java.util.Map;
+
+public final class Materials {
+    private Materials() {
+        throw new IllegalStateException("new Materials()");
+    }
     //wild update
     public static Material chestBoat;
     //caves and cliffs
@@ -27,7 +33,9 @@ public class Materials {
     public static Material none;
     public static Material off;
     public static Material on;
-    public static void init() {
+    //material map
+    private static final Map<String, Material> materials = new HashMap<>();
+    public static void offlineInit() {
         try {
             chestBoat = Material.OAK_CHEST_BOAT;
         } catch (NoSuchFieldError e) {
@@ -37,10 +45,12 @@ public class Materials {
         try {
             lightningRod = Material.LIGHTNING_ROD;
             deepslate = Material.DEEPSLATE;
+            materials.put("COPPER_INGOT", Material.COPPER_INGOT);
         } catch (NoSuchFieldError e) {
             ConsoleLoger.info("服务器版本低于1.17，正在回退新内容");
             lightningRod = Material.STICK;
             deepslate = Material.STONE;
+            materials.put("COPPER_INGOT", Material.IRON_INGOT);
         }
         try {
             target = Material.TARGET;
@@ -75,11 +85,32 @@ public class Materials {
             blastFurnace = Material.FURNACE;
             smoker = Material.FURNACE;
             smithingTable = Material.CRAFTING_TABLE;
-            sign = Material.BOOK; //1.13尽量不用sign
+            sign = Material.valueOf("SIGN");
             grindstone = Material.STONE;
         }
         none = Material.LIGHT_BLUE_STAINED_GLASS_PANE;
         off = Material.RED_STAINED_GLASS_PANE;
         on = Material.GREEN_STAINED_GLASS_PANE;
+        materials.put("CHEST_BOAT", chestBoat);
+        materials.put("LIGHTNING_ROD", lightningRod);
+        materials.put("DEEPSLATE", deepslate);
+        materials.put("TARGET", target);
+        materials.put("NETHERITE_SCRAP", netheriteScrap);
+        materials.put("NETHERITE_INGOT", netheriteIngot);
+        materials.put("NETHERITE_SWORD", netheriteSword);
+        materials.put("BEE_HIVE", beeHive);
+        materials.put("HONEY_BLOCK", honeyBlock);
+        materials.put("CAMPFIRE", campfire);
+        materials.put("BLAST_FURNACE", blastFurnace);
+        materials.put("SMOKER", smoker);
+        materials.put("SMITHING_TABLE", smithingTable);
+        materials.put("SIGN", sign);
+        materials.put("GRINDSTONE", grindstone);
+    }
+    public static Material get(String name) {
+        return materials.get(name);
+    }
+    public static void set(String name, Material material) {
+        materials.put(name, material);
     }
 }

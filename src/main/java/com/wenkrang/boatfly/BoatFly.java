@@ -7,9 +7,6 @@ import org.bukkit.Bukkit;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.List;
-
 
 public final class BoatFly extends JavaPlugin {
 
@@ -18,7 +15,7 @@ public final class BoatFly extends JavaPlugin {
     public void onEnable() {
         if (VersionChecker.isVersionBelow("1.13")) {
             ConsoleLoger.error("仅支持1.13+版本运行！");
-            MainData.IsShutDown = true;
+            onDisable();
         } else {
             MainData.plugin = getPlugin(BoatFly.class);
             MainData.PluginFile = getFile();
