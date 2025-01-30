@@ -28,27 +28,26 @@ public class PlayerInteract implements Listener {
     }
 
     public static Location getOffsetForFace(BlockFace face) {
-        double dx = 0.0, dy = 0.0, dz = 0.0;
-        switch (face) {
+        double dx, dz;
+        dz = switch (face) {
             case NORTH_WEST:
                 dx = -0.5;
-                dz = -0.5;
-                break;
+                yield -0.5;
             case NORTH_EAST:
                 dx = 0.5;
-                dz = -0.5;
-                break;
+                yield -0.5;
             case SOUTH_WEST:
                 dx = -0.5;
-                dz = 0.5;
-                break;
+                yield 0.5;
             case SOUTH_EAST:
                 dx = 0.5;
-                dz = 0.5;
-                break;
+                yield 0.5;
             // ... 其他斜向面的处理 ...
-        }
-        return new Location(null, dx, dy, dz); // 返回一个只有偏移量的Location对象
+            default:
+                dx = 0;
+                yield 0;
+        };
+        return new Location(null, dx, 0, dz); // 返回一个只有偏移量的Location对象
     }
     public static Location calculateParticleLocation(Location blockLocation, BlockFace face) {
         switch (face) {

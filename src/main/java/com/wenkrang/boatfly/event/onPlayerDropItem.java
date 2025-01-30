@@ -16,8 +16,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Objects;
-//推送更新吗
-//boatfly直接自动更新（？
+
 import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
 public class onPlayerDropItem implements Listener {
     @EventHandler
