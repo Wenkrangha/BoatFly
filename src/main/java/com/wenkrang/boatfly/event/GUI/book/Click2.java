@@ -76,7 +76,7 @@ public class Click2 implements Listener {
                 ItemStack itemStack8 = new ItemStack(Material.IRON_INGOT);
                 ItemMeta itemMeta8 = itemStack8.getItemMeta();
                 itemStack8.setItemMeta(itemMeta8);
-                ItemStack itemStack9 = new ItemStack(Material.COPPER_INGOT);
+                ItemStack itemStack9 = new ItemStack(Materials.get("COPPER_INGOT"));
                 ItemMeta itemMeta9 = itemStack9.getItemMeta();
                 itemStack9.setItemMeta(itemMeta9);
                 inventory.setItem(0, itemStack0);
