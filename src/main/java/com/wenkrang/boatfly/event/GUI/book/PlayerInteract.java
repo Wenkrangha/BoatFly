@@ -92,40 +92,23 @@ public class PlayerInteract implements Listener {
             }
         }
 
-        if (isBelow1_20_4()) {
-            if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-                if (event.getHand().equals(EquipmentSlot.HAND)) {
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                        event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplane(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
+
+        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            if (event.getHand().equals(EquipmentSlot.HAND)) {
+                if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
+                        (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船") ||
+                                event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l货运§r飞船") ||
+                                event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l客运§r飞船"))) {
+                    Block clickedBlock = event.getClickedBlock();
+                    Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
+                    switch (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()) {
+                        case "§9§l飞§r船" -> plane.getplane(location);
+                        case "§9§l货运§r飞船" -> plane.getplanelevetwo(location);
+                        case "§9§l客运§r飞船" -> plane.getplanelevethree(location);
                     }
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l货运§r飞船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplanelevetwo(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
-                    }
-                    //"§9§l客运§r飞船"
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l客运§r飞船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplanelevethree(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
-                    }
+                    if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE))
+                        event.getPlayer().getInventory().setItemInMainHand(null);
+                    event.setCancelled(true);
                 }
             }
         }

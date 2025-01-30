@@ -1,6 +1,8 @@
 package com.wenkrang.boatfly.Entity;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Boat;
+import org.bukkit.entity.EntityType;
 
 
 public class plane {
@@ -8,7 +10,7 @@ public class plane {
     //但现在已经不怎么用了
     //所有的Tag都在玩家乘上的时候添加
     public static void getplane(Location location) {
-        org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
+        Boat boat = (Boat) location.getWorld().spawnEntity(location, EntityType.BOAT);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
         boat.addScoreboardTag("real0");
@@ -20,7 +22,7 @@ public class plane {
     }
     //货运飞船的tag
     public static void getplanelevetwo(Location location) {
-        org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
+        org.bukkit.entity.Boat boat =  (Boat) location.getWorld().spawnEntity(location, EntityType.BOAT);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
         boat.addScoreboardTag("real0");
@@ -33,7 +35,7 @@ public class plane {
     }
     //客运飞船的tag
     public static void getplanelevethree(Location location) {
-        org.bukkit.entity.Boat boat = location.getWorld().spawn(location, org.bukkit.entity.Boat.class);
+        org.bukkit.entity.Boat boat =  (Boat) location.getWorld().spawnEntity(location, EntityType.BOAT);
         boat.addScoreboardTag("CanFly");
         boat.addScoreboardTag("eng0");
         boat.addScoreboardTag("real0");
