@@ -61,7 +61,7 @@ public class PlayerInteract implements Listener {
             // 例如对于NORTH_EAST等方向，可以通过向量运算获得准确位置
             // 这里假设你已经有一个名为getOffsetForFace的函数完成这项工作
             default -> blockLocation.clone().add(getOffsetForFace(face));
-        }
+        };
     }
 
     @EventHandler

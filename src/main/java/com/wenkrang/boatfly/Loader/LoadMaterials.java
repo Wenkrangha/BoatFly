@@ -21,15 +21,15 @@ public final class LoadMaterials {
         try {
             final var file = new File("plugins/BoatFly/MaterialLocal.json");
             if (!file.exists()) {
-                var fileName = "upgrade/Materials";
+                var fileName = new StringBuilder().append("upgrade/Materials");
                 if (!VersionChecker.isVersionBelow("1.19")) {
-                    fileName += "119.json";
+                    fileName.append("119.json");
                 } else if (!VersionChecker.isVersionBelow("1.17")) {
-                    fileName += "117.json";
+                    fileName.append("117.json");
                 } else if (!VersionChecker.isVersionBelow("1.16")) {
-                    fileName += "116.json";
+                    fileName.append("116.json");
                 } else if (!VersionChecker.isVersionBelow("1.15")) {
-                    fileName += "114.json";
+                    fileName.append("114.json");
                 } else if (!VersionChecker.isVersionBelow("1.14")) {
                     throw new RuntimeException("break");
                 }
