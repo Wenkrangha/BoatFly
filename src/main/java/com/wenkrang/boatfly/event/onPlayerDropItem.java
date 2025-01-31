@@ -5,11 +5,10 @@ import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.vehicle.VehicleExitEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -19,20 +18,21 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
-
-public class VehicleExit implements Listener {
+public class onPlayerDropItem implements Listener {
     @EventHandler
-    public static void OnVehicleExit (VehicleExitEvent event) {
-        if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getExited().getScoreboardTags().contains("CanExit")) {
-            if (event.getExited() instanceof Player && !event.getVehicle().isDead()) {
-                Boolean IsExit = true;
-                Player player = (Player) event.getExited();
-                Location location = event.getVehicle().getLocation();
+    public static void onPlayerDropItem (PlayerDropItemEvent event) {
+        if (event.getPlayer().getVehicle().getScoreboardTags().contains("CanFly") && !event.getPlayer().getScoreboardTags().contains("CanExit")) {
+            if (!event.getPlayer().getVehicle().isDead()) {
+                boolean isExit = true;
+
+
+                Player player = (Player) event.getPlayer();
+                Location location = event.getPlayer().getVehicle().getLocation();
                 location.add(0, 1, 0);
                 if (location.getBlock().getType() == Material.WATER) {
                     player.addScoreboardTag("CanExit");
-                    Objects.requireNonNull(event.getVehicle()).removePassenger(player);
-                    IsExit = false;
+                    Objects.requireNonNull(event.getPlayer().getVehicle()).removePassenger(player);
+                    isExit = false;
                 }
                 Inventory inventory = Bukkit.createInventory(null, 54, "飞船控制面包");
                 ItemStack itemStack0 = new ItemStack(Materials.none);
@@ -252,7 +252,7 @@ public class VehicleExit implements Listener {
                 player.openInventory(inventory);
                 player.setCompassTarget(new Location(player.getWorld(), 0, 0, 0));
                 int coal = 0;
-                for (String s : event.getVehicle().getScoreboardTags()) {
+                for (String s : event.getPlayer().getVehicle().getScoreboardTags()) {
                     if (s.contains("coal")) {
                         coal = Integer.parseInt(s.replace("coal", ""));
                         break;
@@ -266,20 +266,18 @@ public class VehicleExit implements Listener {
 
                     @Override
                     public void run() {
-                        if (!inventory.getViewers().contains((HumanEntity) event.getExited()) || IsShutDown) {
+                        if (!inventory.getViewers().contains(event.getPlayer()) || IsShutDown) {
                             cancel();
                         }
                         new BukkitRunnable() {
                             @Override
                             public void run() {
-                                if (event.getVehicle().getScoreboardTags().contains("OFF")) {
-                                    inventory.setItem(10, itemStack3);
-                                }else {
-                                    inventory.setItem(10, itemStack17);
-                                }
-                                if (event.getVehicle().getScoreboardTags().contains("ON")) {
+
+                                inventory.setItem(10, event.getPlayer().getVehicle().
+                                        getScoreboardTags().contains("OFF") ? itemStack3 : itemStack17);
+                                if (event.getPlayer().getVehicle().getScoreboardTags().contains("ON")) {
                                     int coal = 0;
-                                    for (String s : event.getVehicle().getScoreboardTags()) {
+                                    for (String s : event.getPlayer().getVehicle().getScoreboardTags()) {
                                         if (s.contains("coal")) {
                                             coal = Integer.parseInt(s.replace("coal", ""));
                                             break;
@@ -290,21 +288,21 @@ public class VehicleExit implements Listener {
                                         inventory.setItem(15, itemStack);
                                     }
                                 }
-                                if (!event.getVehicle().getScoreboardTags().contains("keyun")) {
-                                    if (event.getVehicle().getScoreboardTags().contains("CanFire")) {
+                                if (!event.getPlayer().getVehicle().getScoreboardTags().contains("keyun")) {
+                                    if (event.getPlayer().getVehicle().getScoreboardTags().contains("CanFire")) {
                                         inventory.setItem(29, itemStack18);
                                     }else {
                                         inventory.setItem(29, itemStack11);
                                     }
 
                                 }
-                                for (String string : event.getVehicle().getScoreboardTags()) {
+                                for (String string : event.getPlayer().getVehicle().getScoreboardTags()) {
                                     if (string.contains("location")) {
                                         String location = string.replace("location", "");
                                         String[] split = location.split(",");
                                         int x = Integer.parseInt(split[0]);
                                         int z = Integer.parseInt(split[1]);
-                                        ((Player) event.getExited()).setCompassTarget(new Location(event.getExited().getWorld(), x, event.getExited().getLocation().getBlockY(), z));
+                                        event.getPlayer().setCompassTarget(new Location(event.getPlayer().getWorld(), x, event.getPlayer().getLocation().getBlockY(), z));
                                         ItemStack itemStack14 = new ItemStack(Material.COMPASS);
                                         ItemMeta itemMeta14 = itemStack14.getItemMeta();
                                         itemMeta14.setDisplayName("§9§l电子§r指南针");
@@ -320,7 +318,7 @@ public class VehicleExit implements Listener {
                                     }
                                 }
 
-                                if (event.getVehicle().getLocation().getBlockY() > 365) {
+                                if (event.getPlayer().getVehicle().getLocation().getBlockY() > 365) {
                                     ItemStack itemStack = inventory.getItem(38);
                                     ItemMeta itemMeta = itemStack.getItemMeta();
                                     itemMeta.setDisplayName("§9§l开始§f自动驾驶");
@@ -346,7 +344,7 @@ public class VehicleExit implements Listener {
                         }.runTaskLater(BoatFly.getPlugin(BoatFly.class), 0);
                     }
                 }.runTaskTimerAsynchronously(BoatFly.getPlugin(BoatFly.class), 0, 5);
-                if (event.getVehicle().getScoreboardTags().contains("huoyun")) {
+                if (event.getPlayer().getVehicle().getScoreboardTags().contains("huoyun")) {
                     ItemStack item = inventory.getItem(24);
                     item.setType(Material.BARRIER);
                     ItemMeta itemMeta = item.getItemMeta();
@@ -354,26 +352,24 @@ public class VehicleExit implements Listener {
                     item.setItemMeta(itemMeta);
                     inventory.setItem(24, item);
                 }
-                if (event.getVehicle().getScoreboardTags().contains("keyun")) {
+                if (event.getPlayer().getVehicle().getScoreboardTags().contains("keyun")) {
                     inventory.setItem(27, itemStack4);
                     inventory.setItem(29, itemStack4);
                 }
-                if (IsExit == false) {
-                    player.closeInventory();
-                }
-                event.setCancelled(IsExit);
+                if (!isExit) player.closeInventory();
+                event.setCancelled(isExit);
             }
         }
-        if (event.getExited().getScoreboardTags().contains("CanExit")) {
+        if (event.getPlayer().getScoreboardTags().contains("CanExit")) {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    if (event.getVehicle().getPassengers().isEmpty()) {
-                        event.getVehicle().removeScoreboardTag("Run");
+                    if (event.getPlayer().getVehicle().getPassengers().isEmpty()) {
+                        event.getPlayer().getVehicle().removeScoreboardTag("Run");
                     }
                 }
             }.runTaskLaterAsynchronously(BoatFly.getPlugin(BoatFly.class), 10);
-            event.getExited().removeScoreboardTag("CanExit");
+            event.getPlayer().removeScoreboardTag("CanExit");
         }
     }
 }

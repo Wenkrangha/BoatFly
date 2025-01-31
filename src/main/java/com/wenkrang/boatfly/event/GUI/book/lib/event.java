@@ -56,7 +56,7 @@ public class event implements Listener {
         }
         for (int i = 0; i < BookAPI.recipes.size(); i++) {
             if (BookAPI.recipes.get(i).item.equals(item)) {
-                Inventory inventory = Bukkit.createInventory(null, 27, "飞船模块配方 - " + BookAPI.recipes.get(i).item.getItemMeta().getItemName());
+                Inventory inventory = Bukkit.createInventory(null, 27, "飞船模块配方 - " + BookAPI.recipes.get(i).item.getItemMeta().getDisplayName());
                 ItemStack itemStack0 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
                 ItemMeta itemMeta0 = itemStack0.getItemMeta();
                 itemMeta0.setDisplayName(" ");

@@ -80,7 +80,7 @@ public class Main {
         itemStack9.setItemMeta(itemMeta9);
         ItemStack itemStack10 = new ItemStack(Material.CLOCK);
         ItemMeta itemMeta10 = itemStack10.getItemMeta();
-        itemMeta10.setItemName("§9飞船§r寻找器");
+        itemMeta10.setDisplayName("§9飞船§r寻找器");
         ArrayList<String> lore10 = new ArrayList<>();
         lore10.add("§7它可以§n帮助§r§7你寻找§l100格内的飞船§r§7，给于你与它的§n距离§r§7");
         lore10.add("§7再也不怕§n飞船§r§7丢了捏（");

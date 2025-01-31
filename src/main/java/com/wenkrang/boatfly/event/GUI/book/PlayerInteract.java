@@ -28,52 +28,44 @@ public class PlayerInteract implements Listener {
     }
 
     public static Location getOffsetForFace(BlockFace face) {
-        double dx = 0.0, dy = 0.0, dz = 0.0;
+        double dx, dz;
         switch (face) {
             case NORTH_WEST:
                 dx = -0.5;
                 dz = -0.5;
-                break;
             case NORTH_EAST:
                 dx = 0.5;
                 dz = -0.5;
-                break;
             case SOUTH_WEST:
                 dx = -0.5;
                 dz = 0.5;
-                break;
             case SOUTH_EAST:
                 dx = 0.5;
                 dz = 0.5;
-                break;
             // ... 其他斜向面的处理 ...
+            default:
+                dx = 0;
+                dz = 0;
         }
-        return new Location(null, dx, dy, dz); // 返回一个只有偏移量的Location对象
+        return new Location(null, dx, 0, dz); // 返回一个只有偏移量的Location对象
     }
     public static Location calculateParticleLocation(Location blockLocation, BlockFace face) {
-        switch (face) {
-            case NORTH:
-                return blockLocation.clone().add(0.5, 0.5, 0);
-            case SOUTH:
-                return blockLocation.clone().add(0.5, 0.5, 1);
-            case WEST:
-                return blockLocation.clone().add(0, 0.5, 0.5);
-            case EAST:
-                return blockLocation.clone().add(1, 0.5, 0.5);
-            case UP:
-                return blockLocation.clone().add(0.5, 1, 0.5);
-            case DOWN:
-                return blockLocation.clone().add(0.5, 0, 0.5);
-            default:
-                // 对于其他斜向面，需要额外计算偏移量
-                // 例如对于NORTH_EAST等方向，可以通过向量运算获得准确位置
-                // 这里假设你已经有一个名为getOffsetForFace的函数完成这项工作
-                return blockLocation.clone().add(getOffsetForFace(face));
-        }
+        return switch (face) {
+            case NORTH -> blockLocation.clone().add(0.5, 0.5, 0);
+            case SOUTH -> blockLocation.clone().add(0.5, 0.5, 1);
+            case WEST -> blockLocation.clone().add(0, 0.5, 0.5);
+            case EAST -> blockLocation.clone().add(1, 0.5, 0.5);
+            case UP -> blockLocation.clone().add(0.5, 1, 0.5);
+            case DOWN -> blockLocation.clone().add(0.5, 0, 0.5);
+            // 对于其他斜向面，需要额外计算偏移量
+            // 例如对于NORTH_EAST等方向，可以通过向量运算获得准确位置
+            // 这里假设你已经有一个名为getOffsetForFace的函数完成这项工作
+            default -> blockLocation.clone().add(getOffsetForFace(face));
+        };
     }
 
     @EventHandler
-    public static void OnPlayer (PlayerInteractEvent event) {
+    public static void onPlayer(PlayerInteractEvent event) {
         ItemStack itemStack0 = new ItemStack(Material.WRITABLE_BOOK);
         ItemMeta itemMeta0 = itemStack0.getItemMeta();
         itemMeta0.setDisplayName("§9§lBoatFly§r-飞船配方");
@@ -92,40 +84,23 @@ public class PlayerInteract implements Listener {
             }
         }
 
-        if (isBelow1_20_4()) {
-            if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-                if (event.getHand().equals(EquipmentSlot.HAND)) {
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                        event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplane(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
+
+        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            if (event.getHand().equals(EquipmentSlot.HAND)) {
+                if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
+                        (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l飞§r船") ||
+                                event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l货运§r飞船") ||
+                                event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l客运§r飞船"))) {
+                    Block clickedBlock = event.getClickedBlock();
+                    Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
+                    switch (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()) {
+                        case "§9§l飞§r船" -> plane.getplane(location);
+                        case "§9§l货运§r飞船" -> plane.getplanelevetwo(location);
+                        case "§9§l客运§r飞船" -> plane.getplanelevethree(location);
                     }
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l货运§r飞船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplanelevetwo(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
-                    }
-                    //"§9§l客运§r飞船"
-                    if (event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() &&
-                            event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9§l客运§r飞船")) {
-                        Block clickedBlock = event.getClickedBlock();
-                        Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
-                        plane.getplanelevethree(location);
-                        if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-                            event.getPlayer().getInventory().setItemInMainHand(null);
-                        }
-                        event.setCancelled(true);
-                    }
+                    if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE))
+                        event.getPlayer().getInventory().setItemInMainHand(null);
+                    event.setCancelled(true);
                 }
             }
         }
