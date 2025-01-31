@@ -23,4 +23,5 @@ public class MainData {
     public static int Number = 12;
     //该变量用于储存所有BoatFly添加的配方的Key
     public static ArrayList<NamespacedKey> keys = new ArrayList<>();
+
 }
