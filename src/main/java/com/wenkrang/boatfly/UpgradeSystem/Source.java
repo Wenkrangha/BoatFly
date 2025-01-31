@@ -16,65 +16,10 @@ public class Source {
     public static boolean DevMode = false;
 
     public static String getSource(Boolean Log) {
-//        String tempSourceURL = null; // 使用局部变量进行操作，最后再赋值给静态变量
-//
-//        try {
-//            UnsafeDownloader.downloadFile("https://gitee.com/boat-fly-development-team/BoatFly/raw/master/upgrade/Source", "plugins/BoatFly/Source");
-//            BufferedReader bufferedReader = getBufferedReader("plugins/BoatFly/Source");
-//            String[] Sources = bufferedReader.readLine().split("\\^");
-//            bufferedReader.close();
-//
-//            if (Log) {
-//                ConsoleLoger.info("源文件下载完成");
-//            }
-//
-//            UnsafeDownloader.downloadFile("https://gitee.com/boat-fly-development-team/BoatFly/raw/master/upgrade/SourceDomain", "plugins/BoatFly/SourceDomain");
-//            BufferedReader domainBufferedReader = getBufferedReader("plugins/BoatFly/SourceDomain");
-//            String[] DomainSources = domainBufferedReader.readLine().split("\\^");
-//            ArrayList<Integer> SpeedList = new ArrayList<>();
-//            domainBufferedReader.close();
-//
-//            if (Log) {
-//                ConsoleLoger.info("源域名文件下载完成");
-//            }
-//
-//            for (int i = 0; i < DomainSources.length; i++) {
-//                String s = DomainSources[i];
-//                try {
-//                    InetAddress inetAddress = InetAddress.getByName(s);
-//                    if (isReachable(inetAddress)) {
-//                        if (ConfigYaml.read("update-source").startsWith("http")) {
-//                            tempSourceURL = ConfigYaml.read("update-source");
-//                        } else {
-//                            tempSourceURL = Sources[i];
-//                            SpeedList.add(getPing(inetAddress));
-//                            if (Log) {
-//                                ConsoleLoger.info("测速完成");
-//                                ConsoleLoger.info("Source : " + tempSourceURL);
-//                            }
-//                        }
-//                        break;
-//                    }
-//                } catch (UnknownHostException e) {
-//                    ConsoleLoger.info("域名解析失败: " + s);
-//                }
-//            }
-//            if (!SpeedList.isEmpty()) {
-//                tempSourceURL = Sources[SpeedList.indexOf(Collections.min(SpeedList))];
-//            }
-//        } catch (Exception e) {
-//            ConsoleLoger.error(e.getMessage());
-//        }
-//
-//        SourceURL = tempSourceURL;
-//        if (DevMode) {
-//            SourceURL = "https://gitee.com/boat-fly-development-team/BoatFly/raw/develop/";
-//        }
-        SourceURL = "https://gitee.com/boat-fly-development-team/BoatFly/raw/master/";
         return "https://gitee.com/boat-fly-development-team/BoatFly/raw/master/";
     }
 
-    private static boolean isReachable(InetAddress inetAddress) throws IOException {
+    public static boolean isReachable(InetAddress inetAddress) throws IOException {
         if (System.getProperty("os.name").startsWith("Windows")) {
             return inetAddress.isReachable(500);
         } else {

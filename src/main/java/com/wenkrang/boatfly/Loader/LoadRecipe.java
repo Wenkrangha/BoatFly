@@ -96,7 +96,7 @@ public class LoadRecipe {
                         .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
                         .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
                         .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', Material.BEEHIVE)
+                        .setIngredient('t', Materials.beeHive)
                         .setIngredient('y', Material.DISPENSER)
                         .setIngredient('i', new RecipeChoice.ExactChoice(itemStack11))
                         .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
@@ -541,7 +541,7 @@ public class LoadRecipe {
                 itemStack5.setItemMeta(itemMeta5);
                 ItemStack itemStack10 = new ItemStack(Material.CLOCK);
                 ItemMeta itemMeta10 = itemStack10.getItemMeta();
-                itemMeta10.setItemName("§9飞船§r寻找器");
+                itemMeta10.setDisplayName("§9飞船§r寻找器");
                 ArrayList<String> lore10 = new ArrayList<>();
                 lore10.add("§7它可以§n帮助§r§7你寻找§l100格内的飞船§r§7，给于你与它的§n距离§r§7");
                 lore10.add("§7再也不怕§n飞船§r§7丢了捏（");
