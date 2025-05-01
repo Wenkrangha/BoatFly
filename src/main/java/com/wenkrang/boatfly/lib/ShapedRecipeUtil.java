@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@SuppressWarnings("deprecation")
 public class ShapedRecipeUtil {
     public static List<ItemStack> getItemStacks(ShapedRecipe recipe) {
         List<ItemStack> itemStacks = new ArrayList<>();

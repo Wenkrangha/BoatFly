@@ -18,30 +18,30 @@ public class UnsafeDownloader {
             sc.init(null, new javax.net.ssl.TrustManager[]{new MyTrustManager()}, null);
             connection.setSSLSocketFactory(sc.getSocketFactory());
         } catch (Exception e) {
-            e.printStackTrace();
+            ConsoleLogger.error(e);
         }
 
-        InputStream in = connection.getInputStream();
-        FileOutputStream out = new FileOutputStream(destinationFile);
-
-        byte[] buffer = new byte[1024];
-        int read;
-        while ((read = in.read(buffer)) != -1) {
-            out.write(buffer, 0, read);
+        try (final InputStream in = connection.getInputStream();
+             final FileOutputStream out = new FileOutputStream(destinationFile)) {
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
         }
-
-        in.close();
-        out.close();
     }
 
     public static class MyTrustManager implements javax.net.ssl.X509TrustManager {
+        @Override
         public java.security.cert.X509Certificate[] getAcceptedIssuers() {
             return null;
         }
 
+        @Override
         public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {
         }
 
+        @Override
         public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {
         }
     }

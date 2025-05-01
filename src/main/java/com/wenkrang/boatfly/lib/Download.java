@@ -11,8 +11,8 @@ public class Download {
      * @param urlStr
      * @param fileName
      * @param savePath
-     * @throws IOException
      */
+    @Deprecated
     public static String downLoadFromUrl(String urlStr, String fileName, String savePath) {
         try {
 
@@ -23,29 +23,26 @@ public class Download {
             // 防止屏蔽程序抓取而返回403错误
             conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
 
-            // 得到输入流
-            InputStream inputStream = conn.getInputStream();
-            // 获取字节数组
-            byte[] getData = readInputStream(inputStream);
-
-            // 文件保存位置
             File saveDir = new File(savePath);
             if (!saveDir.exists()) {
                 saveDir.mkdir();
             }
-            File file = new File(saveDir + File.separator + fileName);
-            FileOutputStream fos = new FileOutputStream(file);
-            fos.write(getData);
-            if (fos != null) {
-                fos.close();
-            }
-            if (inputStream != null) {
-                inputStream.close();
+
+            // 得到输入流
+            try (final var inputStream = conn.getInputStream()) {
+                // 获取字节数组
+                byte[] getData = readInputStream(inputStream);
+
+                // 文件保存位置
+                File file = new File(saveDir + File.separator + fileName);
+                try (final var fos = new FileOutputStream(file)) {
+                    fos.write(getData);
+                }
             }
             // System.out.println("info:"+url+" download success");
             return saveDir + File.separator + fileName;
         } catch (Exception e) {
-            e.printStackTrace();
+            ConsoleLogger.error(e);
         }
         return "";
 

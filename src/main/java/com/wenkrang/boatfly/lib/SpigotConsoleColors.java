@@ -1,5 +1,6 @@
 package com.wenkrang.boatfly.lib;
 
+@Deprecated
 public class SpigotConsoleColors {
     // 定义颜色代码
     public static final String BLACK   = "§0";

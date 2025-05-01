@@ -57,4 +57,10 @@ public class VersionChecker {
         }
         return currentVersion;
     }
+
+    public static boolean isFullySupported() {
+        return !isVersionBelow("1.14")
+                && isVersionBelow("1.22")
+                && !getVersion().contains("pre");
+    }
 }

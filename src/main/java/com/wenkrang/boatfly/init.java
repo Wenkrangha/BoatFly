@@ -5,7 +5,7 @@ import com.wenkrang.boatfly.Loader.LoadCommand;
 import com.wenkrang.boatfly.Loader.LoadEvent;
 import com.wenkrang.boatfly.Loader.LoadMaterials;
 import com.wenkrang.boatfly.Loader.LoadRecipe;
-import com.wenkrang.boatfly.lib.ConsoleLoger;
+import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.VersionChecker;
 
 import java.util.Arrays;
@@ -34,17 +34,21 @@ public final class init {
             //3.加载合成
             LoadMaterials.run();
             LoadRecipe.run();
-            ConsoleLoger.info("当前服务器版本：" + VersionChecker.getVersion());
+            ConsoleLogger.info("当前服务器版本：" + VersionChecker.getVersion());
             //检测服务器版本，动态修补兼容问题
+            if (!VersionChecker.isFullySupported()) {
+                ConsoleLogger.warn("BoatFly未完整支持此版本服务端。");
+                ConsoleLogger.warn("遇到Bug请在https://github.com/Wenkrangha/BoatFly提出！");
+            }
             if (VersionChecker.isVersionBelow("1.20.4")) {
                 //提醒腐竹更新服务器
-                ConsoleLoger.warn("您的服务器版本低于1.20.4,部分功能可能无法正常使用");
+                ConsoleLogger.warn("建议升级至1.20.4及以上版本！");
             }
             //加载完成
             getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : " + MainData.PluginName);
         } catch (Exception e) {
-            ConsoleLoger.error(e.toString());
-            Arrays.stream(e.getStackTrace()).forEach(i -> ConsoleLoger.error(" at " + i.toString()));
+            ConsoleLogger.error(e.toString());
+            Arrays.stream(e.getStackTrace()).forEach(i -> ConsoleLogger.error(" 于 " + i.toString()));
         }
     }
 }

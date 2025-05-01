@@ -122,14 +122,11 @@ public class event implements Listener {
         if (event.getView().getTitle().equalsIgnoreCase("飞船配方主页")) {
             enter(event);
         } else {
-            boolean flag = false;
             for (int i = 0; i < BookAPI.pages.size(); i++) {
                 if (BookAPI.pages.get(i).title.equalsIgnoreCase(event.getView().getTitle())) {
-                    flag = true;
+                    enter(event);
+                    break;
                 }
-            }
-            if (flag) {
-                enter(event);
             }
         }
 

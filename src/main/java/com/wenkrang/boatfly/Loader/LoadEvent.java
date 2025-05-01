@@ -5,7 +5,7 @@ import com.wenkrang.boatfly.event.GUI.*;
 import com.wenkrang.boatfly.event.GUI.book.Click;
 import com.wenkrang.boatfly.event.GUI.book.PlayerInteract;
 import com.wenkrang.boatfly.event.*;
-import com.wenkrang.boatfly.lib.ConsoleLoger;
+import com.wenkrang.boatfly.lib.ConsoleLogger;
 
 import static com.wenkrang.boatfly.DataSystem.MainData.plugin;
 import static org.bukkit.Bukkit.getServer;
@@ -14,7 +14,7 @@ public class LoadEvent {
     public static void run() {
         //加载事件
         try {
-            ConsoleLoger.info("正在加载监听器...");
+            ConsoleLogger.info("正在加载监听器...");
             getServer().getPluginManager().registerEvents(new onVehicleExit(), plugin);
             getServer().getPluginManager().registerEvents(new Exit(), plugin);
             getServer().getPluginManager().registerEvents(new PlayerItemHeld(), plugin);
@@ -38,7 +38,7 @@ public class LoadEvent {
 //        getServer().getPluginManager().registerEvents(new TableCouldPut(), BoatFly.getPlugin(BoatFly.class));
 //        getServer().getPluginManager().registerEvents(new Click2(), BoatFly.getPlugin(BoatFly.class));
         } catch (Exception e) {
-            ConsoleLoger.error("啊？事件注册失败：" + e.getMessage());
+            ConsoleLogger.error("啊？事件注册失败：" + e.getMessage());
         }
     }
 }

@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Founder implements Listener {
     @EventHandler
@@ -30,16 +30,19 @@ public class Founder implements Listener {
                 lore10.add("§6§n§l右键 §r§7寻找");
                 itemMeta10.setLore(lore10);
                 itemStack10.setItemMeta(itemMeta10);
-                if (Objects.requireNonNull(event.getPlayer().getInventory().getItemInMainHand().equals(itemStack10))){
-                    List<Entity> nearbyEntities = event.getPlayer().getNearbyEntities(100, 100, 100);
-                    boolean is = false;
-                    for (Entity entity : nearbyEntities) {
-                        if (entity.getScoreboardTags().contains("CanFly")) {
-                            event.getPlayer().sendMessage("§9[*]§r "+ "在§l" + String.valueOf(entity.getLocation().distance(event.getPlayer().getLocation())) + "§r格外，有一辆§l飞船");
-                            is = true;
-                        }
-                    }
-                    if (!is) {
+                if (event.getPlayer().getInventory().getItemInMainHand().equals(itemStack10)){
+                    final var boatFound = new AtomicBoolean(false);
+                    final var nearbyEntities = event.getPlayer().getNearbyEntities(100, 100, 100);
+                    nearbyEntities.stream()
+                            .filter(i -> i.getScoreboardTags().contains("CanFly"))
+                            .map(Entity::getLocation)
+                            .forEach(i -> {
+                                event.getPlayer().sendMessage("§9[*]§r 在§l" +
+                                        i.distance(event.getPlayer().getLocation()) +
+                                        "§r格外，有一辆§l飞船");
+                                boatFound.set(true);
+                            });
+                    if (!boatFound.get()) {
                         event.getPlayer().sendMessage("§c[-]§r 附近没有可用的飞船（大悲");
                     }
                     event.setCancelled(true);

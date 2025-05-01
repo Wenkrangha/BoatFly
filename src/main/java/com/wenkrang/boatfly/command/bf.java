@@ -2,8 +2,10 @@ package com.wenkrang.boatfly.command;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre;
+import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.Materials;
 import com.wenkrang.boatfly.lib.SpigotConsoleColors;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -39,42 +41,34 @@ public class bf implements CommandExecutor {
         if (strings.length == 0) {
             gethelp(commandSender);
         } else {
-            if (true) { //Debug
+            //Debug
 
-                if (strings[0].equalsIgnoreCase("help")) {
-                    gethelp(commandSender);
+            if (strings[0].equalsIgnoreCase("help")) {
+                gethelp(commandSender);
+            }
+            if (strings[0].equalsIgnoreCase("getbook")) {
+                if (commandSender instanceof Player) {
+                    Player player = (Player) commandSender;
+                    ItemStack itemStack0 = new ItemStack(Material.WRITABLE_BOOK);
+                    ItemMeta itemMeta0 = itemStack0.getItemMeta();
+                    itemMeta0.setDisplayName("§9§lBoatFly§r-飞船配方");
+                    ArrayList<String> lore0 = new ArrayList<>();
+                    lore0.add("§7这是关于飞船的配方，§7§m飞船可以让你上天");
+                    lore0.add("§7里面似乎蕴含着强大的力量♂");
+                    lore0.add("");
+                    lore0.add("§6§l右键§6打开");
+                    itemMeta0.setLore(lore0);
+                    itemStack0.setItemMeta(itemMeta0);
+                    player.getInventory().addItem(itemStack0);
                 }
-                if (strings[0].equalsIgnoreCase("getbook")) {
-                    if (commandSender instanceof Player) {
-                        Player player = (Player) commandSender;
-                        ItemStack itemStack0 = new ItemStack(Material.WRITABLE_BOOK);
-                        ItemMeta itemMeta0 = itemStack0.getItemMeta();
-                        itemMeta0.setDisplayName("§9§lBoatFly§r-飞船配方");
-                        ArrayList<String> lore0 = new ArrayList<>();
-                        lore0.add("§7这是关于飞船的配方，§7§m飞船可以让你上天");
-                        lore0.add("§7里面似乎蕴含着强大的力量♂");
-                        lore0.add("");
-                        lore0.add("§6§l右键§6打开");
-                        itemMeta0.setLore(lore0);
-                        itemStack0.setItemMeta(itemMeta0);
-                        player.getInventory().addItem(itemStack0);
-                    }
+            }
+            if (strings[0].equalsIgnoreCase("upgrade")) {
+                try {
+                    UpgradeCentre.update();
+                } catch (Exception e) {
+                    ConsoleLogger.error(e);
+                    throw new RuntimeException(e);
                 }
-                if (strings[0].equalsIgnoreCase("upgrade")) {
-                    try {
-                        UpgradeCentre.update();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        throw new RuntimeException(e);
-                    }
-                }
-
-
-
-            } else {
-
-                commandSender.sendMessage(SpigotConsoleColors.DARK_RED + "[-] " + SpigotConsoleColors.RESET + "阿巴阿巴");
-
             }
 
 

@@ -4,11 +4,13 @@ import org.bukkit.Material;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-public final class Materials {
+public final class Materials extends HashMap<String, Material> {
     private Materials() {
-        throw new IllegalStateException("new Materials()");
+        super();
     }
+
     //wild update
     public static Material chestBoat;
     //caves and cliffs
@@ -34,23 +36,23 @@ public final class Materials {
     public static Material off;
     public static Material on;
     //material map
-    private static final Map<String, Material> materials = new HashMap<>();
+    public static final Map<String, Material> INSTANCE = new Materials();
     public static void offlineInit() {
         try {
             chestBoat = Material.OAK_CHEST_BOAT;
         } catch (NoSuchFieldError e) {
-            ConsoleLoger.info("服务器版本低于1.19，正在回退新内容");
+            ConsoleLogger.info("服务器版本低于1.19，正在回退新内容");
             chestBoat = Material.OAK_BOAT;
         }
         try {
             lightningRod = Material.LIGHTNING_ROD;
             deepslate = Material.DEEPSLATE;
-            materials.put("COPPER_INGOT", Material.COPPER_INGOT);
+            INSTANCE.put("COPPER_INGOT", Material.COPPER_INGOT);
         } catch (NoSuchFieldError e) {
-            ConsoleLoger.info("服务器版本低于1.17，正在回退新内容");
+            ConsoleLogger.info("服务器版本低于1.17，正在回退新内容");
             lightningRod = Material.STICK;
             deepslate = Material.STONE;
-            materials.put("COPPER_INGOT", Material.IRON_INGOT);
+            INSTANCE.put("COPPER_INGOT", Material.IRON_INGOT);
         }
         try {
             target = Material.TARGET;
@@ -58,7 +60,7 @@ public final class Materials {
             netheriteScrap = Material.NETHERITE_SCRAP;
             netheriteSword = Material.NETHERITE_SWORD;
         } catch (NoSuchFieldError e) {
-            ConsoleLoger.info("服务器版本低于1.16，正在回退新内容");
+            ConsoleLogger.info("服务器版本低于1.16，正在回退新内容");
             target = Material.STONE;
             netheriteIngot = Material.DIAMOND;
             netheriteScrap = Material.IRON_NUGGET;
@@ -68,7 +70,7 @@ public final class Materials {
             beeHive = Material.BEEHIVE;
             honeyBlock = Material.HONEY_BLOCK;
         } catch (NoSuchFieldError e) {
-            ConsoleLoger.info("服务器版本低于1.15，正在回退新内容");
+            ConsoleLogger.info("服务器版本低于1.15，正在回退新内容");
             beeHive = Material.CHEST;
             honeyBlock = Material.SLIME_BLOCK;
         }
@@ -80,7 +82,7 @@ public final class Materials {
             sign = Material.OAK_SIGN;
             grindstone = Material.GRINDSTONE;
         } catch (NoSuchFieldError e) {
-            ConsoleLoger.info("服务器版本低于1.14，正在回退新内容");
+            ConsoleLogger.info("服务器版本低于1.14，正在回退新内容");
             campfire = Material.FLINT_AND_STEEL;
             blastFurnace = Material.FURNACE;
             smoker = Material.FURNACE;
@@ -91,26 +93,35 @@ public final class Materials {
         none = Material.LIGHT_BLUE_STAINED_GLASS_PANE;
         off = Material.RED_STAINED_GLASS_PANE;
         on = Material.GREEN_STAINED_GLASS_PANE;
-        materials.put("CHEST_BOAT", chestBoat);
-        materials.put("LIGHTNING_ROD", lightningRod);
-        materials.put("DEEPSLATE", deepslate);
-        materials.put("TARGET", target);
-        materials.put("NETHERITE_SCRAP", netheriteScrap);
-        materials.put("NETHERITE_INGOT", netheriteIngot);
-        materials.put("NETHERITE_SWORD", netheriteSword);
-        materials.put("BEE_HIVE", beeHive);
-        materials.put("HONEY_BLOCK", honeyBlock);
-        materials.put("CAMPFIRE", campfire);
-        materials.put("BLAST_FURNACE", blastFurnace);
-        materials.put("SMOKER", smoker);
-        materials.put("SMITHING_TABLE", smithingTable);
-        materials.put("SIGN", sign);
-        materials.put("GRINDSTONE", grindstone);
+        INSTANCE.put("CHEST_BOAT", chestBoat);
+        INSTANCE.put("LIGHTNING_ROD", lightningRod);
+        INSTANCE.put("DEEPSLATE", deepslate);
+        INSTANCE.put("TARGET", target);
+        INSTANCE.put("NETHERITE_SCRAP", netheriteScrap);
+        INSTANCE.put("NETHERITE_INGOT", netheriteIngot);
+        INSTANCE.put("NETHERITE_SWORD", netheriteSword);
+        INSTANCE.put("BEE_HIVE", beeHive);
+        INSTANCE.put("HONEY_BLOCK", honeyBlock);
+        INSTANCE.put("CAMPFIRE", campfire);
+        INSTANCE.put("BLAST_FURNACE", blastFurnace);
+        INSTANCE.put("SMOKER", smoker);
+        INSTANCE.put("SMITHING_TABLE", smithingTable);
+        INSTANCE.put("SIGN", sign);
+        INSTANCE.put("GRINDSTONE", grindstone);
     }
+
+    @Deprecated
     public static Material get(String name) {
-        return materials.get(name);
+        return INSTANCE.get(name);
     }
+
+    @Deprecated
     public static void set(String name, Material material) {
-        materials.put(name, material);
+        INSTANCE.put(name, material);
+    }
+
+    @Override
+    public Material get(Object key) {
+        return Objects.requireNonNullElse(super.get(key), Material.valueOf(key.toString()));
     }
 }
