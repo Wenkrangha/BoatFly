@@ -5,7 +5,7 @@
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
 >这是一个能让你在Spigot Server用船飞的插件! <br />
-**前置** 插件 : LightUI （ **自动安装** ）<br />
+**前置** 插件 : 无<br />
 主命令 : **/bf**
 ## 已可用功能 
 - [x] AF自动驾驶

@@ -1,4 +1,4 @@
-package com.wenkrang.boatfly.Loader;
+package com.wenkrang.boatfly.loader;
 
 import com.wenkrang.boatfly.UpgradeSystem.UpgradeCheck;
 import com.wenkrang.boatfly.event.GUI.*;

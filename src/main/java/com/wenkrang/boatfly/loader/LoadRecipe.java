@@ -1,8 +1,6 @@
-package com.wenkrang.boatfly.Loader;
+package com.wenkrang.boatfly.loader;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.event.GUI.book.lib.BookAPI;
-import com.wenkrang.boatfly.event.GUI.book.lib.Recipe;
 import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

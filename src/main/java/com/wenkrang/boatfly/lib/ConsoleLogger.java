@@ -11,6 +11,8 @@ public class ConsoleLogger {
     public static void warn(String msg) {getServer().getConsoleSender().sendMessage("§e[!]§r "+ msg);}
     public static void error(Throwable exception) {
         ConsoleLogger.error(exception.toString());
-        Arrays.stream(exception.getStackTrace()).forEach(i -> ConsoleLogger.error(" 于 " + i.toString()));
+        for (var i: exception.getStackTrace()) {
+            ConsoleLogger.error(" 于 " + i.toString());
+        }
     }
 }

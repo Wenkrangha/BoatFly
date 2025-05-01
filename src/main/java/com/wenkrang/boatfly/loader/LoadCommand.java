@@ -1,4 +1,4 @@
-package com.wenkrang.boatfly.Loader;
+package com.wenkrang.boatfly.loader;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.command.BfTabComplete;

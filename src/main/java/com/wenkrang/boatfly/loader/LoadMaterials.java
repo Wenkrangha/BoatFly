@@ -1,4 +1,4 @@
-package com.wenkrang.boatfly.Loader;
+package com.wenkrang.boatfly.loader;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -37,7 +37,7 @@ public final class LoadMaterials {
                 UnsafeDownloader.downloadFile(Source.SourceURL + fileName, "plugins/BoatFly/MaterialLocal.json");
             }
             try (final var reader = new FileReader("plugins/BoatFly/MaterialLocal.json")) {
-                ((JsonObject) JsonParser.parseReader(reader)).entrySet().forEach(i -> {
+                for (var i: ((JsonObject) JsonParser.parseReader(reader)).entrySet()) {
                     if (Objects.equals(i.getKey(), "minecraft")) {
                         if (VersionChecker.isVersionBelow(i.getValue().toString().substring(1, 5))) {
                             file.delete();
@@ -48,7 +48,7 @@ public final class LoadMaterials {
                         final var finalString = element.substring(1, element.length() - 1);
                         Materials.INSTANCE.put(i.getKey(), Material.valueOf(finalString));
                     }
-                });
+                }
             }
             Materials.chestBoat = Materials.INSTANCE.get("CHEST_BOAT");
             Materials.lightningRod = Materials.INSTANCE.get("LIGHTNING_ROD");
