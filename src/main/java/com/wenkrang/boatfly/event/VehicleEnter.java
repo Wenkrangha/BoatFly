@@ -286,7 +286,7 @@ public class VehicleEnter implements Listener {
                                     /* i/100 * 3 = 3i/100 = i * 0.03 */
                                     /* i/100 * 2 = 2i/100 = i * 0.02 */
                                     double realPower = power *
-                                            (boat.getScoreboardTags().contains("keyun") ? 0.03 : 0.02);
+                                            (boat.getScoreboardTags().contains("keyun") ? 0.05 : 0.02);
                                     Vector multiply = event.getEntered()
                                             .getLocation()
                                             .getDirection()
