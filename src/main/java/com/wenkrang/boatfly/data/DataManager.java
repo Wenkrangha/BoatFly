@@ -36,7 +36,7 @@ public class DataManager {
         String line = bufferedReader.readLine();
         bufferedReader.close();
         fileReader.close();
-        return MainData.gson.fromJson(line, new TypeToken<>(){});
+        return MainData.gson.fromJson(line, new TypeToken<>(){}.getType());
     }
 
     public void delete(String name) {

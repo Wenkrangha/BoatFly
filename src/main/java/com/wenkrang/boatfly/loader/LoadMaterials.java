@@ -2,6 +2,8 @@ package com.wenkrang.boatfly.loader;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import com.wenkrang.boatfly.data.MainData;
 import com.wenkrang.boatfly.upgrade.Source;
 import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.Materials;
@@ -11,6 +13,7 @@ import org.bukkit.Material;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Objects;
 
 public final class LoadMaterials {
@@ -38,18 +41,20 @@ public final class LoadMaterials {
                 UnsafeDownloader.downloadFile(Source.SourceURL + fileName, "plugins/BoatFly/MaterialLocal.json");
             }
             try (final var reader = new FileReader("plugins/BoatFly/MaterialLocal.json")) {
-                for (var i: ((JsonObject) JsonParser.parseReader(reader)).entrySet()) {
-                    if (Objects.equals(i.getKey(), "minecraft")) {
-                        if (VersionChecker.isVersionBelow(i.getValue().toString().substring(1, 5))) {
-                            file.delete();
-                            throw new RuntimeException("break");
-                        }
-                    } else {
-                        final var element = i.getValue().toString();
-                        final var finalString = element.substring(1, element.length() - 1);
-                        Materials.INSTANCE.put(i.getKey(), Material.valueOf(finalString));
-                    }
+                HashMap<String, String> map = MainData.gson.fromJson(reader,
+                        new TypeToken<HashMap<String, String>>(){}.getType());
+                if (VersionChecker.isVersionBelow(map.get("minecraft").substring(1, 5))) {
+                    file.delete();
+                    throw new RuntimeException("break");
                 }
+                map.entrySet()
+                        .stream()
+                        .filter(i -> !Objects.equals(i.getKey(), "minecraft"))
+                        .forEach(i -> {
+                            final var element = i.getValue();
+                            final var finalString = element.substring(1, element.length() - 1);
+                            Materials.INSTANCE.put(i.getKey(), Material.valueOf(finalString));
+                        });
             }
             Materials.chestBoat = Materials.INSTANCE.get("CHEST_BOAT");
             Materials.lightningRod = Materials.INSTANCE.get("LIGHTNING_ROD");

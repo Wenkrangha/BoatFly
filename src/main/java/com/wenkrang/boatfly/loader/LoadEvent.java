@@ -31,7 +31,7 @@ public class LoadEvent {
             getServer().getPluginManager().registerEvents(new PlayerInteract(), plugin);
             getServer().getPluginManager().registerEvents(new VehicleDestroy(), plugin);
             getServer().getPluginManager().registerEvents(new UpgradeCheck(), plugin);
-            getServer().getPluginManager().registerEvents(new Founder(), plugin);
+            getServer().getPluginManager().registerEvents(new Finder(), plugin);
 
             //铺垫awa
 //        getServer().getPluginManager().registerEvents(new OpenTable(), BoatFly.getPlugin(BoatFly.class));

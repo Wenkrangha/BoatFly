@@ -550,7 +550,7 @@ public class LoadRecipe {
                 ItemStack itemStack11 = new ItemStack(Material.CLOCK);
                 ItemStack itemStack12 = new ItemStack(Material.REDSTONE);
 
-                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Founder");
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Finder");
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack10);
                 shapedRecipe.shape("   ", " t ", " i ");
