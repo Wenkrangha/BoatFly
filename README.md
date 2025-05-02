@@ -4,9 +4,9 @@
 ### 兼容性 : Wenkrang , Fangtang3
 ### 测试 : CatlikeEwe1160 , Fangtang3
 本插件采用 GPLv3.0 开源协议
->这是一个能让你在Spigot Server用船飞的插件! <br />
-**前置** 插件 : 无<br />
-主命令 : **/bf**
+>这是一个能让你在Spigot Server用船飞的插件!   
+**前置** 插件 : 无  
+主命令 : **/bf**  
 develop分支的版本相对较旧，不建议使用！
 ## 已可用功能 
 - [x] AF自动驾驶
