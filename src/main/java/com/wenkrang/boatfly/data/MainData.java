@@ -3,7 +3,7 @@ package com.wenkrang.boatfly.data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.bukkit.NamespacedKey;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ public class MainData {
     //该变量用于储存插件的名字
     public static String PluginName = "1.5.8";
     //该变量用于储存该插件对象
-    public static Plugin plugin = null;
+    public static JavaPlugin plugin;
     //该变量用于储存该插件文件对象
-    public static File PluginFile = null;
+    public static File PluginFile;
     //该变量用于储存版本号
     public static int Number = 12;
     //该变量用于储存所有BoatFly添加的配方的Key

@@ -1,7 +1,5 @@
 package com.wenkrang.boatfly.lib;
 
-import java.util.Arrays;
-
 import static org.bukkit.Bukkit.getServer;
 
 public class ConsoleLogger {
