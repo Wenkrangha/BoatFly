@@ -59,10 +59,6 @@ public class Path2 {
             itemStack7.setItemMeta(itemMeta7);
             inventory.setItem(11, itemStack7);
         }
-        if (true) {
-
-        }
-
 
 
         player.openInventory(inventory);

@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.lib.getSpeed;
+import com.wenkrang.boatfly.lib.GetSpeed;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -20,7 +20,7 @@ import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
+import static com.wenkrang.boatfly.data.MainData.IsShutDown;
 
 public class VehicleEnter implements Listener {
     /**
@@ -97,10 +97,9 @@ public class VehicleEnter implements Listener {
             }
             if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getVehicle().getScoreboardTags().contains("Run")) {
                 event.getVehicle().addScoreboardTag("Run");
-                if (event.getEntered() instanceof Player) {
+                if (event.getEntered() instanceof Player player) {
 
                     //速度条
-                    Player player = (Player) event.getEntered();
                     BossBar bossBar = Bukkit.createBossBar("§9§l当前§r时速 : ", BarColor.YELLOW, BarStyle.SOLID);
                     bossBar.addPlayer(player);
                     new BukkitRunnable() {
@@ -120,7 +119,7 @@ public class VehicleEnter implements Listener {
                                         @Override
                                         public void run() {
                                             double distance = location.distance(player.getLocation());
-                                            bossBar.setTitle("§9§l当前§r时速 : " + String.valueOf(new BigDecimal(distance).setScale(5, RoundingMode.HALF_UP)) + " block/s");
+                                            bossBar.setTitle("§9§l当前§r时速 : " + new BigDecimal(distance).setScale(5, RoundingMode.HALF_UP) + " block/s");
                                             if (distance < 50) {
                                                 bossBar.setProgress(distance / 50);
                                             }else {
@@ -161,7 +160,9 @@ public class VehicleEnter implements Listener {
                     Objective sidebarObjective = scoreboard.getObjective("side-bar");
                     if (Objects.isNull(sidebarObjective)) {
                         //没找到：初始化
-                        sidebarObjective = scoreboard.registerNewObjective("side-bar", "dummy", ChatColor.GOLD + "§9§l抬头§r面包");
+                        // （旧版本没有Criteria类）
+                        sidebarObjective = scoreboard.registerNewObjective("side-bar",
+                                "dummy", ChatColor.GOLD + "§9§l抬头§r面包");
                         sidebarObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     }
 
@@ -200,10 +201,9 @@ public class VehicleEnter implements Listener {
                                 finalSidebarObjective.getScore("当前时间").setScore(-2);
 
 
-                                /**
+                                /*
                                  * 重点，这里注册的Team并不是为了组队，而是利用Team特性动态影响其他计分项
                                  * addEntry()传递的entry要和上面的侧边栏计分项一致。
-                                 *
                                  * 一个Entry条目对应一个Team，如果一个Team里设了两个Entry，那么最后的效果是setSuffix()后这两个Entry就显示同样的后缀了。
                                  * 显然并不符合预期要求。
                                  * 由于我们在上面的侧边栏计分板里写了非常多的Entry条目，一个个拿来写就会造成代码体积疯狂膨胀，
@@ -269,7 +269,7 @@ public class VehicleEnter implements Listener {
                             }
                             if (event.getVehicle().getScoreboardTags().stream().noneMatch(i -> i.contains("eng")))
                                 power = Integer.parseInt(event.getVehicle().getScoreboardTags().stream().filter(i -> i.contains("eng")).findFirst().get().replace("eng", ""));
-                        }catch (Exception e) {}
+                        }catch (Exception ignored) {}
                         //这里检查节流阀
                         if (power > 0) {
                             try {
@@ -282,7 +282,7 @@ public class VehicleEnter implements Listener {
                                     //改打开面包的方式，之前的会面包粘脸
                                     //改Q键打开吧
                                     //感觉没啥可优化的
-                                    power = getSpeed.run(boat, power);
+                                    power = GetSpeed.run(boat, power);
                                     /* i/100 * 3 = 3i/100 = i * 0.03 */
                                     /* i/100 * 2 = 2i/100 = i * 0.02 */
                                     double realPower = power *

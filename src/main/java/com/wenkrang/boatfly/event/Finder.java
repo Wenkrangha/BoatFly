@@ -11,10 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Founder implements Listener {
+public class Finder implements Listener {
     @EventHandler
     public static void OnClick(PlayerInteractEvent event) {
 
@@ -30,16 +29,20 @@ public class Founder implements Listener {
                 lore10.add("§6§n§l右键 §r§7寻找");
                 itemMeta10.setLore(lore10);
                 itemStack10.setItemMeta(itemMeta10);
-                if (Objects.requireNonNull(event.getPlayer().getInventory().getItemInMainHand().equals(itemStack10))){
-                    List<Entity> nearbyEntities = event.getPlayer().getNearbyEntities(100, 100, 100);
-                    boolean is = false;
-                    for (Entity entity : nearbyEntities) {
-                        if (entity.getScoreboardTags().contains("CanFly")) {
-                            event.getPlayer().sendMessage("§9[*]§r "+ "在§l" + String.valueOf(entity.getLocation().distance(event.getPlayer().getLocation())) + "§r格外，有一辆§l飞船");
-                            is = true;
-                        }
-                    }
-                    if (!is) {
+                if (event.getPlayer().getInventory().getItemInMainHand().equals(itemStack10)){
+                    final var boatFound = event.getPlayer().
+                            getNearbyEntities(100, 100, 100)
+                            // 获取100*100*100范围内实体列表的流
+                            .stream()
+                            // 选中飞船
+                            .filter(i -> i.getScoreboardTags().contains("CanFly"))
+                            // 获取飞船相对于玩家的距离
+                            .map(i -> i.getLocation().distance(event.getPlayer().getLocation()))
+                            // 向玩家报告飞船距离
+                            .peek(i -> event.getPlayer().sendMessage("§9[*]§r 在§l" + i +
+                                    "§r格外，有一辆§l飞船"))
+                            .findAny().isPresent();
+                    if (!boatFound) {
                         event.getPlayer().sendMessage("§c[-]§r 附近没有可用的飞船（大悲");
                     }
                     event.setCancelled(true);

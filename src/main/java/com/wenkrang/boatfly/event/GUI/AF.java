@@ -12,7 +12,7 @@ import org.bukkit.util.Vector;
 
 import java.util.Objects;
 
-import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
+import static com.wenkrang.boatfly.data.MainData.IsShutDown;
 
 public class AF implements Listener {
     @EventHandler

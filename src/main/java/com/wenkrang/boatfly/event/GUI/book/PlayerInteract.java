@@ -1,6 +1,6 @@
 package com.wenkrang.boatfly.event.GUI.book;
 
-import com.wenkrang.boatfly.Entity.plane;
+import com.wenkrang.boatfly.lib.PlaneUtil;
 import com.wenkrang.boatfly.lib.VersionChecker;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -94,9 +94,9 @@ public class PlayerInteract implements Listener {
                     Block clickedBlock = event.getClickedBlock();
                     Location location = calculateParticleLocation(clickedBlock.getLocation(), event.getBlockFace());
                     switch (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName()) {
-                        case "§9§l飞§r船" -> plane.getplane(location);
-                        case "§9§l货运§r飞船" -> plane.getplanelevetwo(location);
-                        case "§9§l客运§r飞船" -> plane.getplanelevethree(location);
+                        case "§9§l飞§r船" -> PlaneUtil.getPlane(location);
+                        case "§9§l货运§r飞船" -> PlaneUtil.getPlaneLevel2(location);
+                        case "§9§l客运§r飞船" -> PlaneUtil.getPlaneLevel3(location);
                     }
                     if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE))
                         event.getPlayer().getInventory().setItemInMainHand(null);

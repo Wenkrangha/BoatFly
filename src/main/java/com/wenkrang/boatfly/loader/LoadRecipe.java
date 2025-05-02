@@ -1,8 +1,6 @@
-package com.wenkrang.boatfly.Loader;
+package com.wenkrang.boatfly.loader;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.event.GUI.book.lib.BookAPI;
-import com.wenkrang.boatfly.event.GUI.book.lib.Recipe;
 import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -15,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
-import static com.wenkrang.boatfly.DataSystem.MainData.keys;
+import static com.wenkrang.boatfly.data.MainData.keys;
 import static org.bukkit.Bukkit.getServer;
 
 public class LoadRecipe {
@@ -552,7 +550,7 @@ public class LoadRecipe {
                 ItemStack itemStack11 = new ItemStack(Material.CLOCK);
                 ItemStack itemStack12 = new ItemStack(Material.REDSTONE);
 
-                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Founder");
+                NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "Finder");
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack10);
                 shapedRecipe.shape("   ", " t ", " i ");

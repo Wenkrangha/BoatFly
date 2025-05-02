@@ -1,9 +1,7 @@
 package com.wenkrang.boatfly.event.Compatibility;
 
-import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,8 +10,6 @@ import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-
-import static com.wenkrang.boatfly.DataSystem.MainData.keys;
 
 public class BoatBuild implements Listener {
     @EventHandler

@@ -1,11 +1,11 @@
 package com.wenkrang.boatfly.lib;
 
 import org.bukkit.entity.Entity;
-import org.bukkit.util.Vector;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class getSpeed {
+public class GetSpeed {
     public static int run(Entity entity, int speed) {
         int power = 0;
         //计算真正的速度
@@ -23,10 +23,9 @@ public class getSpeed {
                 if (power < speed) {
                     if (20 > new Random().nextInt(80)) {
                         entity.removeScoreboardTag(temp);
-                        Random random = new Random();
-                        int realspeed = random.nextInt(3);
+                        int realspeed = ThreadLocalRandom.current().nextInt(3);
                         power += realspeed;
-                        temp = "real" + String.valueOf(power);
+                        temp = "real" + power;
                         entity.addScoreboardTag(temp);
                         return power;
                     } else {
@@ -44,10 +43,9 @@ public class getSpeed {
             if (power > speed && !(power == 0)) {
                 if (20 > new Random().nextInt(50)) {
                     entity.removeScoreboardTag(temp);
-                    Random random = new Random();
-                    int realspeed = random.nextInt(speed);
+                    // int realspeed = ThreadLocalRandom.current().nextInt(speed);
                     power -= 1;
-                    temp = "real" + String.valueOf(power);
+                    temp = "real" + power;
                     entity.addScoreboardTag(temp);
                     return power;
                 } else {

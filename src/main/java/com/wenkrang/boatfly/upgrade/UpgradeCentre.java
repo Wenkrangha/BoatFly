@@ -1,29 +1,30 @@
-package com.wenkrang.boatfly.UpgradeSystem;
+package com.wenkrang.boatfly.upgrade;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.DataSystem.MainData;
-import com.wenkrang.boatfly.lib.ConsoleLoger;
+import com.wenkrang.boatfly.data.MainData;
+import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.*;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class UpgradeCentre {
-    public static void upgrade() throws Exception {
+    public static void upgrade() {
         new BukkitRunnable() {
 
             @Override
             public void run() {
                 try {
                     if (true) {
-                        ConsoleLoger.info("读取将下载的更新文件名字");
+                        ConsoleLogger.info("读取将下载的更新文件名字");
                         FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
                         String Name = bufferedReader.readLine();
-                        ConsoleLoger.info("Name : " + Name);
-                        ConsoleLoger.info("即将下载jar文件：" + Source.SourceURL + "upgrade/" + Name);
+                        ConsoleLogger.info("Name : " + Name);
+                        ConsoleLogger.info("即将下载jar文件：" + Source.SourceURL + "upgrade/" + Name);
                         UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/" + Name, "plugins/BoatFly/version/" + Name);
-                        ConsoleLoger.info("jar下载完成,准备更新");
+                        ConsoleLogger.info("jar下载完成,准备更新");
                     }
 
 
@@ -33,11 +34,11 @@ public class UpgradeCentre {
                         FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Name");
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
                         Name = bufferedReader.readLine();
-                        ConsoleLoger.info("下载完成：" + Name);
+                        ConsoleLogger.info("下载完成：" + Name);
                         fileReader.close();
                         bufferedReader.close();
                     }
-                    ConsoleLoger.info("正在替换文件中，请勿关闭服务器.");
+                    ConsoleLogger.info("正在替换文件中，请勿关闭服务器.");
                     if (true) {
                         FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -68,9 +69,9 @@ public class UpgradeCentre {
                         fileWriter.close();
                     }
 
-                    ConsoleLoger.info("重启您的服务器或禁用BoatFly并重载BootLoader以应用更新!");
+                    ConsoleLogger.info("重启您的服务器或禁用BoatFly并重载BootLoader以应用更新!");
                 }catch (Exception e) {
-                    e.printStackTrace();
+                    ConsoleLogger.error(e);
                 }
 
             }
@@ -78,44 +79,37 @@ public class UpgradeCentre {
 
     }
 
-    public static void update() throws Exception {
+    public static void update() {
         new BukkitRunnable() {
 
             @Override
             public void run() {
                 try {
-                    ConsoleLoger.info("初始化更新程序");
-                    ConsoleLoger.info("正在打开更新文件夹：./plugins/BoatFly/upgrade/");
+                    ConsoleLogger.info("初始化更新程序");
+                    ConsoleLogger.info("正在打开更新文件夹：./plugins/BoatFly/upgrade/");
                     new File("./plugins/BoatFly/upgrade/").mkdir();
-                    ConsoleLoger.info("正在删除旧更新文件");
+                    ConsoleLogger.info("正在删除旧更新文件");
                     new File("./plugins/BoatFly/upgrade/Name").delete();
                     new File("./plugins/BoatFly/upgrade/Number").delete();
-                    boolean Checked = false;
-                    ConsoleLoger.info("正在从服务器获取更新源地址");
-                    Source.getSource(true);
-                    ConsoleLoger.info("正在获取更新头文件：upgrade/Name and upgrade/Number");
-                    ConsoleLoger.info(Source.SourceURL + "upgrade/Name");
+                    //ConsoleLogger.info("正在从服务器获取更新源地址");
+                    ConsoleLogger.info("正在获取更新头文件：upgrade/Name 和 upgrade/Number");
+                    ConsoleLogger.info(Source.SourceURL + "upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Name", "plugins/BoatFly/upgrade/Name");
                     UnsafeDownloader.downloadFile(Source.SourceURL + "upgrade/Number", "plugins/BoatFly/upgrade/Number");
-                    ConsoleLoger.info("预更新文件下载完成,准备检查更新");
-                    Checked = true;
+                    ConsoleLogger.info("预更新文件下载完成,准备检查更新");
 
-                    if (Checked) {
-                        if (true) {
-                            FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
-                            BufferedReader bufferedReader = new BufferedReader(fileReader);
-                            String Number = bufferedReader.readLine();
-                            if (Integer.parseInt(Number) > MainData.Number) {
-                                ConsoleLoger.info("发现新版本!即将安装");
-                                upgrade();
-                            } else {
-                                ConsoleLoger.info("无可用更新");
-                            }
-                        }
+                    FileReader fileReader = new FileReader("plugins/BoatFly/upgrade/Number");
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String Number = bufferedReader.readLine();
+                    if (Integer.parseInt(Number) > MainData.Number) {
+                        ConsoleLogger.info("发现新版本!即将安装");
+                        upgrade();
+                    } else {
+                        ConsoleLogger.info("无可用更新");
                     }
 
                 }catch (Exception e) {
-                    e.printStackTrace();
+                    ConsoleLogger.error(e);
                 }
 
             }
