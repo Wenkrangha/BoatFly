@@ -8,4 +8,3 @@ public class ConsoleLoger {
     public static void error(String msg) {getServer().getConsoleSender().sendMessage("§c[-]§r "+ msg);}
     public static void warn(String msg) {getServer().getConsoleSender().sendMessage("§e[!]§r "+ msg);}
 }
-//
