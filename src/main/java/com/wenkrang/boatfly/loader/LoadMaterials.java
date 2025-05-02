@@ -2,7 +2,7 @@ package com.wenkrang.boatfly.loader;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.wenkrang.boatfly.UpgradeSystem.Source;
+import com.wenkrang.boatfly.upgrade.Source;
 import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.Materials;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
@@ -17,6 +17,7 @@ public final class LoadMaterials {
     private LoadMaterials() {
         throw new IllegalStateException("Utility class");
     }
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void run() {
         try {
             final var file = new File("plugins/BoatFly/MaterialLocal.json");

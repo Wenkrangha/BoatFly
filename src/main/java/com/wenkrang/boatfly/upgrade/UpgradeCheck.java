@@ -1,7 +1,7 @@
-package com.wenkrang.boatfly.UpgradeSystem;
+package com.wenkrang.boatfly.upgrade;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.DataSystem.MainData;
+import com.wenkrang.boatfly.data.MainData;
 import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 import org.bukkit.event.EventHandler;
@@ -13,8 +13,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import static com.wenkrang.boatfly.UpgradeSystem.UpgradeCentre.upgrade;
+import static com.wenkrang.boatfly.upgrade.UpgradeCentre.upgrade;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class UpgradeCheck implements Listener {
     @EventHandler
     public static void onCall(ServerLoadEvent event) {

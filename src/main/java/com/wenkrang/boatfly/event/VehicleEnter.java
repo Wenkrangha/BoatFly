@@ -1,7 +1,7 @@
 package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.lib.getSpeed;
+import com.wenkrang.boatfly.lib.GetSpeed;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -20,7 +20,7 @@ import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
+import static com.wenkrang.boatfly.data.MainData.IsShutDown;
 
 public class VehicleEnter implements Listener {
     /**
@@ -282,7 +282,7 @@ public class VehicleEnter implements Listener {
                                     //改打开面包的方式，之前的会面包粘脸
                                     //改Q键打开吧
                                     //感觉没啥可优化的
-                                    power = getSpeed.run(boat, power);
+                                    power = GetSpeed.run(boat, power);
                                     /* i/100 * 3 = 3i/100 = i * 0.03 */
                                     /* i/100 * 2 = 2i/100 = i * 0.02 */
                                     double realPower = power *

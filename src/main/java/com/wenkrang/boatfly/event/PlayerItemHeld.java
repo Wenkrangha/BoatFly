@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class PlayerItemHeld implements Listener {
     @EventHandler
-    public static void OnPlayerItemHeldEvent (PlayerItemHeldEvent event) {
+    public static void onPlayerItemHeldEvent(PlayerItemHeldEvent event) {
         Player player = event.getPlayer();
         if (event.getPlayer().getVehicle() != null && Objects.requireNonNull(event.getPlayer().getVehicle()).getScoreboardTags().contains("CanFly") && Objects.requireNonNull(event.getPlayer().getVehicle()).getScoreboardTags().contains("ON")) {
             boolean change = false;

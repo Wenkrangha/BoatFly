@@ -1,5 +1,7 @@
-package com.wenkrang.boatfly.DataSystem;
+package com.wenkrang.boatfly.data;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.Plugin;
 
@@ -24,4 +26,8 @@ public class MainData {
     //该变量用于储存所有BoatFly添加的配方的Key
     public static ArrayList<NamespacedKey> keys = new ArrayList<>();
 
+    // 存储单例gson，避免重复创建实例
+    public static Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .create();
 }

@@ -17,10 +17,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.wenkrang.boatfly.DataSystem.MainData.IsShutDown;
-public class onVehicleExit implements Listener {
+import static com.wenkrang.boatfly.data.MainData.IsShutDown;
+
+public class OnVehicleExit implements Listener {
     @EventHandler
-    public static void onVehicleExit (VehicleExitEvent event) {
+    public static void onVehicleExit(VehicleExitEvent event) {
         if (event.getVehicle().getScoreboardTags().contains("CanFly") && !event.getExited().getScoreboardTags().contains("CanExit")) {
             if (!event.getVehicle().isDead()) {
                 boolean isExit = true;

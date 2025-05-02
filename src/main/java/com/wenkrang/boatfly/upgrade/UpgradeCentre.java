@@ -1,13 +1,14 @@
-package com.wenkrang.boatfly.UpgradeSystem;
+package com.wenkrang.boatfly.upgrade;
 
 import com.wenkrang.boatfly.BoatFly;
-import com.wenkrang.boatfly.DataSystem.MainData;
+import com.wenkrang.boatfly.data.MainData;
 import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.UnsafeDownloader;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.*;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class UpgradeCentre {
     public static void upgrade() {
         new BukkitRunnable() {
@@ -70,7 +71,7 @@ public class UpgradeCentre {
 
                     ConsoleLogger.info("重启您的服务器或禁用BoatFly并重载BootLoader以应用更新!");
                 }catch (Exception e) {
-                    e.printStackTrace();
+                    ConsoleLogger.error(e);
                 }
 
             }
@@ -108,7 +109,7 @@ public class UpgradeCentre {
                     }
 
                 }catch (Exception e) {
-                    e.printStackTrace();
+                    ConsoleLogger.error(e);
                 }
 
             }

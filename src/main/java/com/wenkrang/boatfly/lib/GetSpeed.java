@@ -5,7 +5,7 @@ import org.bukkit.entity.Entity;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class getSpeed {
+public class GetSpeed {
     public static int run(Entity entity, int speed) {
         int power = 0;
         //计算真正的速度

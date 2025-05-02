@@ -1,4 +1,4 @@
-package com.wenkrang.boatfly.UpgradeSystem;
+package com.wenkrang.boatfly.upgrade;
 
 
 public class Source {

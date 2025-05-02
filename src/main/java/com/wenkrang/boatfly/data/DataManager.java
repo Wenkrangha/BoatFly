@@ -1,22 +1,26 @@
-package com.wenkrang.boatfly.DataSystem;
+package com.wenkrang.boatfly.data;
 
-import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
-import java.lang.reflect.Type;
 
+@Deprecated
+@SuppressWarnings({"unused", "ResultOfMethodCallIgnored"})
 public class DataManager {
-    public File DataBasePath = null;
-
-    public void setDataBasePath(File dataBasePath) {
-        DataBasePath = dataBasePath;
+    public File getDataBasePath() {
+        return dataBasePath;
     }
 
+    public void setDataBasePath(File dataBasePath) {
+        this.dataBasePath = dataBasePath;
+    }
+
+    private File dataBasePath = null;
+
     public void set(String name, Object value) throws IOException {
-        Gson gson = new Gson();
-        String json = gson.toJson(value);
-        DataBasePath.mkdirs();
-        File file = new File(DataBasePath.getPath() + "/" + name + ".json");
+        String json = MainData.gson.toJson(value);
+        dataBasePath.mkdirs();
+        File file = new File(dataBasePath.getPath() + "/" + name + ".json");
         file.delete();
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -25,20 +29,18 @@ public class DataManager {
         fileWriter.close();
     }
 
-    public Object get (String name, Type typeOfT) throws IOException {
-        File file = new File(DataBasePath.getPath() + "/" + name + ".json");
+    public <T> T get(String name) throws IOException {
+        File file = new File(dataBasePath.getPath() + "/" + name + ".json");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line = bufferedReader.readLine();
         bufferedReader.close();
         fileReader.close();
-        Gson gson = new Gson();
-        Object o = gson.fromJson(line, typeOfT);
-        return o;
+        return MainData.gson.fromJson(line, new TypeToken<>(){});
     }
 
     public void delete(String name) {
-        File file = new File(DataBasePath.getPath() + "/" + name + ".json");
+        File file = new File(dataBasePath.getPath() + "/" + name + ".json");
         file.delete();
     }
 }

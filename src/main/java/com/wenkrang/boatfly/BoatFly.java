@@ -1,6 +1,6 @@
 package com.wenkrang.boatfly;
 
-import com.wenkrang.boatfly.DataSystem.MainData;
+import com.wenkrang.boatfly.data.MainData;
 import com.wenkrang.boatfly.loader.LoadCommand;
 import com.wenkrang.boatfly.loader.LoadEvent;
 import com.wenkrang.boatfly.loader.LoadMaterials;
@@ -31,7 +31,7 @@ public final class BoatFly extends JavaPlugin {
             getServer().getConsoleSender().sendMessage("/_____/\\____/\\__,_/\\__/_/   /_/\\__, /  ");
             getServer().getConsoleSender().sendMessage("                              /____/   ");
             try {
-                //这里将启动分为3个部分，1.加载指令 2.加载事件 3.加载合成 4.加载前置
+                //这里将启动分为4个部分，1.加载指令 2.加载事件 3.加载合成 4.加载前置
                 //1.加载指令
                 LoadCommand.run();
                 //2.加载事件
@@ -47,7 +47,7 @@ public final class BoatFly extends JavaPlugin {
                 }
                 if (VersionChecker.isVersionBelow("1.20.4")) {
                     //提醒腐竹更新服务器
-                    ConsoleLogger.warn("建议升级至1.20.4及以上版本！");
+                    ConsoleLogger.warn("建议升级至1.20.4或以上版本！");
                 }
                 //加载完成
                 getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : " + MainData.PluginName);
