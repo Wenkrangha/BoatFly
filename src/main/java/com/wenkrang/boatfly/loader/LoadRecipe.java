@@ -1,6 +1,7 @@
 package com.wenkrang.boatfly.loader;
 
 import com.wenkrang.boatfly.BoatFly;
+import com.wenkrang.boatfly.lib.ConsoleLogger;
 import com.wenkrang.boatfly.lib.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -10,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -90,14 +92,14 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 //配方
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("qwe", "rty", "uiu")
-                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
-                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
-                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
+                        .setIngredient('q', ItemChoice.exactChoice(itemStack2))
+                        .setIngredient('w', ItemChoice.exactChoice(itemStack3))
+                        .setIngredient('e', ItemChoice.exactChoice(itemStack4))
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6))
                         .setIngredient('t', Materials.beeHive)
                         .setIngredient('y', Material.DISPENSER)
-                        .setIngredient('i', new RecipeChoice.ExactChoice(itemStack11))
-                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
+                        .setIngredient('i', ItemChoice.exactChoice(itemStack11))
+                        .setIngredient('u', ItemChoice.exactChoice(itemStack10));
                 //注册配方
                 getServer().addRecipe(shapedRecipe);
             }
@@ -153,14 +155,14 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
                         .shape("qwe", "rty", "uiu")
-                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
-                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
-                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack9))
-                        .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
+                        .setIngredient('q', ItemChoice.exactChoice(itemStack2))
+                        .setIngredient('w', ItemChoice.exactChoice(itemStack3))
+                        .setIngredient('e', ItemChoice.exactChoice(itemStack4))
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6))
+                        .setIngredient('t', ItemChoice.exactChoice(itemStack7))
+                        .setIngredient('y', ItemChoice.exactChoice(itemStack6))
+                        .setIngredient('u', ItemChoice.exactChoice(itemStack9))
+                        .setIngredient('i', ItemChoice.exactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
             }
             if (true) {
@@ -214,14 +216,14 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack8)
                         .shape("qwe", "rty", "uiu")
-                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
-                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
-                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack4))
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(new ItemStack(Material.DISPENSER, 1)))
-                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack9))
-                        .setIngredient('i', new RecipeChoice.ExactChoice(itemStack10));
+                        .setIngredient('q', ItemChoice.exactChoice(itemStack2))
+                        .setIngredient('w', ItemChoice.exactChoice(itemStack3))
+                        .setIngredient('e', ItemChoice.exactChoice(itemStack4))
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6))
+                        .setIngredient('t', ItemChoice.exactChoice(itemStack7))
+                        .setIngredient('y', ItemChoice.exactChoice(new ItemStack(Material.DISPENSER, 1)))
+                        .setIngredient('u', ItemChoice.exactChoice(itemStack9))
+                        .setIngredient('i', ItemChoice.exactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
 
             }
@@ -275,13 +277,13 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey,itemStack8)
                         .shape("qwq","ert","yuy")
-                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
-                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack3))
-                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack5))
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack9))
-                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
+                        .setIngredient('q', ItemChoice.exactChoice(itemStack2))
+                        .setIngredient('w', ItemChoice.exactChoice(itemStack3))
+                        .setIngredient('e', ItemChoice.exactChoice(itemStack5))
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6))
+                        .setIngredient('t', ItemChoice.exactChoice(itemStack7))
+                        .setIngredient('y', ItemChoice.exactChoice(itemStack9))
+                        .setIngredient('u', ItemChoice.exactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
             }
             if (true) {
@@ -345,10 +347,10 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4)
                         .shape(" q "," w ","ere")
-                        .setIngredient('q', new RecipeChoice.ExactChoice(itemStack2))
-                        .setIngredient('w', new RecipeChoice.ExactChoice(itemStack9))
-                        .setIngredient('e', new RecipeChoice.ExactChoice(itemStack5))
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6));
+                        .setIngredient('q', ItemChoice.exactChoice(itemStack2))
+                        .setIngredient('w', ItemChoice.exactChoice(itemStack9))
+                        .setIngredient('e', ItemChoice.exactChoice(itemStack5))
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6));
                 getServer().addRecipe(shapedRecipe);
             }
             if (true) {
@@ -412,11 +414,11 @@ public class LoadRecipe {
                 NamespacedKey namespacedKey = new NamespacedKey(BoatFly.getPlugin(BoatFly.class), "TheLowBoatFly");
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack9).shape("   ", "rty", "uiu")
-                        .setIngredient('r', new RecipeChoice.ExactChoice(itemStack6))
-                        .setIngredient('t', new RecipeChoice.ExactChoice(itemStack7))
-                        .setIngredient('y', new RecipeChoice.ExactChoice(itemStack8))
-                        .setIngredient('i', new RecipeChoice.ExactChoice(itemStack11))
-                        .setIngredient('u', new RecipeChoice.ExactChoice(itemStack10));
+                        .setIngredient('r', ItemChoice.exactChoice(itemStack6))
+                        .setIngredient('t', ItemChoice.exactChoice(itemStack7))
+                        .setIngredient('y', ItemChoice.exactChoice(itemStack8))
+                        .setIngredient('i', ItemChoice.exactChoice(itemStack11))
+                        .setIngredient('u', ItemChoice.exactChoice(itemStack10));
                 getServer().addRecipe(shapedRecipe);
             }
 
@@ -452,15 +454,15 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack4);
                 shapedRecipe.shape("qwe", "rty", "uio");
-                shapedRecipe.setIngredient('q', new RecipeChoice.ExactChoice(itemStack0));
-                shapedRecipe.setIngredient('w', new RecipeChoice.ExactChoice(itemStack0));
-                shapedRecipe.setIngredient('e', new RecipeChoice.ExactChoice(itemStack0));
-                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack1));
-                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack2));
-                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack3));
-                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack5));
-                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
-                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack5));
+                shapedRecipe.setIngredient('q', ItemChoice.exactChoice(itemStack0));
+                shapedRecipe.setIngredient('w', ItemChoice.exactChoice(itemStack0));
+                shapedRecipe.setIngredient('e', ItemChoice.exactChoice(itemStack0));
+                shapedRecipe.setIngredient('r', ItemChoice.exactChoice(itemStack1));
+                shapedRecipe.setIngredient('t', ItemChoice.exactChoice(itemStack2));
+                shapedRecipe.setIngredient('y', ItemChoice.exactChoice(itemStack3));
+                shapedRecipe.setIngredient('u', ItemChoice.exactChoice(itemStack5));
+                shapedRecipe.setIngredient('i', ItemChoice.exactChoice(itemStack5));
+                shapedRecipe.setIngredient('o', ItemChoice.exactChoice(itemStack5));
                 getServer().addRecipe(shapedRecipe);
             }
 
@@ -500,12 +502,12 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack3);
                 shapedRecipe.shape("   ", "rty", "uio");
-                shapedRecipe.setIngredient('r', new RecipeChoice.ExactChoice(itemStack0));
-                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack1));
-                shapedRecipe.setIngredient('y', new RecipeChoice.ExactChoice(itemStack2));
-                shapedRecipe.setIngredient('u', new RecipeChoice.ExactChoice(itemStack4));
-                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack5));
-                shapedRecipe.setIngredient('o', new RecipeChoice.ExactChoice(itemStack4));
+                shapedRecipe.setIngredient('r', ItemChoice.exactChoice(itemStack0));
+                shapedRecipe.setIngredient('t', ItemChoice.exactChoice(itemStack1));
+                shapedRecipe.setIngredient('y', ItemChoice.exactChoice(itemStack2));
+                shapedRecipe.setIngredient('u', ItemChoice.exactChoice(itemStack4));
+                shapedRecipe.setIngredient('i', ItemChoice.exactChoice(itemStack5));
+                shapedRecipe.setIngredient('o', ItemChoice.exactChoice(itemStack4));
                 getServer().addRecipe(shapedRecipe);
 
             }
@@ -554,8 +556,8 @@ public class LoadRecipe {
                 keys.add(namespacedKey);
                 ShapedRecipe shapedRecipe = new ShapedRecipe(namespacedKey, itemStack10);
                 shapedRecipe.shape("   ", " t ", " i ");
-                shapedRecipe.setIngredient('t', new RecipeChoice.ExactChoice(itemStack11));
-                shapedRecipe.setIngredient('i', new RecipeChoice.ExactChoice(itemStack12));
+                shapedRecipe.setIngredient('t', ItemChoice.exactChoice(itemStack11));
+                shapedRecipe.setIngredient('i', ItemChoice.exactChoice(itemStack12));
                 getServer().addRecipe(shapedRecipe);
             }
 
@@ -568,5 +570,46 @@ public class LoadRecipe {
 //            }
 //        }catch (Exception e) {}
 //自动测试
+    }
+
+    // 1.13.1兼容
+    public static class ItemChoice implements RecipeChoice {
+
+        public ItemChoice(ItemStack itemStack) {
+            super();
+            this.itemStack = itemStack;
+        }
+
+        private final ItemStack itemStack;
+
+        @NotNull
+        @Override
+        public ItemStack getItemStack() {
+            return itemStack;
+        }
+
+        @NotNull
+        @Override
+        public ItemChoice clone() {
+            try {
+                return (ItemChoice) super.clone();
+            } catch (CloneNotSupportedException e) {
+                ConsoleLogger.error(e);
+                throw new RuntimeException(e);
+            }
+        }
+
+        @Override
+        public boolean test(@NotNull ItemStack itemStack) {
+            return true;
+        }
+
+        public static RecipeChoice exactChoice(ItemStack itemStack) {
+            try {
+                return new ExactChoice(itemStack);
+            } catch (NoClassDefFoundError e) {
+                return new ItemChoice(itemStack);
+            }
+        }
     }
 }

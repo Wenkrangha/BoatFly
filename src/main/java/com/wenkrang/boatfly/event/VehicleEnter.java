@@ -2,6 +2,7 @@ package com.wenkrang.boatfly.event;
 
 import com.wenkrang.boatfly.BoatFly;
 import com.wenkrang.boatfly.lib.GetSpeed;
+import com.wenkrang.boatfly.lib.VersionChecker;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -38,7 +39,10 @@ public class VehicleEnter implements Listener {
      */
     //这个是抬头面包的
     public static void registerOrUpdateInfoTeam(Scoreboard scoreboard, Map<String, String> infoMap, Player player) {
-        if (!infoMap.isEmpty()) {
+        // "java.lang.IllegalArgumentException: Team name '§9§l保险§r情况 ：-info-team'
+        // is longer than the limit of 16 characters"
+        // https://www.spigotmc.org/threads/exceeding-the-16-name-length.415435/
+        if (!infoMap.isEmpty() && !VersionChecker.isVersionBelow("1.18")) {
             infoMap.forEach((key, val) -> {
                 Team infoTeam = scoreboard.getTeam(key + "-info-team");         //name: <entry>-info-team
                 if (infoTeam == null) {

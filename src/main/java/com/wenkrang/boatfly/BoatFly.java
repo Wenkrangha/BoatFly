@@ -37,15 +37,17 @@ public final class BoatFly extends JavaPlugin {
             LoadRecipe.run();
             ConsoleLogger.info("当前服务器版本：" + VersionChecker.getVersion());
             // 检测服务器版本，动态修补兼容问题
-            // BoatFly不支持Minecraft 1.13.x
-            // 在1.13.x服务端运行会导致在LoadMaterials.run()时报错
             if (!VersionChecker.isFullySupported()) {
                 ConsoleLogger.warn("BoatFly未完整支持此版本服务端。");
                 ConsoleLogger.warn("遇到Bug请在https://github.com/Wenkrangha/BoatFly提出！");
             }
-            if (VersionChecker.isVersionBelow("1.20.4")) {
-                //提醒腐竹更新服务器
-                ConsoleLogger.warn("建议升级至1.20.4或以上版本！");
+            if (VersionChecker.isVersionBelow("1.18")) {
+                // Minecraft 1.17及以下版本
+                // 由于硬编码的计分板字符串长度限制
+                // 不支持抬头面板
+                // 参见VehicleEnter.registerOrUpdateInfoTeam
+                // 提醒腐竹更新服务器
+                ConsoleLogger.warn("推荐使用1.18或以上版本服务端！");
             }
             //加载完成
             getServer().getConsoleSender().sendMessage("§9§l[*] §r加载完毕,当前版本 : " + MainData.PluginName);

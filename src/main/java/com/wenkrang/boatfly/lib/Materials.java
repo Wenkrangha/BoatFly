@@ -3,13 +3,8 @@ package com.wenkrang.boatfly.lib;
 import org.bukkit.Material;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-public final class Materials extends HashMap<String, Material> {
-    private Materials() {
-        super();
-    }
+public final class Materials {
 
     public static Material chestBoat;
 
@@ -35,10 +30,15 @@ public final class Materials extends HashMap<String, Material> {
     public static Material off;
     public static Material on;
 
-    public static final Map<String, Material> INSTANCE = new Materials();
+    private static final HashMap<String, Material> map = new HashMap<>();
 
-    @Override
-    public Material get(Object key) {
-        return Objects.requireNonNullElse(super.get(key), Material.valueOf(key.toString()));
+    public static Material get(String key) {
+        ConsoleLogger.info(map.toString());
+        return map.get(key) == null ? Material.valueOf(key) : map.get(key);
+    }
+
+    public static void put(String key, Material value) {
+        ConsoleLogger.info(map.toString());
+        map.put(key, value);
     }
 }
