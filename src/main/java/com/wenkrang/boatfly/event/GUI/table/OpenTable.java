@@ -30,7 +30,7 @@ public class OpenTable implements Listener {
                     ItemMeta itemMeta0 = itemStack0.getItemMeta();
                     itemMeta0.setDisplayName(" ");
                     itemStack0.setItemMeta(itemMeta0);
-                    ItemStack itemStack1 = new ItemStack(Material.CARTOGRAPHY_TABLE);
+                    ItemStack itemStack1 = new ItemStack(Materials.get("CARTOGRAPHY_TABLE"));
                     ItemMeta itemMeta1 = itemStack1.getItemMeta();
                     itemMeta1.setDisplayName("§9§l航空§r装配台");
                     ArrayList<String> lore1 = new ArrayList<>();

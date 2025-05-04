@@ -8,7 +8,7 @@ jobs:
         - uses: actions/setup-java@v4
           with:
             distribution: 'zulu' # See 'Supported distributions' for available options
-            java-version: '21'
+            java-version: '16'
         - name: 克隆 Wenkrangha/BoatFly 公共存储库
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
@@ -18,7 +18,7 @@ jobs:
             #请更改用户为你的用户名
             repository: 'BoatFly'
         - name: 编译 BoatFly 本体
-          run: mvn package -q
+          run: mvn package
         - name: 克隆 Wenkrangha/BoatFly-BootLoader 公共存储库
           uses: GuillaumeFalourd/clone-github-repo-action@v2.1
           with:
@@ -29,12 +29,13 @@ jobs:
             repository: 'BoatFly-Bootloader'
         - name: 准备资源文件以开始编译 BoatFly-Bootloader    
           run: |
-             cp target/BoatFly-*.jar ./BoatFly-Bootloader/src/main/resources/
-             rm -rf /target
+            wget https://github.com/RaphiMC/JavaDowngrader/releases/download/v1.1.2/JavaDowngrader-Standalone-1.1.2.jar
+            java -jar JavaDowngrader-Standalone-1.1.2.jar -i target/BoatFly-*.jar -o ./BoatFly-Bootloader/src/main/resources/`cat ./upgrade/Name` -v 8
+            rm -rf /target
         - name: 编译 BoatFly-BootLoader 启动器 
           run: |
             cd BoatFly-Bootloader
-            mvn package -q
+            mvn package
         - uses: actions/upload-artifact@v4
           with:
             name: BoatFly-Fully
